@@ -1,0 +1,132 @@
+<!--
+	body
+	{
+		/*background-image: url("assets/blackCloth.png");
+		position: relative;
+		text-align: center;*/
+	}
+
+	#jumbotronDetes
+	{
+		background-image: url("assets/Failure.png");
+	}
+
+	#bigTitle
+	{
+		font-family: "Architects Daughter";
+		font-weight: bold;
+		text-align: left;
+		font-size: 90px;
+	}
+
+	#subTitle
+	{
+		font-family: "Lato";
+		font-weight: bold;
+		text-align: left;
+	}
+
+	#home
+	{
+		color: #f78104;
+		font-weight: bold;
+		font-family: "Lato";
+	}
+
+	#projects
+	{
+		background-color: #f78104;
+		color: white;
+		font-weight: bold;
+		font-family: "Lato";
+	}
+
+	#navBar1 a:hover
+	{
+	  	background-color: #009598;
+	  	color: black;
+	  	font-family: "Architects Daughter";
+	  	font-weight: bold;
+	}
+
+	.homeImg
+	{
+		height: 50px;
+		width: 170px;
+		margin-right: 30px;
+	}
+
+	.name
+	{
+		font-size: 20px;
+		text-align: right;
+		padding-top: 10px;
+		color: #f78104;
+		font-weight: bold;
+		font-family: "Lato";
+	}
+
+	.mepic
+	{
+		height: 30px;
+		width: 30px;
+		text-align: right;
+		margin-right: 10px;
+	}
+
+	#centerContent
+	{
+		text-align: center;
+	}
+
+	#quote
+	{
+		font-family: "Lato";
+		font-size: 20px;
+		font-weight: bold;
+		text-align: justify;
+		color: #1d1b1b;
+		padding: 15px;
+		border: solid;
+		border-width: 5px;
+		border-color: #f78104;	
+	}
+
+	#original
+	{
+		font-family: "Lato";
+		font-size: 18px;
+		font-weight: bold;
+		text-align: justify;
+		color: white;
+	}
+
+	#author
+	{
+		font-family: "Lato";
+		font-size: 16px;
+		font-weight: bold;
+		text-align: right;
+		color: #f3ab1b;
+	}
+
+	#underlay
+	{
+		background-image: url("assets/blackCloth.png");
+		padding: 10px;
+		margin-bottom: 16px;
+	}
+
+	#footerDetes
+	{
+		background-color: #f3ab1b;
+		height: 40px;
+	}
+
+	.footImg
+	{
+		height: 40px;
+		width: 150px;
+		margin-right: 30px;
+	}
+-->

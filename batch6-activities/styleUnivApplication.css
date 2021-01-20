@@ -1,0 +1,113 @@
+<!--
+	.mainBody 
+	{
+	  max-width: 800px;
+	  margin: 0 auto;
+	  text-align: center;
+	  font-family: "Lato";
+	  background-image: url("assets/blackPaper.png");
+	  padding-left: 25px;
+	  padding-right: 25px;
+	  padding-top: 5px;
+	  padding-bottom: 5px;
+	  color: white;
+	}	
+
+	.sender-column 
+	{
+	  text-align: right;
+	}
+
+	.textBody
+	{
+		text-align: left;
+	}
+
+	h1 
+	{
+	  font-size: 1.5em;
+	}
+
+	h2 
+	{
+	  font-size: 1.3em;
+	}
+
+	p,ul,ol,dl,address 
+	{
+	  font-size: 1.1em;
+	}
+
+	p, li, dd, dt, address 
+	{
+	  line-height: 1.5;
+	}
+
+	#home
+	{
+		color: #33312d;
+		font-weight: bold;
+		font-family: "Lato";
+	}
+
+	#projects
+	{
+		background-color: #33312d;
+		color: white;
+		font-weight: bold;
+		font-family: "Lato";
+	}
+
+	#navBar1 a:hover
+	{
+	  	background-color: #009598;
+	  	color: black;
+	  	font-family: "Architects Daughter";
+	  	font-weight: bold;
+	}
+
+	.homeImg
+	{
+		height: 50px;
+		width: 170px;
+		margin-right: 30px;
+	}
+
+	.name
+	{
+		font-size: 20px;
+		text-align: right;
+		padding-top: 10px;
+		color: #33312d;
+		font-weight: bold;
+		font-family: "Lato";
+	}
+
+	.mepic
+	{
+		height: 30px;
+		width: 30px;
+		text-align: right;
+		margin-right: 10px;
+	}
+
+	#footerDetes
+	{
+		margin-top: 20px;
+		background-color: #33312d;
+		height: 40px;
+	}
+
+	.footImg
+	{
+		height: 40px;
+		width: 150px;
+		margin-right: 30px;
+	}
+
+	.linkz
+	{
+		color: #009598;
+		text-decoration: underline;;
+	}
+-->
