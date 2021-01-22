@@ -10,6 +10,7 @@
 	  scroll-behavior: smooth;
 	  text-align: center;
 	  height: 100%
+	  color: white;
 	}
 
 	.parallax 
@@ -18,6 +19,7 @@
 
 	  height: 654px;
 	  width: 100%;
+	  color: white;
 
 	  background-attachment: fixed;
 	  background-position: center;
@@ -35,10 +37,12 @@
 	  font-family: "Roboto";
 	  font-size: 18px;
 	  font-weight: bold;
+	  color: white;
 	}
 
 	li 
 	{
+	  color: white;
 	  float: left;
 	}
 
