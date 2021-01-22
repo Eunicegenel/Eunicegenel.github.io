@@ -86,7 +86,7 @@
 		-webkit-text-stroke-color: white;
 	}
 
-	#subTitle
+	#img-caption
 	{
 		margin-top: 10px; 
 		font-family: "Roboto";
@@ -105,12 +105,14 @@
 	a:link
 	{
 		text-decoration: none;
+		color: 	#9f0001;
 	}
 
 	.fadetoBlack
 	{
 		background-color: black;
-		height: 1180px;
+		/*height: 1180px;*/
+		height: 1500px;
 		width: 100%;
 		text-align: center;
 		padding-top: 70px; 
@@ -120,6 +122,13 @@
 	{
 		background-color: white;
 		height: 600px;
+		width: 100%
+	}
+
+	.whiteSpot1
+	{
+		background-color: white;
+		height: 30px;
 		width: 100%
 	}
 
@@ -263,12 +272,12 @@
 	  transition: ease 1s;
 	}
 
-	.whiteCover
+	/*.whiteCover
 	{
 		background-image: url("kfcAssets/background2.png");
 		width: 100%;
 		height: 450px;
-	}
+	}*/
 
 	#pubImg
 	{
@@ -328,5 +337,19 @@
 	{
 		background-color: #9f0001;
 		height: 40px;
+	}
+
+	.linkz
+	{
+		font-size: 	20px;
+		color: 	black;
+		font-family: "Lato";
+	}
+
+	#linkz
+	{
+		font-size: 	20px;
+		color: 	#9f0001;
+		font-family: "Lato";
 	}
 -->
