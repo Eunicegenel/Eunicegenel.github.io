@@ -6,7 +6,6 @@
 
 	body, html, main 
 	{
-	  /*background-image: url("kfcAssets/background.png");*/
 	  scroll-behavior: smooth;
 	  text-align: center;
 	  height: 100%
