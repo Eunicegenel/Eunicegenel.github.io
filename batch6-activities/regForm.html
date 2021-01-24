@@ -3,8 +3,6 @@
 <head>
 	<title>Breakfast Club</title>
 	<meta charset="utf-8">
-
-	<title>myPortfolio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="styleBreakfast.css">
 	<meta charset="utf-8">
@@ -27,7 +25,10 @@
 				<img class="centerLogo" src="breakfastClubAssets/breakfastLOGO.png">
 			</div>
 			<div>
-				<img class="btnSignUp" src="breakfastClubAssets/btnSignUp.png">
+				<h1 id="description">A club for people whose most important<br>time of the day is breakfast...</h1>
+			</div>
+			<div>
+				<input type="image" class="btnSignUp" src="breakfastClubAssets/btnSignUp.png" id="btnSignUp">
 			</div>
 		</div>
 
@@ -69,30 +70,238 @@
 			
 		</div>
 	</div>
-	
 
-		
+	<!-- The Modal -->
+	<div id="formModal" class="modal">
+
+	  <!-- Modal content -->
+		<div class="modal-header">
+			<span class="close">&times;</span>
+			<span id="title"><h1>BREAKFAST CLUB REGISTRATION</h1></span>
+		</div>
+		<div class="modal-body">
+			<form id="survey-form">
+				<div class="grid-containerModal">
+					<div class="center-content">
+						<div class="labelz">
+							<label for="name" id="name-label">NAME :</label>
+						</div>	
+						<br>	
+						<div class="labelz">
+							<label for="number" id="number-label">NUMBER :</label>
+						</div>
+					</div>
+					<div class="center-content">
+						<input type="text" id="name" name="name" value="" placeholder="input your name..." class="modalText">
+						<br><br>
+						<input type="number" id="number" name="number" value="" placeholder="11 Digit No..." class="modalText">
+						
+					</div>
+
+					<div class="center-content">
+						<div class="labelz">
+							<label for="email" id="email-label">EMAIL :</label>
+						</div>
+						<br>
+						<div class="labelz">
+							<label for="sex" id="sex-label">SEX :</label>
+						</div>
+					</div>
+					<div class="center-content">
+						<div>
+							<input type="email" id="email" name="email" value="" placeholder="input your email..." class="modalText"> 
+						</div>
+						<br>
+						<div>
+							<select name="sex" id="dropdown">
+								<option value="Male">Male</option>
+								<option value="Female" >Female</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<br>
+				<hr>
+				<br>
+				<p class="normalText">What type of eater are you?</p>
+				<div class="grid-containerRadio">
+					<div>
+						<div class="normalList">
+							<input type="radio" id="wants" name="attribute" value="wants">
+  							<label for="wants">Eat what they want first</label><br>
+						</div>
+						<div class="normalList">
+							<input type="radio" id="hates" name="attribute" value="hates">
+  							<label for="hates">Eat what they hate first</label><br>
+						</div>
+					</div>
+					<div></div>
+					<div>
+						<div class="normalList">
+							<input type="radio" id="mixer" name="attribute" value="mixer">
+  							<label for="mixer">Taste everything in a bite</label><br>
+						</div>
+						<div class="normalList">
+							<input type="radio" id="solo" name="attribute" value="solo">
+  							<label for="solo">Taste stuff individually</label><br>
+						</div>
+					</div>
+					<div></div>
+					<div>
+						<div class="normalList">
+							<input type="radio" id="closer" name="attribute" value="closer">
+  							<label for="closer">Eat closest food first</label><br>
+						</div>
+						<div class="normalList">
+							<input type="radio" id="random" name="attribute" value="random">
+  							<label for="random">Eat whatever</label><br>
+						</div>
+					</div>
+				</div>
+
+				<br><hr><br>
+
+				<p class="normalText">Pick whatever combination you like for your breakfast...</p>
+				<div class="grid-containerRadio">
+					<div>
+						<div class="normalList">
+							<input type="checkbox" id="carbs1" name="carbs1" value="rice">
+  							<label for="carbs1">Rice</label><br>
+						</div>
+						<div class="normalList">
+							<input type="checkbox" id="carbs2" name="carbs2" value="bread">
+  							<label for="carbs2">Bread</label><br>
+						</div>
+						<div class="normalList">
+							<input type="checkbox" id="carbs3" name="carbs3" value="cereal">
+  							<label for="carbs3">Cereal</label><br>
+						</div>
+					</div>
+					<div></div>
+					<div>
+						<div class="normalList">
+							<input type="checkbox" id="proteins1" name="proteins1" value="meat">
+  							<label for="proteins1">Meat</label><br>
+						</div>
+						<div class="normalList">
+							<input type="checkbox" id="proteins2" name="proteins2" value="fish">
+  							<label for="proteins2">Seafood</label><br>
+						</div>
+						<div class="normalList">
+							<input type="checkbox" id="fiber1" name="fiber1" value="vegetable">
+  							<label for="fiber1">Vegetables</label><br>
+						</div>
+					</div>
+					<div></div>
+					<div>
+						<div class="normalList">
+							<input type="checkbox" id="sugar1" name="carbs1" value="rice">
+  							<label for="carbs1">Chocolate</label><br>
+						</div>
+						<div class="normalList">
+							<input type="checkbox" id="sugar2" name="sugar2" value="bread">
+  							<label for="sugar2">Candy</label><br>
+						</div>
+						<div class="normalList">
+							<input type="checkbox" id="sugar3" name="sugar3" value="cereal">
+  							<label for="sugar3">Pastry</label><br>
+						</div>
+					</div>
+				</div>
+				
+				<br><hr><br>
+
+				<div class="center-content">
+					<div id="dreamB">
+						<label for="idealBreakfast" class="normalText">Describe your ideal breakfast...</label>
+					</div><br>
+					<textarea id="idealBreakfast" name="idealBreakfast" rows="5" cols="83" class="idealB"></textarea>
+					<br><br><br>
+
+					<input type="image" src="breakfastClubAssets/submit.png" value="SUBMIT" id="submit">
+
+				</div>
+				
+				<br><br>
+
+			</form>
+		</div>
+
+	</div>
 
 	<script>
 		var slideIndex = 0;
 		showSlides();
 
 		function showSlides() {
-		  var i;
-		  var slides = document.getElementsByClassName("mySlides");
-		  var dots = document.getElementsByClassName("dot");
-		  for (i = 0; i < slides.length; i++) {
-		    slides[i].style.display = "none";  
-		  }
-		  slideIndex++;
-		  if (slideIndex > slides.length) {slideIndex = 1}    
-		  for (i = 0; i < dots.length; i++) {
-		    dots[i].className = dots[i].className.replace(" active", "");
-		  }
-		  slides[slideIndex-1].style.display = "block";  
-		  dots[slideIndex-1].className += " active";
-		  setTimeout(showSlides, 3000); // Change image every 2 seconds
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";  
+			}
+			slideIndex++;
+			if (slideIndex > slides.length) {slideIndex = 1}    
+			for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex-1].style.display = "block";  
+			dots[slideIndex-1].className += " active";
+			setTimeout(showSlides, 5000); // Change image every 2 seconds
 		}
+
+		// Get the modal
+		var formModal = document.getElementById("formModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("btnSignUp");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+			formModal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			formModal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == formModal) {
+				formModal.style.display = "none";
+		  }
+		}
+
+		// // Get the modal
+		// var modal = document.getElementById("myModal");
+
+		// // Get the button that opens the modal
+		// var btn = document.getElementById("myBtn");
+
+		// // Get the <span> element that closes the modal
+		// var span = document.getElementsByClassName("close")[0];
+
+		// // When the user clicks the button, open the modal 
+		// btn.onclick = function() {
+		// 	modal.style.display = "block";
+		// }
+
+		// // When the user clicks on <span> (x), close the modal
+		// span.onclick = function() {
+		// 	modal.style.display = "none";
+		// }
+
+		// // When the user clicks anywhere outside of the modal, close it
+		// window.onclick = function(event) {
+		// 	if (event.target == modal) {
+		// 		modal.style.display = "none";
+		//   }
+		// }
+
 	</script>
 </body>
 </html>

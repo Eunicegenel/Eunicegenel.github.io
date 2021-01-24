@@ -15,6 +15,12 @@
 		text-align: center;
 	}
 
+	#description {
+		font-size: 20px;
+		font-family: "Dosis";
+		color: #d46e3d;
+	}
+
 	.navBarDiv {
 		font-family: "Dosis";
 		display: inline;
@@ -24,13 +30,16 @@
 		text-align: center;
 	}
 
-	.centerLogo,  {
-		text-align: center; 
+	.centerLogo  {
+		text-align: center;
+		width: 350px;
+		height: auto; 
+		margin-bottom: 50px;
 	}
 
 	.btnSignUp {
 		text-align: center;
-		margin-top: 50px;
+		margin-top: 30px;
 		transition: transform .2s;
 	}
 
@@ -56,12 +65,12 @@
 		max-height: 100%;
 		position: relative;
 		margin: auto;
+		height: 100%;
 	}
 
 	.imgFood {
 		width: 680px;
 		height: 630px;
-		size: cover;
 	}
 
 	.dot {
@@ -102,6 +111,7 @@
 	.grid-container {
 		display: grid;
 		grid-template-columns: 50% 50%;
+		justify-content: center;
 	}
 
 	.modal {
@@ -118,13 +128,29 @@
 		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 	}
 
+	.modal {
+		position: center;
+	}
+
 		/* Modal Content */
-	.modal-content {
-		background-color: #fefefe;
+	.modal-header { 
+		background-color: white;
 		margin: auto;
 		padding: 20px;
 		border: 1px solid #888;
-		width: 80%;
+		width: 50%;
+		max-width: 680px;
+	}
+
+	.modal-body {
+		background-color: white;
+		margin: auto;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 50%;
+		max-width: 680px;
+		height: 390px;
+		overflow-y: auto;	
 	}
 
 		/* The Close Button */
@@ -140,4 +166,104 @@
 		text-decoration: none;
 		cursor: pointer;
 	}
+
+	#title {
+		font-family: "Dosis";
+		font-weight: bold;
+		font-size: 15px;
+		color: #333333;
+		text-align: center; 
+	}
+
+	.modalText {
+		font-family: "Roboto";
+		font-size: 15px;
+		padding-left: 10px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		width: 200px;
+	}
+
+	#name-label, #email-label, #number-label, #sex-label {
+		font-family: "Dosis";
+		font-size: 16px;
+		font-weight: bold;
+		color: #333333;
+		padding-top: 100px;
+	}
+
+	.center-content {
+		text-align: center; 
+	}
+
+	.grid-containerModal {
+		display: grid;
+		grid-template-columns: 10% 40% 10% 40%;
+		grid-template-rows: 50% 50%;
+		justify-content: center;
+	}
+
+	.labelz {
+		padding-top: 8px;
+		text-align: left; 
+	}
+
+	#dropdown {
+		width: 213px;
+		height: 28px;
+		color: blackss;
+		padding-left: 8px;
+	}
+
+	.grid-containerRadio {
+		display: grid;
+		grid-template-columns: 30% 5% 30% 5% 30%;
+		grid-template-rows: 50% 50%;
+		justify-content: center;
+	}
+
+	.normalText {
+		font-family: "Dosis";
+		font-weight: bold;
+		font-size: 16px;
+		color: #333333;
+	}
+
+	.normalList {
+		font-family: "Roboto";
+		font-size: 16px;
+		color: #333333;
+		margin-top: 10px;
+		text-align: left; 
+	}
+
+	.grid-containerCheck {
+		display: grid;
+		grid-template-columns: 30% 5% 30% 5% 30%;
+		grid-template-rows: 33.33% 33.33% 33.33;
+		justify-content: center;
+	}
+
+	.idealB {
+		padding: 10px;
+		font-family: "Roboto";
+		font-size: 13px;
+		color: #333333;
+		text-align: left; 
+	}
+
+	#dreamB {
+		text-align: left; 
+	}
+
+	input[type=number] {
+	  -moz-appearance: textfield;
+	}
+
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+
 -->
