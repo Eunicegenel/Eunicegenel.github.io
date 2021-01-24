@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Breakfast Club</title>
+	<meta charset="utf-8">
+
+	<title>myPortfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styleBreakfast.css">
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/png" href="breakfastClubAssets/favicon.png"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Architects+Daughter&family=Chela+One&family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
+	<script src="parallax.js"></script> 
+</head>
+<body>
+	<div class="grid-container">
+		<div class="tempNavBar">
+			<div>
+				<br><br>
+				<a href="index.html"><p class="navBarText">HOME</p></a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<p class="navBarDiv">|</p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<a href="#letter"><p class="navBarText">GALLERY</p></a> 
+				<br><br><br><br>
+			</div>
+			<div>
+				<img class="centerLogo" src="breakfastClubAssets/breakfastLOGO.png">
+			</div>
+			<div>
+				<img class="btnSignUp" src="breakfastClubAssets/btnSignUp.png">
+			</div>
+		</div>
+
+		<div class="slideshow-container">
+			<div class="mySlides fade">
+				<img class="imgFood" src="breakfastClubAssets/breakfastUKsm.png">
+			</div>	
+			<div class="mySlides fade">
+				<img class="imgFood" src="breakfastClubAssets/breakfastPHsm.png">
+			</div>
+
+			<div class="mySlides fade">
+				<img class="imgFood" src="breakfastClubAssets/breakfastUSAsm.png">
+			</div>
+
+			<div class="mySlides fade">
+				<img class="imgFood" src="breakfastClubAssets/breakfastJAPsm.png">
+			</div>
+			<div class="mySlides fade">
+				<img class="imgFood" src="breakfastClubAssets/breakfastMEXsm.png">
+			</div>
+
+			<div class="mySlides fade">
+				<img class="imgFood" src="breakfastClubAssets/breakfastKORsm.png">
+			</div>
+
+			<div class="mySlides fade">
+				<img class="imgFood" src="breakfastClubAssets/breakfastAUSsm.png">
+			</div>
+			<div style="text-align:center">
+				<span class="dot"></span> 
+				<span class="dot"></span> 
+				<span class="dot"></span>
+				<span class="dot"></span> 
+				<span class="dot"></span> 
+				<span class="dot"></span>  
+				<span class="dot"></span>  
+			</div>
+			
+		</div>
+	</div>
+	
+
+		
+
+	<script>
+		var slideIndex = 0;
+		showSlides();
+
+		function showSlides() {
+		  var i;
+		  var slides = document.getElementsByClassName("mySlides");
+		  var dots = document.getElementsByClassName("dot");
+		  for (i = 0; i < slides.length; i++) {
+		    slides[i].style.display = "none";  
+		  }
+		  slideIndex++;
+		  if (slideIndex > slides.length) {slideIndex = 1}    
+		  for (i = 0; i < dots.length; i++) {
+		    dots[i].className = dots[i].className.replace(" active", "");
+		  }
+		  slides[slideIndex-1].style.display = "block";  
+		  dots[slideIndex-1].className += " active";
+		  setTimeout(showSlides, 3000); // Change image every 2 seconds
+		}
+	</script>
+</body>
+</html>

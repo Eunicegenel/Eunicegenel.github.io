@@ -88,6 +88,14 @@
 		font-weight: bold;
 	}
 
+	.navBarDiv {
+		font-family: "Dosis";
+		display: inline;
+		color: white;
+		font-weight: bold;
+		font-size: 20px;
+	}
+
 	.tempNavBar {
 
 		text-align: center; 

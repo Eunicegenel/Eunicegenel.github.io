@@ -39,6 +39,8 @@
 
 	.navbar .nav-link {
 	    color: #fff;
+	    font-family: "Dosis";
+	    font-size: 20px;
 	}
 
 	.navbar .nav-link:hover,
@@ -83,13 +85,17 @@
 		text-align: center; 
 	}
 
+	.card-body {
+		background-color: #333333;
+	}
+
 	.card-title {
-		font-family: "Roboto";
-		color: #333333;
+		font-family: "Dosis";
+		color: white;
 	}
 
 	.modal-title {
-		font-family: "Lato";
+		font-family: "Dosis";
 		font-weight: bold;
 		color: #333333;
 	}
@@ -98,5 +104,42 @@
 		background-image: url("assets/tealOrangeP.png");
 		background-size: cover;
 	}
+
+	.card-img {
+		
+	}
+
+	.card-img:hover {
+		
+	}
+
+	.btnClose {
+		background-color: #333333;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-radius: 15%;
+		color: white;
+		font-family: "Dosis";
+		font-weight: bold;
+	}
+
+	.card {
+		transition: transform .2s;
+		margin-bottom: 100px;
+	}
+
+	.card:hover {
+		transform: scale(1.5);
+	} 
+
+	.cardEnd {
+		transition: transform .2s;
+	}
+
+	.cardEnd:hover {
+		transform: scale(1.5);
+	} 
 	
 -->
