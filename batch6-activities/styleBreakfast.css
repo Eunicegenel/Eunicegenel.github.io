@@ -128,11 +128,8 @@
 		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 	}
 
-	.modal {
-		position: center;
-	}
 
-		/* Modal Content */
+	/* Modal Content */
 	.modal-header { 
 		background-color: white;
 		margin: auto;
@@ -266,4 +263,50 @@
 	  margin: 0;
 	}
 
+	/* Modal Content */
+	.modal-headerGallery { 
+		background-color: white;
+		margin: auto;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 50%;
+		max-width: 680px;
+	}
+
+	.modal-bodyGallery {
+		background-color: white;
+		margin: auto;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 50%;
+		max-width: 680px;
+		height: 400px;
+		overflow-y: auto;	
+	}
+
+	.closeGallery {
+		color: #aaaaaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+		}
+
+	.closeGallery:hover, .closeGallery:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	#title1 {
+		font-family: "Dosis";
+		font-weight: bold;
+		font-size: 15px;
+		color: #f7b101;
+		text-align: center; 
+	}
+
+	.card-img {
+		height: 100%;
+		width: 100%;
+	}
 -->

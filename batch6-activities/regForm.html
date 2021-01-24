@@ -18,7 +18,7 @@
 				<br><br>
 				<a href="index.html"><p class="navBarText">HOME</p></a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 				<p class="navBarDiv">|</p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				<a href="#letter"><p class="navBarText">GALLERY</p></a> 
+				<a href="#" id="btnGallery"><p class="navBarText">GALLERY</p></a> 
 				<br><br><br><br>
 			</div>
 			<div>
@@ -226,7 +226,33 @@
 
 			</form>
 		</div>
+	</div>
 
+	<!-- The Modal -->
+	<div id="galleryModal" class="modal">
+
+	  <!-- Modal content -->
+		<div class="modal-headerGallery">
+			<span class="closeGallery">&times;</span>
+			<span id="title1"><h1>BREAKFAST CLUB GALLERY</h1></span>
+		</div>
+		<div class="modal-bodyGallery">
+			<img class="card-img" src="breakfastClubAssets/breakfastUKsm.png">
+			<br><br>
+			<img class="card-img" src="breakfastClubAssets/breakfastPHsm.png">
+			<br><br>
+			<img class="card-img" src="breakfastClubAssets/breakfastUSAsm.png">
+			<br><br>
+			<img class="card-img" src="breakfastClubAssets/breakfastJAPsm.png">
+			<br><br>
+			<img class="card-img" src="breakfastClubAssets/breakfastMEXsm.png">
+			<br><br>
+			<img class="card-img" src="breakfastClubAssets/breakfastKORsm.png">
+			<br><br>
+			<img class="card-img" src="breakfastClubAssets/breakfastAUSsm.png">
+			<br><br>
+		</div>		
+		 
 	</div>
 
 	<script>
@@ -250,29 +276,41 @@
 			setTimeout(showSlides, 5000); // Change image every 2 seconds
 		}
 
-		// Get the modal
+		// formModal
 		var formModal = document.getElementById("formModal");
-
-		// Get the button that opens the modal
 		var btn = document.getElementById("btnSignUp");
-
-		// Get the <span> element that closes the modal
 		var span = document.getElementsByClassName("close")[0];
 
-		// When the user clicks the button, open the modal 
 		btn.onclick = function() {
 			formModal.style.display = "block";
 		}
 
-		// When the user clicks on <span> (x), close the modal
 		span.onclick = function() {
 			formModal.style.display = "none";
 		}
 
-		// When the user clicks anywhere outside of the modal, close it
 		window.onclick = function(event) {
 			if (event.target == formModal) {
 				formModal.style.display = "none";
+		  }
+		}
+
+		// galleryModal
+		var galleryModal = document.getElementById("galleryModal");
+		var btn = document.getElementById("btnGallery");
+		var span = document.getElementsByClassName("closeGallery")[0];
+
+		btn.onclick = function() {
+			galleryModal.style.display = "block";
+		}
+
+		span.onclick = function() {
+			galleryModal.style.display = "none";
+		}
+
+		window.onclick = function(event) {
+			if (event.target == galleryModal) {
+				galleryModal.style.display = "none";
 		  }
 		}
 
