@@ -92,9 +92,9 @@
 						</div>
 					</div>
 					<div class="center-content">
-						<input type="text" id="name" name="name" value="" placeholder="input your name..." class="modalText">
+						<input type="text" id="name" name="name" value="" placeholder="input your name..." class="modalText" required>
 						<br><br>
-						<input type="number" id="number" name="number" value="" placeholder="11 Digit No..." class="modalText">
+						<input type="number" id="number" name="number" value="" placeholder="11 Digit No..." class="modalText"required>
 						
 					</div>
 
@@ -109,7 +109,7 @@
 					</div>
 					<div class="center-content">
 						<div>
-							<input type="email" id="email" name="email" value="" placeholder="input your email..." class="modalText"> 
+							<input type="email" id="email" name="email" value="" placeholder="input your email..." class="modalText" required> 
 						</div>
 						<br>
 						<div>
@@ -128,7 +128,7 @@
 					<div>
 						<div class="normalList">
 							<input type="radio" id="wants" name="attribute" value="wants">
-  							<label for="wants">Eat what they want first</label><br>
+  							<label for="wants" checked="true">Eat what they want first</label><br>
 						</div>
 						<div class="normalList">
 							<input type="radio" id="hates" name="attribute" value="hates">
@@ -215,7 +215,7 @@
 					<div id="dreamB">
 						<label for="idealBreakfast" class="normalText">Describe your ideal breakfast...</label>
 					</div><br>
-					<textarea id="idealBreakfast" name="idealBreakfast" rows="5" cols="83" class="idealB"></textarea>
+					<textarea id="idealBreakfast" name="idealBreakfast" rows="5" cols="83" class="idealB" required></textarea>
 					<br><br><br>
 
 					<input type="image" src="breakfastClubAssets/submit.png" value="SUBMIT" id="submit">
