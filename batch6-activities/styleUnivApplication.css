@@ -103,8 +103,7 @@
 
 	.navBarText:hover {
 
-		color: #C19868;
-		background-color: #375cbb;
+		color: #6ca4de;
 		border-radius: 20%;
 		padding: 10px; 
 	}
@@ -115,5 +114,26 @@
 		font-family: "Dosis";
 		font-weight: bold;
 		background-image: url("assets/grayUnderlay.png");
+	}
+
+	#backToTop {
+		display: none;
+		position: fixed;
+		bottom: 20px;
+		right: 30px;
+		z-index: 99;
+		font-size: 18px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: none;
+		border-radius: 4px;
+		height: 75px;
+		width: 75px;
+	}
+
+	#backToTop:hover {
+		background-color: white;
+		border-radius: 50%;
 	}
 -->

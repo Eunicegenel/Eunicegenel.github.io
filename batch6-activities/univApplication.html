@@ -12,6 +12,7 @@
 	</style>
 </head>
 <body>
+	<input onclick="topFunction()" id="backToTop" type="image" src="assets/btnPassive.png">
 	<div class="introParallax">
 		<br>
 		<br>
@@ -203,5 +204,26 @@
 	<br>
 	<br>
 
+	<script type="text/javascript">
+		//Get the button
+		var toTop = document.getElementById("backToTop");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+		  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+		    toTop.style.display = "block";
+		  } else {
+		    toTop.style.display = "none";
+		  }
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+		  document.body.scrollTop = 0;
+		  document.documentElement.scrollTop = 0;
+		}
+	</script>	
 </body>
 </html>

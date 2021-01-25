@@ -5,22 +5,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="image/png" href="kfcAssets/kfcLogo.png"/>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Londrina+Solid&family=Chela+One&family=Bubblegum+Sans&family=Roboto:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Londrina+Solid&family=Chela+One&family=Bubblegum+Sans&family=Roboto:wght@400;700&family=Dosis:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+	<input onclick="topFunction()" id="backToTop" type="image" src="assets/btnPassive.png">
+
 	<div id="main">
 	<div class="parallax" id="img-div">
 		<ul>
 		  <span id="top">
-		  <li><a class="active" href="#life">LIFE</a></li>
-		  <li><a href="#publicImage">PUBLIC IMAGE</a></li>
+				<li><a href="index.html">HOME</a></li>	
+				<li><a class="active" href="#life">LIFE</a></li>
+				<li><a href="#publicImage">PUBLIC IMAGE</a></li>
 		  </span>
 		</ul>
- 		
-		<img src="kfcAssets/kfcLogo.png" class="colSanders" id="image">
-		<img src="kfcAssets/colSanders.jpg" class="colSanders">
 
 		<div class="mainTitle">
+			<br><br><br><br><br><br>
+			<br><br><br><br><br><br>
 			<p id="title">COLONEL SANDERS</p>
 			<p id="img-caption">Harland David Sanders</p>
 			<a href="https://en.wikipedia.org/wiki/KFC" target="_blank"><p id="tribute-info">Founder of <i><b>Kentucky Fried Chicken</b></i></p></a>
@@ -78,9 +80,9 @@
 		  	<br>
 		  	<br>
 		  	<br>
+		  	<br>
 		  	<h1><a href="https://en.wikipedia.org/wiki/Colonel_Sanders" id="linkz" target="_blank">More info about the colonel...</a></h1>
 		  	<br>
-		  	<h1 class="linkz">Click logos ⬇ to go back to top ⬆ ...</h1>
 		  </div>
 		  <div class="divider"></div>
 		  <div class="smallDiv">
@@ -97,5 +99,27 @@
 		</div>
 	</div>
 	</div>
+
+	<script type="text/javascript">
+		//Get the button
+		var toTop = document.getElementById("backToTop");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+		  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+		    toTop.style.display = "block";
+		  } else {
+		    toTop.style.display = "none";
+		  }
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+		  document.body.scrollTop = 0;
+		  document.documentElement.scrollTop = 0;
+		}
+	</script>	
 </body>
 </html>

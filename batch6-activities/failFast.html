@@ -7,22 +7,28 @@
 	<link rel="stylesheet" type="text/css" href="styleFailFast.css">
 	<link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
+	<input onclick="topFunction()" id="backToTop" type="image" src="assets/btnPassive.png">
+    <div class="coverPage">
+    	<div>
+			<br>
+			<a href="index.html"><p class="navBarText">HOME</p></a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<p class="navBarDiv">|</p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<a href="#failFast"><p class="navBarText">FAIL FAST</p></a>
+		</div>
 
-    <div class="jumbotron" id="jumbotronDetes">
-	    <h1 id="bigTitle">Fail Fast...</h1>     
-	    <br><br><br><br><br><br><br><br><br><br><br><br>
-    </div>   
+    </div>  
 	
 	<br><br><br>
+	<br>
 
 	<div class="flex-container">
 	  <div class="divider"></div>
 	  <div class="smallDiv">
   		<div>
-			<p id="quote">Use the early stages to fail fast by testing everything, this way there should not be much problems when it is deployed.</p>
+			<span id="failFast"><p id="quote">Use the early stages to fail fast by testing everything, this way there should not be much problems when it is deployed.</p></span>
 		</div>
 	  </div>
 	  <div class="divider"></div>
@@ -35,10 +41,33 @@
 	  <div class="divider"></div>
 	</div>
 
-	<br>
+	<br><br><br>
 
-	<footer class="container-fluid text-center" id="footerDetes">
-	  <img class="footImg" src="assets/logo.png">
-	</footer>
+	<div class="jumbotron" id="jumbotronDetes">
+	    <h1 id="bigTitle">Fail Fast...</h1>     
+	    <br><br><br><br><br><br><br><br><br><br><br><br>
+    </div> 
+    
+    <script type="text/javascript">
+		//Get the button
+		var toTop = document.getElementById("backToTop");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+		  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+		    toTop.style.display = "block";
+		  } else {
+		    toTop.style.display = "none";
+		  }
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+		  document.body.scrollTop = 0;
+		  document.documentElement.scrollTop = 0;
+		}
+	</script>	
 </body>
 </html>

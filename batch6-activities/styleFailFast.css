@@ -13,6 +13,16 @@
 	  color: white;
 	}
 
+	.coverPage {
+		background-image: url("assets/failFastIntro.png");
+		background-size: cover;
+		background-position: fixed; 
+		background-attachment: fixed;
+		transition: ease 1s; 
+		width: 100%;
+		height: 654px;
+	}
+
 	#jumbotronDetes
 	{
 		background-image: url("assets/Failure.png");
@@ -27,6 +37,7 @@
 		text-align: left;
 		font-size: 90px;
 		margin-left: 100px;
+		color: #333333;
 	}
 
 	#subTitle
@@ -66,7 +77,7 @@
 		padding: 15px;
 		border: solid;
 		border-width: 5px;
-		border-color: #f78104;	
+		border-color: #f78c01;	
 	}
 
 	#original
@@ -84,7 +95,7 @@
 		font-size: 16px;
 		font-weight: bold;
 		text-align: right;
-		color: #f3ab1b;
+		color: #f78c01;
 	}
 
 	a:link
@@ -96,19 +107,6 @@
 	{
 		background-image: url("assets/blackCloth.png");
 		padding: 20px;
-	}
-
-	#footerDetes
-	{
-		background-color: #f3ab1b;
-		height: 40px;
-	}
-
-	.footImg
-	{
-		height: 40px;
-		width: 150px;
-		margin-right: 30px;
 	}
 
 	.flex-container {
@@ -144,5 +142,54 @@
 		width:60%;
 	    margin:0;
 	    padding:0;
+	}
+
+	.navBarText {
+		font-family: "Dosis";
+		display: inline;
+		color: #3a9a7b;
+		font-weight: bold;
+		font-size: 30px;
+	}
+
+	.navBarDiv {
+		font-family: "Dosis";
+		display: inline;
+		color: #3a9a7b;
+		font-weight: bold;
+		font-size: 30px;
+	}
+
+	.tempNavBar {
+
+		text-align: center; 
+	}
+
+	.navBarText:hover {
+
+		color: #f78c01;
+		border-radius: 20%;
+		padding: 10px; 
+	}
+
+	#backToTop {
+		display: none;
+		position: fixed;
+		bottom: 20px;
+		right: 30px;
+		z-index: 99;
+		font-size: 18px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: none;
+		border-radius: 4px;
+		height: 75px;
+		width: 75px;
+	}
+
+	#backToTop:hover {
+		background-color: white;
+		border-radius: 50%;
 	}
 -->
