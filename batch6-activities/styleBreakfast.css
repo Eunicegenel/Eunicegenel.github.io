@@ -168,7 +168,7 @@
 		font-family: "Dosis";
 		font-weight: bold;
 		font-size: 15px;
-		color: #333333;
+		color: #c6361b;
 		text-align: center; 
 	}
 
@@ -269,14 +269,13 @@
 		margin: auto;
 		padding: 20px;
 		border: 1px solid #888;
-		width: 50%;
-		max-width: 680px;
+		width: 700px;
 	}
 
 	.modal-bodyGallery {
 		background-color: white;
 		margin: auto;
-		padding: 20px;
+		padding: 30px;
 		border: 1px solid #888;
 		width: 50%;
 		max-width: 680px;
