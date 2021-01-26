@@ -21,6 +21,12 @@
 		color: #d46e3d;
 	}
 
+	#description1 {
+		font-size: 30px;
+		font-family: "Dosis";
+		color: #d46e3d;
+	}
+
 	.navBarDiv {
 		font-family: "Dosis";
 		display: inline;
@@ -183,7 +189,7 @@
 
 	#name-label, #email-label, #number-label, #sex-label {
 		font-family: "Dosis";
-		font-size: 16px;
+		font-size: 15px;
 		font-weight: bold;
 		color: #333333;
 		padding-top: 100px;
@@ -201,13 +207,13 @@
 	}
 
 	.labelz {
-		padding-top: 8px;
+		padding-top: 9px;
 		text-align: left; 
 	}
 
 	#dropdown {
 		width: 213px;
-		height: 28px;
+		height: 30px;
 		color: blackss;
 		padding-left: 8px;
 	}
@@ -320,4 +326,17 @@
 		grid-template-rows: 33.33% 33.33% 33.33%;
 		justify-content: center;
 	}
+
+	#email, #name, #number {
+		background-color: #d4d4d4;
+	}
+
+	#btnBack {
+		transition: ease .2s;
+	}
+
+	.btnBack:hover {
+		transform: scale(1.5);
+	}
+
 -->

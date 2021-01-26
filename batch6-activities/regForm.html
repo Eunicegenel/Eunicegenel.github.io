@@ -80,7 +80,7 @@
 			<span id="title"><h1>BREAKFAST CLUB REGISTRATION</h1></span>
 		</div>
 		<div class="modal-body">
-			<form id="survey-form">
+			<form id="survey-form" action="regFormFinal.html">
 				<div class="grid-containerModal">
 					<div class="center-content">
 						<div class="labelz">
@@ -88,13 +88,13 @@
 						</div>	
 						<br>	
 						<div class="labelz">
-							<label for="number" id="number-label">NUMBER :</label>
+							<label for="number" id="number-label">CONTACT :</label>
 						</div>
 					</div>
 					<div class="center-content">
 						<input type="text" id="name" name="name" value="" placeholder="input your name..." class="modalText" required>
 						<br><br>
-						<input type="number" id="number" name="number" value="" placeholder="11 Digit No..." class="modalText"required>
+						<input type="number" id="number" name="number" value="" placeholder="09XX-XXX-XXXX" class="modalText"required>
 						
 					</div>
 
@@ -259,6 +259,13 @@
 		 
 	</div>
 
+	<!-- The Modal -->
+	<div id="submitModal" class="modal">
+		<div class="modal-finish">
+			<p>thank you</p>
+		</div>		
+	</div>
+
 	<script>
 		var slideIndex = 0;
 		showSlides();
@@ -298,6 +305,7 @@
 				formModal.style.display = "none";
 		  }
 		}
+		
 
 		// galleryModal
 		var galleryModal = document.getElementById("galleryModal");
