@@ -1,0 +1,139 @@
+<!--
+	body {
+		margin: 0;
+		padding: 0;
+		background-image: url("chessAssets/bg.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		text-align: center; 
+	}
+
+	.sideText {
+
+	}
+
+	.chessBoard {
+		display: flex;
+		flex-direction: : column;
+		justify-content: center;
+		align-items: center;
+		width: 50vw;
+		height: 50vw;
+		margin-left: 25vw;
+		margin-right: 25vw;
+		position: fixed;
+		text-align: center;
+	}
+
+	.wBlockFirst, .bBlockFirst {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+	}
+
+	.wBlock, .bBlock, .no1, .no2, .no3, .no4, .no5, 
+	.no6, .no7, .no8, .letA, .letB, .letC, .letD, 
+	.letE, .letF, .letG, .letH, .wPawn, .bPawn {
+		display: flex;
+		justify-content: center;
+		width: 4.25vw;
+		height: 4.25vw;
+		position: relative;
+		background-position: relative;
+		background-size: cover;
+	}
+
+	.wBlock {
+		background-image: url("chessAssets/white.png");
+	}
+
+	.bBlock {
+		background-image: url("chessAssets/black.png");  
+	}
+
+	.wBlock:hover, .bBlock:hover {
+		background-image: url("chessAssets/tileHover.png");  
+	}
+
+	.no1 {
+		background-image: url("chessAssets/no1.png");
+	}
+
+	.no2 {
+		background-image: url("chessAssets/no2.png");  
+	}
+
+	.no3 {
+		background-image: url("chessAssets/no3.png");
+	}
+
+	.no4 {
+		background-image: url("chessAssets/no4.png");  
+	}
+
+	.no5 {
+		background-image: url("chessAssets/no5.png");
+	}
+
+	.no6 {
+		background-image: url("chessAssets/no6.png");  
+	}
+
+	.no7 {
+		background-image: url("chessAssets/no7.png");
+	}
+
+	.no8 {
+		background-image: url("chessAssets/no8.png");  
+	}
+
+	.letA {
+		background-image: url("chessAssets/letA.png");
+	}
+
+	.letB {
+		background-image: url("chessAssets/letB.png");  
+	}
+
+	.letC {
+		background-image: url("chessAssets/letC.png");
+	}
+
+	.letD {
+		background-image: url("chessAssets/letD.png");  
+	}
+
+	.letE {
+		background-image: url("chessAssets/letE.png");
+	}
+
+	.letF {
+		background-image: url("chessAssets/letF.png");  
+	}
+
+	.letG {
+		background-image: url("chessAssets/letG.png");
+	}
+
+	.letH {
+		background-image: url("chessAssets/letH.png");  
+	}
+
+	.wPawn {
+		background-image: url("chessAssets/gif/wPawn.gif");  
+	}
+
+	.wPawn:hover {
+		background-image: url("chessAssets/wPawnHover.png");  
+	}
+
+	.bPawn {
+		background-image: url("chessAssets/bPawn.png");  
+	}
+
+	.bPawn:hover {
+		background-image: url("chessAssets/bPawnHover.png");  
+	}
+
+-->

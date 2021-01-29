@@ -1,0 +1,52 @@
+<!--
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	.chessBoard {
+		display: flex;
+		flex-direction: : column;
+		justify-content: center;
+		align-items: center;
+		width: 50vw;
+		height: 50vw;
+		margin-left: 25vw;
+		margin-right: 25vw;
+		position: fixed;
+		text-align: center; 
+	}
+
+	.white {
+		display: flex;
+		justify-content: center;
+		border: solid;
+		border-width: 2px;
+		border-color: red;
+		width: 4vw;
+		height: 4vw;
+		position: relative;
+		
+	}
+
+	.black {
+		display: flex;
+		justify-content: center;
+		border: solid;
+		border-width: 2px;
+		border-color: blue;
+		width: 4vw;
+		height: 4vw;
+		position: relative;
+		
+	}
+
+	.columnSetter {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+	}
+
+	
+
+-->
