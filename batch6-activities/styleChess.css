@@ -34,7 +34,9 @@
 
 	.wBlock, .bBlock, .no1, .no2, .no3, .no4, .no5, 
 	.no6, .no7, .no8, .letA, .letB, .letC, .letD, 
-	.letE, .letF, .letG, .letH, .wPawn, .bPawn {
+	.letE, .letF, .letG, .letH, .wPawn, .bPawn, 
+	.bRook, .bKnight, .bBishop, .bQueen, .bKing, 
+	.wRook, .wKnight, .wBishop, .wQueen, .wKing {
 		display: flex;
 		justify-content: center;
 		width: 4.25vw;
@@ -121,7 +123,7 @@
 	}
 
 	.wPawn {
-		background-image: url("chessAssets/gif/wPawn.gif");  
+		background-image: url("chessAssets/wPawn.png");  
 	}
 
 	.wPawn:hover {
@@ -134,6 +136,46 @@
 
 	.bPawn:hover {
 		background-image: url("chessAssets/bPawnHover.png");  
+	}
+
+	.wRook {
+		background-image: url("chessAssets/wRook.png");
+	}
+
+	.bRook {
+		background-image: url("chessAssets/bRook.png");
+	}
+
+	.wKnight {
+		background-image: url("chessAssets/wKnight.png");
+	}
+
+	.bKnight {
+		background-image: url("chessAssets/bKnight.png");
+	}
+
+	.wBishop{
+		background-image: url("chessAssets/wBishop.png");
+	}
+
+	.bBishop {
+		background-image: url("chessAssets/bBishop.png");
+	}
+
+	.wQueen {
+		background-image: url("chessAssets/wQueen.png");
+	}
+
+	.bQueen {
+		background-image: url("chessAssets/bQueen.png");
+	}
+
+	.wKing {
+		background-image: url("chessAssets/wKing.png");
+	}
+
+	.bKing {
+		background-image: url("chessAssets/bKing.png");
 	}
 
 -->
