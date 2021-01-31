@@ -1,0 +1,128 @@
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>myPortfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="mainStyle1.css">
+	<meta charset="utf-8">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Chela+One&family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
+	<script src="parallax.js"></script> 
+</head>
+<body>
+	<div class="mainBody">
+		<div></div>
+		<div><header class="header">
+		    <nav class="navbar navbar-expand-lg fixed-top py-3">
+		        <div class="container">
+		        	<img class="homeImg" src="assets/logo.png">
+		            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+		            
+		            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+		                <ul class="navbar-nav ml-auto">
+		                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold" data-toggle="modal" data-target="#myModal">Gallery</a></li>
+		                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
+		                </ul>
+		            </div>
+		        </div>
+		    </nav>
+		</header></div>
+		<div></div>
+
+		<div></div>
+		<div class="centerContent" id="homeContent">
+			<div class="container-fluid" id="container1">
+				<div class="container-md" id="centerContent">
+					<ul id="scene">
+						<li class="layer" data-depth="0.1"><img src="assets/centerLogo.png" alt="image"></li></li>
+						<li class="layer" data-depth="0.3"><img src="assets/failFast.png" alt="image"></li></li>
+						<li class="layer" data-depth="0.4"><img src="assets/applicationLetter.png" alt="image"></li></li>
+						<li class="layer" data-depth="-0.3"><img src="assets/colSanders.png" alt="image"></li></li>
+						<li class="layer" data-depth="-0.4"><img src="assets/regForm.png" alt="image"></li></li>
+						<li class="layer" data-depth="0.2"><img src="assets/mysteryProj.png" alt="image"></li></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div></div>
+
+	<!-- The Modal -->
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+		  
+		    <!-- Modal Header -->
+		    <div class="modal-header">
+		      <h4 class="modal-title">PROJECT GALLERY</h4>
+		      <button type="button" class="close" data-dismiss="modal">&times;</button>
+		    </div>
+		    
+		    <!-- Modal body -->
+		    <div class="modal-body">
+		    	<div class="card" style="width: 100%;">
+					<a href="regForm.html"><img class="card-img" src="assets/breakfastClub.png" alt="Card image cap"></a>
+					<div class="card-body">
+						<h5 class="card-title">Registration Form</h5>
+					</div>
+				</div>
+				<div class="card" style="width: 100%;">
+					<a href="colSanders.html"><img class="card-img" src="assets/colSanders1.png" alt="Card image cap"></a>
+					<div class="card-body">
+						<h5 class="card-title">Tribute Page</h5>
+					</div>
+				</div>
+				<div class="card" style="width: 100%;">
+					<a href="univApplication.html"><img class="card-img" src="assets/univApplication.png" alt="Card image cap"></a>
+					<div class="card-body">
+						<h5 class="card-title">Application Letter</h5>
+					</div>
+				</div>
+		        <div class="card" style="width: 100%;">
+					<a href="failFast.html"><img class="card-img" src="assets/failFast1.png" alt="Card image cap"></a>
+					<div class="card-body">
+						<h5 class="card-title">Best Practice of a Web Developer</h5>
+					</div>
+				</div>
+				<div class="cardEnd" style="width: 100%;">
+					<a href="index.html"><img class="card-img" src="assets/questionMark.png" alt="Card image cap"></a>
+					<div class="card-body">
+						<h5 class="card-title">Mystery Project</h5>
+					</div>
+				</div>
+		    </div>
+		    
+		    <!-- Modal footer -->
+		    <div class="modal-footer">
+		      <button type="button" class="btnClose" data-dismiss="modal">CLOSE</button>
+		    </div>
+		    
+		  </div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var scene = document.getElementById('scene');
+		var parallax = new Parallax(scene);
+
+		// White Navbar Scroll function Just in Case
+		// $(function () {
+		// $(window).on('scroll', function () {
+		//     if ( $(window).scrollTop() > 650 ) {
+		//         $('.navbar').addClass('active');
+		//     } else {
+		//         $('.navbar').removeClass('active');
+		//     }
+		// });
+		// });
+
+	</script>
+	
+</body>
+</html>
