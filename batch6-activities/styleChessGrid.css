@@ -34,7 +34,7 @@
 	.letE, .letF, .letG, .letH, .wPawn, .bPawn, 
 	.bRook, .bKnight, .bBishop, .bQueen, .bKing, 
 	.wRook, .wKnight, .wBishop, .wQueen, .wKing {
-		display: flex;
+		display: grid;
 		justify-content: center;
 		width: 4.25vw;
 		height: 4.25vw;
