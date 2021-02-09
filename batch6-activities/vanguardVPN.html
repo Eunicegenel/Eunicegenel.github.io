@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>VanguardVPN</title>
+	<link rel="stylesheet" type="text/css" href="styleVanguard.css">  	
+	<link rel="shortcut icon" type="image/png" href="vanguardAssets/favicon.png"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Source+Sans+Pro:wght@400;700&family=Archivo+Narrow:wght@600&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="landingPage">
+		<div id="navbar">
+			<div>
+				<a href="vanguardVPN.html"><img class="logo" src="vanguardAssets/vanguardLogoTransparent.png"></a>
+			</div>
+			<div>
+				<a class="links" id="link4" href="#download">Get VanguardVPN</a>
+				<a class="links" id="link3" href="#register">Register</a>
+				<a class="links" id="link2" href="#packages">Packages</a>
+				<a class="links" id="link1" href="#vpn">What is a VPN?</a>
+			</div>
+		</div>
+
+		<div class="home tronGrid">
+			<div class="centerContext">
+				<h1 class="homeTxt">Surf the web<br>with Wings<br>of Freedom</h1>
+				<p class="subTxt">Go anywhere, anytime online with complete protection and privacy of a frontliner VPN.</p>
+				<a class="getVanguard" href="#download">Get VanguardVPN</a>
+				<span class="miniTxt"><img class="miniCheck" src="vanguardAssets/tick.png">&nbsp&nbsp30-DAY MONEY-BACK GUARANTEE</span>
+			</div>
+			<img class="homeImg" src="vanguardAssets/work.gif">
+		</div>
+	</div>
+
+
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+	<script type="text/javascript">
+		var prevScrollpos = window.pageYOffset;
+		var scroll0 = window.pageYOffset;
+		window.onscroll = function() {
+			var currentScrollPos = window.pageYOffset;
+			if (window.pageYOffset < 100) {
+				document.getElementById("navbar").style.top = "0";
+				document.getElementById("navbar").style.backgroundColor = "rgba(0,0,0,0)";
+			} 
+			else if (prevScrollpos > currentScrollPos) {
+				document.getElementById("navbar").style.top = "0";
+				document.getElementById("navbar").style.backgroundColor = "#ffe9e3";
+			}
+			else {
+				document.getElementById("navbar").style.top = "-5vw";
+			}
+			prevScrollpos = currentScrollPos;
+		}
+
+	</script>
+</body>
+</html>
