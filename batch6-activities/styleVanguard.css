@@ -12,7 +12,7 @@
     }
 
 	body {
-		background-color: #FBF3F2;
+		background-color: #DFE0DF;
 		display: grid;
 		justify-content: center;
 	}
@@ -60,7 +60,7 @@
 	.landingPage {
 		display: flex;
 		justify-content: center;
-		background-color: #fadaaa;
+		background-color: #FFEBCD;
 		height: 100vh;
         max-height: 50rem;
 		width: 100%;
@@ -85,7 +85,7 @@
 	#link5 {
 		background-color: rgba(0,0,0,0);
 		color: #fa991c;
-		border: 0.125em solid #fa991c;
+		border: 0.3125em solid #fa991c;
 		border-radius: 10rem;
 		padding: 0.5em 1.25em;
 		margin-left: 1.25em; 
@@ -97,7 +97,7 @@
 	#link5:hover {
 		background-color: #4b8077;
 		color: #ffebcd;
-		border: 0.125em solid #4b8077;
+		border: 0.3125em solid #4b8077;
 		cursor: url("vanguardAssets/cursorH.png"), pointer;
 	}
 
@@ -123,7 +123,7 @@
 
 	#navbar {
 		padding-top: 0.55rem; 
-		max-width: 81.25em;
+		max-width: 93.75em;
 		height: 3rem;
 		width: 100%;
 		display: grid;
@@ -224,7 +224,7 @@
 
     .vpn {
     	margin-top: 1.5em; 
-    	margin-right: -7rem; 
+    	margin-right: -5rem; 
     	margin-bottom: 2rem;
     	text-align: right; 
     	font-size: 2.5rem;
@@ -246,7 +246,9 @@
     	justify-content: center;
     	align-items: center;
     	background-color: white;
+        border-radius: 25px;
     	padding: 1rem;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     }
 
     .vpnBody1 {
@@ -275,7 +277,9 @@
     	justify-content: center;
     	align-items: center;
     	background-color: white;
+        border-radius: 25px;
     	padding: 1rem;
+        box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
     }
 
     .sideText2 {
@@ -305,7 +309,7 @@
     }	
 
     .mainMP {
-    	background-color: #fadaaa;
+    	background-color: #FFEBCD;
     	height: 100vh;
         max-height: 50rem;
     	display: grid;
@@ -318,12 +322,13 @@
     	text-align: center; 
     	font-size: 2.5rem;
     	font-family: "Julius Sans One";
+        font-weight: bold;
     	color: #fa991c;
     }
 
     .media {
     	max-width: 1500px;
-    	margin-top: -30rem;
+    	margin-top: -20rem;
     	padding: 0;
     	display: grid;
     	grid-template-columns: auto 10% 10% 10% 10% 10% 10% 10% auto;
@@ -337,14 +342,99 @@
     	border: solid 0.125em rgba(1,1,1,.08);
     	transition: ease 0.3s;
     	cursor: url("vanguardAssets/cursorH.png"), pointer;
+        border-radius: 25px;
     }
 
     .mediaSponsors:hover {
     	transform: scale(1.25); 
     }
 
-    
+    .packages {
+        display: grid;
+        grid-template-columns: auto 30% 30% 30% auto;
+        mar
+    }    
+
+    .pack {
+        padding-top: 7rem;
+        margin-left: 3rem; 
+        text-align: left; 
+        font-size: 2.5rem;
+        font-family: "Julius Sans One";
+        font-weight: bold;
+        color: #4b8077;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        border-radius: 25px;
+        transition: ease 0.5s;
+        margin: 4em;
+        align-self: center;
+        justify-content: center;
+    }
+
+    #card1 {
+        background-color: #D9E5C6;
+        padding: 1em 1em;
+    }
+
+    #card2 {
+        background-color: #E9E4A3;
+        padding: 1.5em 1em;
+    }
+
+    #card3 {
+        background-color: #FFDC82;
+        padding: 2em 1em;
+    }
 
 
+
+    .card:hover {
+        box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
+        transform: scale(1.5);
+    }
+
+    .plan {
+        font-family: "Archivo Narrow";
+        font-size: 1.5rem; 
+        text-align: center;
+        color: #4b8077;
+    }
+
+    .price {
+        font-family: "Source Sans Pro";
+        font-size: 3rem; 
+        font-weight: bold;
+        text-align: center;
+        color: #2f4858;
+    }
+
+    .detes {
+        font-family: "Source Sans Pro";
+        font-size: 1rem; 
+        text-align: center;
+        color: #C35353;
+        font-weight: bold;
+    }
+
+    .php {
+        color: #2f4858;
+    }
+
+    .moneyBack {
+        margin-top: 1em; 
+        font-family: "Source Sans Pro";
+        font-size: 1rem; 
+        font-weight: bold;
+        text-align: center;
+        color: #4b8077;
+    }
+
+    .bestSeller {
+        color: #2f4858;
+        font-weight: bold;
+    }
 --> 
         
