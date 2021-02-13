@@ -223,9 +223,9 @@
     }
 
     .vpn {
-    	margin-top: 1.5em; 
+    	margin-top: 2em; 
     	margin-right: -5rem; 
-    	margin-bottom: 2rem;
+    	margin-bottom: 1rem;
     	text-align: right; 
     	font-size: 2.5rem;
     	font-family: "Julius Sans One";
@@ -242,7 +242,7 @@
 
     .vpnGen1 {
     	display: grid;
-    	grid-template-columns: 15% 15% 70%;
+    	grid-template-columns: 10% 90%;
     	justify-content: center;
     	align-items: center;
     	background-color: white;
@@ -255,6 +255,7 @@
     	text-align: left; 
     	font-family: "Source Sans Pro";
     	color: #2f4858;
+        line-height: 1.6em;
     }
 
     .sideText1 {
@@ -262,18 +263,11 @@
     	transform: rotate(180deg);
     	font-family: "Archivo Narrow";
     	color: #4b8077;
-    	line-height: 0.1em;
-    }
-
-    .sidePic1 {
-    	position: relative;
-    	width: 50%;
-    	height: auto;
     }
 
     .vpnGen2 {
     	display: grid;
-    	grid-template-columns: 70% 15% 15%;
+    	grid-template-columns: 90% 10%;
     	justify-content: center;
     	align-items: center;
     	background-color: white;
@@ -292,15 +286,8 @@
     	text-align: right; 
     	font-family: "Source Sans Pro";
     	color: #2f4858;
+        line-height: 1.6em;
     }
-
-    .sidePic2 {
-    	margin-left: 2.5rem; 
-    	position: relative;
-    	width: 50%;
-    	height: auto;
-    }
-
 
     .internet {
     	margin-top: 2rem;
@@ -340,6 +327,7 @@
     	margin: 0.4375em;
     	width: 100%;
     	border: solid 0.125em rgba(1,1,1,.08);
+        box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
     	transition: ease 0.3s;
     	cursor: url("vanguardAssets/cursorH.png"), pointer;
         border-radius: 25px;
@@ -352,11 +340,10 @@
     .packages {
         display: grid;
         grid-template-columns: auto 30% 30% 30% auto;
-        mar
     }    
 
     .pack {
-        padding-top: 7rem;
+        padding-top: 4rem;
         margin-left: 3rem; 
         text-align: left; 
         font-size: 2.5rem;
@@ -369,7 +356,7 @@
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         border-radius: 25px;
         transition: ease 0.5s;
-        margin: 4em;
+        margin: 3em;
         align-self: center;
         justify-content: center;
     }
@@ -436,5 +423,12 @@
         color: #2f4858;
         font-weight: bold;
     }
+
+    .footer {
+       background-image: linear-gradient(to right bottom, #4b8077, #45726b, #40655f, #3a5853, #344b47); 
+       height: 15rem;
+
+    }
 --> 
-        
+#344B47
+#4B8077
