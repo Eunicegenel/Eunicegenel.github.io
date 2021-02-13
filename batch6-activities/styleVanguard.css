@@ -340,6 +340,7 @@
     .packages {
         display: grid;
         grid-template-columns: auto 30% 30% 30% auto;
+        align-items: center;
     }    
 
     .pack {
@@ -427,8 +428,51 @@
     .footer {
        background-image: linear-gradient(to right bottom, #4b8077, #45726b, #40655f, #3a5853, #344b47); 
        height: 15rem;
+    }
 
+    .slides {
+        position: relative;
+        overflow: hidden;
+        min-height: 20rem;
+        width: 100%;
+    }
+
+    .slide:nth-child(1){
+        background-color: #92CE7F;
+    }
+
+    .slide:nth-child(2){
+        background-color: #6DB583;
+    }
+
+    .slide:nth-child(3){
+        background-color: #559B81;
+    }
+
+    .slide:nth-child(4){
+        background-color: #4B8077;
+    }
+
+    .slide {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        position: absolute;
+        animation: sliding 2s ease; 
+    }
+
+    .slide.active {
+        display: block;
+    }
+
+    @keyframes sliding {
+        from {
+            opacity: 0;
+            transform: scale(1.1);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
     }
 --> 
-#344B47
-#4B8077
