@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Lockjaw</title>
+	<link rel="stylesheet" type="text/css" href="styleJaw.css">  	
+	<link rel="shortcut icon" type="image/png" href="lockJawAssets/favicon.png"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Source+Sans+Pro:wght@400;700&family=Archivo+Narrow:wght@600&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="wholePage">
+		<div class="background">
+			<img class="nachos layer" src="lockJawAssets/nachos.png" data-score="2">
+			<img class="fries layer" src="lockJawAssets/fries.png" data-score="2">
+			<img class="onionRings layer" src="lockJawAssets/onionRings.png" data-score="2">
+
+			<img class="hamburger layer" src="lockJawAssets/burger.png" data-score="2">
+			<img class="chicken layer" src="lockJawAssets/chicken.png" data-score="2">
+			<img class="steak layer" src="lockJawAssets/steak.png" data-score="2">
+
+			<img class="cake layer" src="lockJawAssets/cake.png" data-score="2">
+			<img class="drinks layer" src="lockJawAssets/drinks.png" data-score="2">
+		</div>
+		<header>
+			<div class="home"><a href="#home"><h1>LOCKJAW</h1></a></div>
+			<div class="nav-bar">
+				<a href="#home"><span><img src="lockJawAssets/home.png" class="nav-link" id="homeLink"></span></a>
+				<a href="#menu"><img src="lockJawAssets/menu.png" class="nav-link" id="menuLink"></a>
+				<a href="#contactUs"><img src="lockJawAssets/phone.png" class="nav-link" id="phoneLink"></a>
+			</div>
+		</header>	
+		
+		<section class="landingPage" id="home">
+			<div >
+				<p class="sideTxt">SCROLL DOWN____</p>
+			</div>
+			<div class="title">
+				<div></div>
+				<h1>LOCKJAW</h1>
+				<div></div>
+				<p class="p1">So Good,</p>
+				<p class="pMargin1">It Will Lock Your Jaw</p>
+				<p class="pMargin2">Again & Again & Again...</p>
+				<div></div>
+			</div>
+			<div class="logo">
+				<img class="layer" src="lockJawAssets/favicon.png" data-score="7">
+			</div>
+			<div></div>
+		</section>
+
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+		<section id="menu">
+			<div class="logo1"><img src="lockJawAssets/logo.png" data-score="1"></div>
+		</section>
+	</div>
+
+
+		<script type="text/javascript">
+			function activeSection(rbid) {
+				document.getElementById("rb1").style.backgroundColor= "rgba(0,0,0,0)";
+				document.getElementById("rb2").style.backgroundColor= "rgba(0,0,0,0)";
+				document.getElementById("rb3").style.backgroundColor= "rgba(0,0,0,0)";
+				document.getElementById(rbid).style.backgroundColor= "rgba(4,4,4,0.5)";
+			}
+
+			document.addEventListener('mousemove', function(e){
+				this.querySelectorAll('.layer').forEach(el=>{
+					const score = el.getAttribute('data-score');
+					const x = (window.innerWidth - e.pageX * score) / 100;
+					const y = (window.innerWidth - e.pageY * score) / 100;
+
+					el.style.transform = `
+								translateX(${x}px)
+								translateY(${y}px)
+					`;
+				})
+			});	
+
+		</script>
+	
+</body>
+</html>

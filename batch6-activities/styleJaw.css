@@ -1,0 +1,246 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	scroll-behavior: smooth;
+}
+
+body { 
+	background-image: linear-gradient(to right, #fa991c, #ff7f42, #fb6b5e, #eb5e77, #d15a8a);
+	background-size: cover;
+	background-position: fixed;
+	background-repeat: no-repeat;
+	width: 100vw;
+	height: 100vh;
+}
+
+.home h1 {
+	font-family: "Dosis";
+	font-size: 2vw;
+	color: #2f4858;
+	position: absolute;
+	top: 5%;
+	left: 5%;
+}
+
+.nav-bar .nav-link {
+	width: 4vw;
+	padding: 0.75vh 0.55vw;
+	border-radius: 50%;
+}
+
+.nav-bar .nav-link:hover {
+	width: 4vw;
+	background-color: rgba(255,255,255,0.5);
+}
+
+#homeLink {
+	position: fixed;
+	top: 40%;
+	left: 3.5%;	
+}
+
+#menuLink {
+	position: fixed;
+	top: 50%;
+	left: 3.5%;
+}
+
+#phoneLink {
+	position: fixed;
+	top: 60%;
+	left: 3.5%;
+}
+
+.sideTxt {
+	position: relative;
+	padding: 0;
+	margin: 73vh 0 0 10vh; 
+	font-size: 1.75vw;
+	font-family: "Dosis";
+	color: #2f4858;
+	writing-mode:vertical-rl;
+	font-weight: bold;
+	
+}
+
+
+.wholePage {
+	animation: transitionIn ease 1.5s;
+	text-align: center; 
+	height: 100vh;
+    width: 100%;
+    max-width: 3000px;
+	overflow: hidden;
+	overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+@keyframes transitionIn {
+	from {
+		opacity: 0;
+		transform: rotateX(-10deg);
+	}
+
+	to {
+		opacity: 1;
+		transform: rotateX(0);
+	}
+} 
+
+.wholePage::-webkit-scrollbar {
+    display: none;
+}
+
+section {
+	scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.landingPage {
+	height: 42rem;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 15% 45% 30% auto; 
+	
+}
+
+.logo img {
+	position: relative;
+	width: 30vw;
+	margin-top: 27.5vh;
+	z-index: 100;
+	opacity: 0;
+	animation: captionAnimationReverse 0.5s forwards;
+	animation-delay: 1.3s;  
+}
+
+.title {
+	display: grid;
+	grid-template-rows: 10% 30% 20% 10% 10% 10% auto;
+	align-items: center;
+}
+
+.title h1 {
+	text-align: left; 
+	font-family: "Dosis";
+	font-weight: bold;
+	font-size: 6rem;
+	color: #2f4858;
+	opacity: 0;
+	animation: captionAnimation 0.5s forwards;
+	animation-delay: 1s; 
+}
+
+.title p {
+	margin: 0;
+	padding: 0;
+	font-family: "Archivo Narrow";
+	font-size: 2.5rem;
+	color: #2f4858;
+	text-align: left;
+	opacity: 0; 
+}
+
+.p1 {
+	animation: captionAnimation 0.5s forwards;
+	animation-delay: 1.5s; 
+}
+
+.title .pMargin1 {
+	margin-top: -2.5rem; 
+	animation: captionAnimation 0.5s forwards;
+	animation-delay: 1.75s; 
+}
+
+.title .pMargin2 {
+	margin-top: -5rem; 
+	animation: captionAnimation 0.5s forwards;
+	animation-delay: 2s; 
+}
+
+@keyframes captionAnimation {
+	from {
+		transform: translateX(200px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes captionAnimationReverse {
+	from {
+		transform: translateX(-300px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.fries {
+	position: fixed;
+	width: 7vw;
+	left: 80vw;
+	top: 0vh;
+	z-index: -1;
+}
+
+.nachos {
+	position: fixed;
+	width: 7vw;
+	left: 60vw;
+	top: 0vh;
+	z-index: -1;
+}
+
+.onionRings {
+	position: fixed;
+	width: 7vw;
+	left: 70vw;
+	top: 20vh;
+	z-index: -1;
+}
+
+.hamburger {
+	position: fixed;
+	width: 7vw;
+	left: 90vw;
+	top: 40vh;
+	z-index: -1;
+}
+
+.chicken {
+	position: fixed;
+	width: 7vw;
+	left: 70vw;
+	top: 60vh;
+	z-index: -1;
+}
+
+.steak {
+	position: fixed;
+	width: 7vw;
+	left: 50vw;
+	top: 40vh;
+	z-index: -1;
+}
+
+.cake {
+	position: fixed;
+	width: 7vw;
+	left: 60vw;
+	top: 80vh;
+	z-index: -1;
+}
+
+.drinks {
+	position: fixed;
+	width: 7vw;
+	left: 80vw;
+	top: 80vh;
+}
+
