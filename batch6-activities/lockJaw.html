@@ -5,7 +5,7 @@
 	<title>Lockjaw</title>
 	<link rel="stylesheet" type="text/css" href="styleJaw.css">  	
 	<link rel="shortcut icon" type="image/png" href="lockJawAssets/favicon.png"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,7 +21,7 @@
 	</div>
 	<div class="wholePage">
 		<div></div>
-		<div class="background">
+		<div class="backGround">
 			<img class="nachos layer" src="lockJawAssets/nachos.png" data-score="2">
 			<img class="fries layer" src="lockJawAssets/fries.png" data-score="2">
 			<img class="onionRings layer" src="lockJawAssets/onionRings.png" data-score="2">
@@ -44,11 +44,9 @@
 						<img src="lockJawAssets/jumbotron/nachosJumbo.png">
 					</figure>
 				</div>
-				<p class="sideTxt">SCROLL DOWN ___________</p>
+				<p class="sideTxt">SCROLL DOWN _____________</p>
 			</section>
 		</header>	
-
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 		<section id="menu">
 			<div></div>
@@ -68,7 +66,7 @@
 				<h4>JAW LOCKERS</h4>
 				<p>Lockjaw Cheeseburger  P 120.00</p>
 				<p>A5 Wagyu Sirloin Steak  P 240.00</p>
-				<p>Lockjaw Wicked Wings  P 320.00</p>
+				<p>Lockjaw Wicked Wings (6x)  P 320.00</p>
 				<a href="#">view more -></a>
 
 				<br><br>
@@ -83,7 +81,7 @@
 
 				<h4>JUST DESSERTS</h4>
 				<p>Layered Choco Mousse P 99.00</p>
-				<p>Halo-Halo Special P 60.00</p>
+				<p>Halo-Halo Special P 112.00</p>
 				<p>Red Velvet Cheesecake P 130.00</p>
 				<a href="#">view more -></a>
 
@@ -105,8 +103,6 @@
 			<div></div>
 		</section>
 
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
 		<section id="aboutUs">
 			<div class="landingPage">
 				<div></div>
@@ -117,32 +113,44 @@
 						<p>So Good, It Will Lock Your Jaw</p>
 						<p>Again and Again and Again...</p>
 					</div>
+					<div class="ytVID">
+						<iframe position="relative" width="400" height="225" src="https://www.youtube.com/embed/Airw_R8c8zs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="video"></iframe>
+					</div>
 					<div class="bStory">
 						<span>The Lockjaw was established on March 2020 at the start<br>of the ECQ in Metro Manila. The small bar type business<br>was originally intended to help the owners during the<br>pandemic period but now it aims to give a simple but<br>fulfilling happiness to all those who venture inside.</span>	
 					</div>
 					<div></div>
 				</div>
 				<div class="logo">
-					<img class="layer" id="header-img" src="lockJawAssets/favicon.png" data-score="7">
+					<img class="layer" id="header-img" src="lockJawAssets/logo.png" data-score="7">
+				</div>
+			</div>
+		</section>
+
+		<section id="contactUs">
+			<div class="contact">
+				<div></div>
+				<div class="info">
+					<div>
+						<h2>FOR ANY INQUIRIES</h2>
+					</div>
+					<div>
+						<h3>Contact No</h3>
+						<br>
+						<p>0912 345 6789</p>
+						<p>0991 234 5678</p>
+					</div>
+					<div>
+						<h3>Email</h3>
+						<br>
+						<p>lockJaw@gmail.com.ph</p>
+					</div>
+				</div>
+				<div id="form">
+					
 				</div>
 				<div></div>
 			</div>
-			<!-- <div style="position: relative;">
-				<p class="sideTxtUp1">____ SCROLL UP</p>
-				<p class="sideTxtDown1">SCROLL DOWN ____</p>
-			</div> -->
-		</section>
-
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-		
-
-		
-
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-		<section id="contactUs">
-			<div class="logo1"><img src="lockJawAssets/logo.png" data-score="1"></div>
 		</section>
 
 	</div>
@@ -162,21 +170,7 @@
 			})
 		});	
 
-		var slideIndex = 0;
-		showSlides();
-
-		function showSlides() {
-			var i;
-			var slides = document.getElementsByClassName("mySlides");
-			for (i = 0; i < slides.length; i++) {
-			slides[i].style.display = "none";  
-			}
-			slideIndex++;
-			if (slideIndex > slides.length) {slideIndex = 1}  
-			slides[slideIndex-1].style.display = "block";  
-			dots[slideIndex-1].className += " active";
-			setTimeout(showSlides, 1000); // Change image every 2 seconds
-		}
+		
 
 
 	</script>

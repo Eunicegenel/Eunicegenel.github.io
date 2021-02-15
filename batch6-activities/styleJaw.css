@@ -1,3 +1,5 @@
+@import "mediaQueryJaw.css";
+
 * {
 	margin: 0;
 	padding: 0;
@@ -6,7 +8,7 @@
 }
 
 body { 
-	background-image: linear-gradient(to right, #8c5c97, #c15a90, #eb5e77, #ff7451, #fa991c);
+	background-image: linear-gradient(to right bottom, #2f4858, #2a3b47, #242e37, #1d2227, #161718);
 	background-size: cover;
 	background-position: fixed;
 	background-repeat: no-repeat;
@@ -35,9 +37,10 @@ body {
 
 #slider figure img {
 	width: 20%; 
-	height: 100%;
+	height: 95vh;
 	float: left;
 	z-index: -2;
+	object-fit: cover;
 }
 
 #slider figure {
@@ -52,9 +55,8 @@ body {
 }
 
 .home {
-	padding: 1vh 1vw;
 	font-family: "Dosis";
-	font-size: 2vw;
+	font-size: 2em;
 	color: #fa991c;
 	position: fixed;
 	top: 5%;
@@ -105,7 +107,7 @@ body {
 .sideTxt {
 	position: relative;
 	padding: 1vh 1vw;
-	margin: -60vh 0 0 -0.5vh; 
+	margin: -55vh 0 0 -0.5vh; 
 	font-size: 3vw;
 	font-family: "Dosis";
 	color: #ffebcd;
@@ -113,7 +115,6 @@ body {
 	font-weight: bold;
 	transition: 0.5s ease; 
 }		
-
 
 .wholePage {
 	animation: transitionIn 2s;
@@ -160,32 +161,8 @@ section {
 	grid-template-columns: 15% 45% 30% 10%; 
 }
 
-.sideTxtUp1 {
-	position: relative;
-	padding: 0;
-	margin: 0;
-	top: -88vh;
-	left: 5.25vw;
-	font-size: 1.5vw;
-	font-family: "Dosis";
-	color: #ffebcd;
-	writing-mode:vertical-rl;
-	font-weight: bold;
-}
-
-.sideTxtDown1 {
-	position: relative;
-	padding: 0;
-	margin: -46vh 0 0 5.25vw;
-	font-size: 1.5vw;
-	font-family: "Dosis";
-	color: #ffebcd;
-	writing-mode:vertical-rl;
-	font-weight: bold;
-}
-
 .bStory {
-	margin-top: 20vh;
+	margin-top: 5vh;
 	font-family: "Archivo Narrow";
 	font-size: 1.5vw;
 	text-align: left;
@@ -196,12 +173,16 @@ section {
 	position: relative;
 	width: 30vw;
 	margin-top: 27.5vh;
-	z-index: 100;
+	z-index: 1;
+}
+
+.ytVID {
+	text-align: left;
 }
 
 .title {
 	display: grid;
-	grid-template-rows: 10% 30% 10% 10% 10% 10% 20%;
+	grid-template-rows: 5% 10% 10% 40% 20% auto;
 	align-items: center;
 }
 
@@ -220,9 +201,9 @@ section {
 	margin: 0;
 	padding: 0;
 	font-family: "Archivo Narrow";
-	font-size: 2.5vw;
+	font-size: 2vw;
 	/*font-size: 2.5rem;*/
-	color: #4b5782;
+	color: #fa991c;
 	text-align: left; 
 }
 
@@ -327,14 +308,14 @@ section {
 .menuArea h3 {
 	font-family: "Dosis";
 	font-size: 4vh;
-	color: #fb6b5e;
+	color: white;
 	font-weight: bold;
 }
 
 .menuArea h4 {
 	font-family: "Archivo Narrow";
 	font-size: 3vh;
-	color: #4b5782;
+	color: #fa991c;
 	font-weight: bold;
 }
 
@@ -348,7 +329,7 @@ section {
 .menuArea a {
 	font-family: "Dosis";
 	font-size: 2.5vh;
-	color: #2f4858;
+	color: #d15a8a;
 	margin: 0.24rem;
 	text-align: right; 
 	font-weight: bold;
@@ -369,7 +350,7 @@ section {
 }
 
 .mPics:hover {
-	transform: scale(1.5);
+	transform: scale(2);
 }
 
 #menuFries {
@@ -396,5 +377,37 @@ section {
 	left: 30%;
 }
 
+.contact {
+	display: grid;
+	grid-template-columns: 15% 30% 50% auto;
+	align-items: center;
+}
 
+.contact h2 {
+	margin-top: 20vh; 
+	text-align: left;
+	font-family: "Dosis";
+	color: white;
+	font-size: 3vw;
+}
 
+.info {
+	display: flex;
+	flex-direction: column;
+}
+
+.info h3 {
+	margin-top: 5vh; 
+	text-align: left;
+	font-family: "Archivo Narrow";
+	color: #fa991c;
+	font-size: 2vw;
+}
+
+.info p {
+	margin-top: 1vh; 
+	text-align: left;
+	font-family: "Source Sans Pro";
+	color: #ffebcd;
+	font-size: 1.5vw;
+}
