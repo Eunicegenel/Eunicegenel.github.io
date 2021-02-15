@@ -136,47 +136,62 @@
 		display: flex !important;
 		flex-direction: column !important; 
 		align-items: center !important; 
-		margin-bottom: 40rem !important; 
+		margin-bottom: 0rem !important;
+		height: 620vh !important;  
+	}
+
+	.menuArea {
+		margin: 5rem !important; 
 	}
 
 	.menuArea h3 {
-		font-size: 3rem !important;
+		font-size: 4vh;
+	}
+
+	.menuArea h4 {
+		font-size: 3vh;
+	}
+
+	.menuArea .detes {
+		max-width: 16em; 
+		margin: 0.24rem;
+	}
+
+	.dish {
+		font-size: 2.5vh;
+		font-weight: 600; 
+	}
+
+	.menuArea a {
+		font-size: 2.5vh;
+		font-weight: 600;
+		margin-top: 0rem; 
+	}
+
+	.foodTray {
+		flex-direction: column !important;
 	}
 
 	.menuPics {
-		display: flex !important;
-		margin-left: 0 !important;
+		margin-top: 2rem !important;
+		margin-left: 0 !important; 
+		display: flex;
+		flex-direction: row !important;
+		justify-content: center;
 	}
 
 	.mPics {
-		height: auto !important;
-		width: 12rem !important;
-		border-radius: 0 !important;
-		margin: 2em 0 0 0 !important;
+		margin: -2px;
+		padding: 0;
+		height: 12.5rem;
+		width: auto;
+		transition: ease 0.5s;
+		box-shadow: 10px 10px rgba(4,4,4,0.1);
 	}
 
-	.mPics:hover {
-		transform: scale(2);
-	}
 
-	#menuFries {
-		top: 0 !important;
-		left: 15em !important;
-	}
-
-	#menuSteak {
-		top: 7.5em !important;
-		left: 5em !important;
-	}
-
-	#menuJuice {
-		top: 15em !important;
-		left: -5em !important;
-	}
-
-	#menuCheese {
-		top: 22.5em !important;
-		left: -15em !important;
+	.parallax {
+		margin-top: 0.5rem !important;
 	}
 
 	.contact {
@@ -204,5 +219,9 @@
 
 	.franchise {
 		margin: 5rem 5rem 5rem 5rem !important; 
+	}
+
+	.franchise h1 {
+		font-size: 2em !important;
 	}
 }
