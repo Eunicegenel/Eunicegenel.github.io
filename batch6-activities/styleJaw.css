@@ -412,3 +412,74 @@ section {
 	font-size: 1.5vw;
 }
 
+.franchise {
+	display: flex;
+	flex-direction: column;
+	margin: 10rem 5rem 5rem 5rem;
+	background-color: rgba(255,255,255,0.75);
+	border-radius: 25px; 
+	padding: 2em 2em; 
+}
+
+.franchise h1 {
+	font-family: "Dosis";
+	font-size: 3em; 
+	margin-bottom: 1em;
+}
+
+.email {
+	text-align: left;
+	font-family: "Dosis"; 
+	font-weight: bold;
+	font-size: 1em;
+}
+
+#email {
+	margin-top: 0.5em; 
+	padding: 0.5em 0.5em;
+	width: 90%;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	border-bottom: 1px solid black;
+	font-family: "Source Sans Pro";
+	font-size: 1em; 
+}
+
+.contactNo {
+	text-align: left;
+	font-family: "Dosis"; 
+	font-weight: bold;
+	font-size: 1em; 
+}
+
+#contactNo {
+	margin-top: 0.5em; 
+
+	padding: 0.5em 0.5em;
+	width: 90%;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	border-bottom: 1px solid black;
+	font-family: "Source Sans Pro";
+	font-size: 1em; 
+	overflow: hidden;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+.tempSub {
+	display: flex;
+	justify-content: center;
+}
+
+.btnSub {
+	width: 50%;
+	font-family: "Archivo Narrow";
+	font-size: 1em; 
+	padding: 0.5em 0.5em;
+	border-radius: 25px; 
+}
