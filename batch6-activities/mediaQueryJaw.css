@@ -1,4 +1,4 @@
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 480px) {
 	#slider figure img {
 		height: 90vh !important;
 	}
@@ -37,17 +37,17 @@
 
 	#menuLink {
 		top: 91% !important;
-		left: 22.5% !important;
+		left: 25% !important;
 	}
 
 	#aboutUsLink {
 		top: 91% !important;
-		left: 47.5% !important;
+		left: 50% !important;
 	}
 
 	#phoneLink {
 		top: 91% !important;
-		left: 70% !important;
+		left: 75% !important;
 	}
 
 	.sideTxt {
@@ -60,60 +60,40 @@
 	}
 
 	section {
-		scroll-snap-align: start;
-	    scroll-snap-stop: always;
 	    max-height: none !important;
 	}
 
 	.landingPage {
 		display: flex !important;
-		flex-direction: column;
+		flex-direction: column !important;
 	}
 
 	.bStory {
-		margin-top: 5vh;
-		font-family: "Archivo Narrow";
-		font-size: 1.5vw;
-		text-align: left;
-		color: #ffebcd;
+		margin-top: 1rem !important;
+		font-size: 1rem !important;;
 	}
 
 	.logo img {
-		position: relative;
-		width: 30vw;
-		margin-top: 27.5vh;
-		z-index: 100;
+		display: none !important;
 	}
 
 	.ytVID {
+		margin-top: 1rem !important; 
 		text-align: left;
 	}
 
 	.title {
-		display: grid;
-		grid-template-rows: 5% 10% 10% 40% 20% auto;
-		align-items: center;
+		display: flex !important;
+		flex-direction: column !important;
 	}
 
 	.title h1 {
-		margin: 0;
-		padding: 0;
-		text-align: left; 
-		font-family: "Dosis";
-		font-weight: bold;
-		/*font-size: 6rem;*/
-		font-size: 4.5vw;
-		color: white;
+		font-size: 3rem !important;
+		margin-bottom: 1rem !important;
 	}
 
 	.title p {
-		margin: 0;
-		padding: 0;
-		font-family: "Archivo Narrow";
-		font-size: 2vw;
-		/*font-size: 2.5rem;*/
-		color: #2f4858;
-		text-align: left; 
+		font-size: 1.5rem !important;
 	}
 
 
@@ -154,7 +134,11 @@
 		display: flex !important;
 		flex-direction: column !important; 
 		align-items: center !important; 
-		margin-bottom: 35rem !important; 
+		margin-bottom: 40rem !important; 
+	}
+
+	.menuArea h3 {
+		font-size: 3rem !important;
 	}
 
 	.menuPics {
@@ -194,9 +178,8 @@
 	}
 
 	.contact {
-		display: grid;
-		grid-template-columns: 15% 30% 50% auto;
-		align-items: center;
+		display: flex !important;
+		margin: 2rem !important;
 	}
 
 	.contact h2 {
@@ -212,19 +195,15 @@
 		flex-direction: column;
 	}
 
+	.info h2 {
+		font-size: 3rem !important;
+	}
+
 	.info h3 {
-		margin-top: 5vh; 
-		text-align: left;
-		font-family: "Archivo Narrow";
-		color: #2f4858;
-		font-size: 2vw;
+		font-size: 1.5rem !important;
 	}
 
 	.info p {
-		margin-top: 1vh; 
-		text-align: left;
-		font-family: "Source Sans Pro";
-		color: #ffebcd;
-		font-size: 1.5vw;
+		font-size: 1.5rem !important;
 	}
 }
