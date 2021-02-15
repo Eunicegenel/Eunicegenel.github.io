@@ -1,4 +1,4 @@
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
 	#slider figure img {
 		height: 90vh !important;
 	}
@@ -154,7 +154,7 @@
 		display: flex !important;
 		flex-direction: column !important; 
 		align-items: center !important; 
-		margin-bottom: 30rem !important; 
+		margin-bottom: 35rem !important; 
 	}
 
 	.menuPics {
@@ -164,7 +164,7 @@
 
 	.mPics {
 		height: auto !important;
-		width: 10rem !important;
+		width: 12rem !important;
 		border-radius: 0 !important;
 		margin: 2em 0 0 0 !important;
 	}
@@ -178,21 +178,19 @@
 		left: 15em !important;
 	}
 
-	#menuBurger {
-		top: 5em !important;
+	#menuSteak {
+		top: 7.5em !important;
 		left: 5em !important;
 	}
 
 	#menuJuice {
-		position: relative;
-		top: -15%;
-		left: 0;
+		top: 15em !important;
+		left: -5em !important;
 	}
 
 	#menuCheese {
-		position: relative;
-		top: -40%;
-		left: 30%;
+		top: 22.5em !important;
+		left: -15em !important;
 	}
 
 	.contact {
