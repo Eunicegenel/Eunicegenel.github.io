@@ -69,8 +69,9 @@
 	}
 
 	.bStory {
-		margin-top: 1rem !important;
-		font-size: 1rem !important;;
+		width: 80% !important;
+		margin-top: 1.25rem !important;
+		font-size: 1rem !important;
 	}
 
 	.logo img {
@@ -85,6 +86,7 @@
 	.title {
 		display: flex !important;
 		flex-direction: column !important;
+		margin: 1em; 
 	}
 
 	.title h1 {
@@ -179,15 +181,8 @@
 
 	.contact {
 		display: flex !important;
+		flex-direction: column;
 		margin: 2rem !important;
-	}
-
-	.contact h2 {
-		margin-top: 20vh; 
-		text-align: left;
-		font-family: "Dosis";
-		color: white;
-		font-size: 3vw;
 	}
 
 	.info {
@@ -205,5 +200,9 @@
 
 	.info p {
 		font-size: 1.5rem !important;
+	}
+
+	.franchise {
+		margin: 5rem 5rem 5rem 5rem !important; 
 	}
 }

@@ -162,10 +162,11 @@ section {
 }
 
 .bStory {
-	margin-top: 5vh;
-	font-family: "Archivo Narrow";
-	font-size: 1.5vw;
-	text-align: left;
+	width: 60%;
+	margin: 5vh 0 0 0;
+	font-family: "Source Sans Pro";
+	font-size: 1.25vw;
+	text-align: center;
 	color: #ffebcd;
 }
 
@@ -184,6 +185,7 @@ section {
 	display: grid;
 	grid-template-rows: 5% 10% 10% 40% 20% auto;
 	align-items: center;
+	padding: 1rem;
 }
 
 .title h1 {
@@ -192,7 +194,6 @@ section {
 	text-align: left; 
 	font-family: "Dosis";
 	font-weight: bold;
-	/*font-size: 6rem;*/
 	font-size: 4.5vw;
 	color: white;
 }
@@ -201,14 +202,11 @@ section {
 	margin: 0;
 	padding: 0;
 	font-family: "Archivo Narrow";
-	font-size: 2vw;
-	/*font-size: 2.5rem;*/
+	font-size: 1.5vw;
+	font-weight: 0; 
 	color: #fa991c;
 	text-align: left; 
 }
-
-
-
 
 @keyframes captionAnimation {
 	from {
@@ -384,7 +382,7 @@ section {
 }
 
 .contact h2 {
-	margin-top: 20vh; 
+	margin-top: 8.25vh; 
 	text-align: left;
 	font-family: "Dosis";
 	color: white;
@@ -397,7 +395,7 @@ section {
 }
 
 .info h3 {
-	margin-top: 5vh; 
+	margin-top: 3vh; 
 	text-align: left;
 	font-family: "Archivo Narrow";
 	color: #fa991c;
@@ -416,7 +414,7 @@ section {
 	display: flex;
 	flex-direction: column;
 	margin: 10rem 5rem 5rem 5rem;
-	background-color: rgba(255,255,255,0.75);
+	background-color: rgba(255,255,255,0.8);
 	border-radius: 25px; 
 	padding: 2em 2em; 
 }
@@ -425,6 +423,7 @@ section {
 	font-family: "Dosis";
 	font-size: 3em; 
 	margin-bottom: 1em;
+	color: #fa991c;
 }
 
 .email {
@@ -432,6 +431,7 @@ section {
 	font-family: "Dosis"; 
 	font-weight: bold;
 	font-size: 1em;
+	color: #2f4858;
 }
 
 #email {
@@ -444,6 +444,8 @@ section {
 	border-bottom: 1px solid black;
 	font-family: "Source Sans Pro";
 	font-size: 1em; 
+	color: #4b5782;
+	font-weight: bold;
 }
 
 .contactNo {
@@ -451,11 +453,11 @@ section {
 	font-family: "Dosis"; 
 	font-weight: bold;
 	font-size: 1em; 
+	color: #2f4858;
 }
 
 #contactNo {
 	margin-top: 0.5em; 
-
 	padding: 0.5em 0.5em;
 	width: 90%;
 	border: 0;
@@ -464,7 +466,8 @@ section {
 	border-bottom: 1px solid black;
 	font-family: "Source Sans Pro";
 	font-size: 1em; 
-	overflow: hidden;
+	color: #4b5782;
+	font-weight: bold;
 }
 
 input[type=number] {
