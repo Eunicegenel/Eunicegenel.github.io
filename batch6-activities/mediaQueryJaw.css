@@ -154,55 +154,19 @@
 		display: flex !important;
 		flex-direction: column !important; 
 		align-items: center !important; 
-	}
-
-	.menuArea {
-		text-align: left;
-		z-index: 1; 
-	}
-
-	.menuArea h3 {
-		font-family: "Dosis";
-		font-size: 4vh;
-		color: white;
-		font-weight: bold;
-	}
-
-	.menuArea h4 {
-		font-family: "Archivo Narrow";
-		font-size: 3vh;
-		color: #2f4858;
-		font-weight: bold;
-	}
-
-	.menuArea p {
-		font-family: "Source Sans Pro";
-		font-size: 2.5vh;
-		color: #ffebcd;
-		margin: 0.24rem;
-	}
-
-	.menuArea a {
-		font-family: "Dosis";
-		font-size: 2.5vh;
-		color: #fa991c;
-		margin: 0.24rem;
-		text-align: right; 
-		font-weight: bold;
+		margin-bottom: 30rem !important; 
 	}
 
 	.menuPics {
-		display: grid;
-		margin-left: -60vw; 
+		display: flex !important;
+		margin-left: 0 !important;
 	}
 
 	.mPics {
-		height: 10vw;
-		width: auto;
-		border-radius: 25px;
-		margin: 1vh;
-		transition: ease 0.5s;
-		box-shadow: 5px 5px rgba(4,4,4,0.25);
+		height: auto !important;
+		width: 10rem !important;
+		border-radius: 0 !important;
+		margin: 2em 0 0 0 !important;
 	}
 
 	.mPics:hover {
@@ -210,21 +174,19 @@
 	}
 
 	#menuFries {
-		position: relative;
-		top: 25%;
-		left: 15%;
+		top: 0 !important;
+		left: 15em !important;
 	}
 
 	#menuBurger {
-		position: relative;
-		top: 3%;
-		left: 30%;
+		top: 5em !important;
+		left: 5em !important;
 	}
 
 	#menuJuice {
 		position: relative;
 		top: -15%;
-		left: 15%;
+		left: 0;
 	}
 
 	#menuCheese {
