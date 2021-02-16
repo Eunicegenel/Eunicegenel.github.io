@@ -56,6 +56,7 @@
 	}		
 
 	.wholePage {
+		animation: none !important;
 	    scroll-snap-type: none !important;
 	}
 
@@ -132,7 +133,7 @@
 	}
 
 	#menu {
-		margin: 5em !important; 
+		margin-top: 5em !important; 
 		display: flex !important;
 		flex-direction: column !important; 
 		align-items: center !important;
