@@ -227,7 +227,7 @@
 	.contact {
 		display: flex !important;
 		flex-direction: column;
-		margin: 2rem !important;
+		margin: 5rem !important;
 	}
 
 	.info {
@@ -236,15 +236,20 @@
 	}
 
 	.info h2 {
-		font-size: 2.5rem !important;
+		font-size: 2.25rem !important;
+
+		text-align: center !important;
 	}
 
 	.info h3 {
 		font-size: 1.25rem !important;
+
+		text-align: center !important;
 	}
 
 	.info p {
 		font-size: 1rem !important;
+		text-align: center !important;
 	}
 
 	.franchise {

@@ -461,7 +461,7 @@ section {
 	font-family: "Dosis";
 	font-size: 3em; 
 	margin-bottom: 1em;
-	color: #fa991c;
+	color: #4b8077;
 }
 
 .email {
@@ -522,11 +522,11 @@ input[type=number] {
 	margin-top: 1em; 
 	width: 50%;
 	font-family: "Lato";
-	color: #2f4858;
+	color: #4b8077;
 	font-size: 1em; 
 	padding: 0.5em 0.5em;
 	background-color: rgba(0,0,0,0);
-	border: 3px solid #2f4858;
+	border: 3px solid #4b8077;
 	transition: 0.5s ease;   
 }
 
