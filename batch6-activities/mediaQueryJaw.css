@@ -132,10 +132,11 @@
 	}
 
 	#menu {
-		margin-top: 5em !important; 
+		margin: 5em !important; 
 		display: flex !important;
 		flex-direction: column !important; 
-		align-items: center !important; 
+		align-items: center !important;
+		justify-content: : center !important;  
 		margin-bottom: 0rem !important;
 		height: 620vh !important;  
 	}
@@ -218,7 +219,8 @@
 	}
 
 	.franchise {
-		margin: 5rem 5rem 5rem 5rem !important; 
+		margin: 5rem 0 5rem 0rem !important;
+		width: 20em !important;
 	}
 
 	.franchise h1 {
