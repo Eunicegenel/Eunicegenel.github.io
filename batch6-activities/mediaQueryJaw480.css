@@ -287,4 +287,8 @@
 		background-attachment: fixed;
 		padding: 1em !important;
 	}
+
+	.btnSub {
+	width: 60% !important;
+}
 }
