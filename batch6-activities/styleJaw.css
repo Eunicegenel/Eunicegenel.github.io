@@ -1,4 +1,5 @@
-@import "mediaQueryJaw.css";
+@import "mediaQueryJaw480.css";
+@import "mediaQueryJaw360.css";
 
 * {
 	margin: 0;

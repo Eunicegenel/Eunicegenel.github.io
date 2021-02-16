@@ -1,0 +1,228 @@
+@media screen and (max-width: 480px) {
+	#slider figure img {
+		height: 90vh !important;
+	}
+
+	.nav-bar .nav-link {
+		width: 4vw !important;
+	}
+
+	
+
+	#slider figure img {
+		height: 90vh;
+	}
+
+	.home {
+		top: 0% !important;
+		left: 0% !important;
+		padding-left: 5% !important; 
+		color: #ffebcd !important;
+		font-size: 2em !important;
+		background-color: #2f4858;
+		width: 100%;
+	}
+
+	.nav-bar .nav-link {
+		width: 2.25em !important;
+		padding: 1.5vh 10vw !important;
+		border-radius: 0% !important;
+		background-color: #2f4858 !important;
+	}
+
+	#homeLink {
+		top: 91% !important;
+		left: 0% !important;
+	}
+
+	#menuLink {
+		top: 91% !important;
+		left: 25% !important;
+	}
+
+	#aboutUsLink {
+		top: 91% !important;
+		left: 50% !important;
+	}
+
+	#phoneLink {
+		top: 91% !important;
+		left: 75% !important;
+	}
+
+	.sideTxt {
+		margin: -50vh 0 0 -0.5vh !important; 
+		font-size: 2rem !important;
+	}		
+
+	.wholePage {
+		animation: none !important;
+	    scroll-snap-type: none !important;
+	}
+
+	section {
+	    max-height: none !important;
+	}
+
+	.landingPage {
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	.bStory {
+		width: 80% !important;
+		margin-top: 1.25rem !important;
+		font-size: 1rem !important;
+	}
+
+	.logo img {
+		display: none !important;
+	}
+
+	.ytVID {
+		margin-top: 1rem !important; 
+		text-align: left;
+	}
+
+	.title {
+		display: flex !important;
+		flex-direction: column !important;
+		margin: 1em; 
+	}
+
+	.title h1 {
+		font-size: 3rem !important;
+		margin-bottom: 1rem !important;
+	}
+
+	.title p {
+		font-size: 1.5rem !important;
+	}
+
+
+	.fries {
+		display: none !important;
+	}
+
+	.nachos {
+		display: none !important;
+	}
+
+	.onionRings {
+		display: none !important;
+	}
+
+	.hamburger {
+		display: none !important;
+	}
+
+	.chicken {
+		display: none !important;
+	}
+
+	.steak {
+		display: none !important;
+	}
+
+	.cake {
+		display: none !important;
+	}
+
+	.drinks {
+		display: none !important;
+	}
+
+	#menu {
+		margin-top: 5em !important; 
+		display: flex !important;
+		flex-direction: column !important;  
+		margin-bottom: 0rem !important;
+		height: 620vh !important;  
+	}
+
+	.menuArea {
+		margin: 5rem !important; 
+	}
+
+	.menuArea h3 {
+		font-size: 4vh;
+	}
+
+	.menuArea h4 {
+		font-size: 3vh;
+	}
+
+	.menuArea .detes {
+		max-width: 16em; 
+		margin: 0.24rem;
+	}
+
+	.dish {
+		font-size: 2.5vh;
+		font-weight: 600; 
+	}
+
+	.menuArea a {
+		font-size: 2.5vh;
+		font-weight: 600;
+		margin-top: 0rem; 
+	}
+
+	.foodTray {
+		flex-direction: column !important;
+	}
+
+	.menuPics {
+		margin-top: 2rem !important;
+		margin-left: 0 !important; 
+		display: flex;
+		flex-direction: row !important;
+		justify-content: center;
+	}
+
+	.mPics {
+		margin: -2px;
+		padding: 0;
+		height: 12.5rem;
+		width: auto;
+		transition: ease 0.5s;
+		box-shadow: 10px 10px rgba(4,4,4,0.1);
+	}
+
+
+	.parallax {
+		margin-top: 0.5rem !important;
+	}
+
+	.contact {
+		display: flex !important;
+		flex-direction: column;
+		margin: 2rem !important;
+	}
+
+	.info {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.info h2 {
+		font-size: 3rem !important;
+	}
+
+	.info h3 {
+		font-size: 1.5rem !important;
+	}
+
+	.info p {
+		font-size: 1.5rem !important;
+	}
+
+	.franchise {
+		margin: 5rem 0 5rem 0rem !important;
+		width: 20em !important;
+	}
+
+	.franchise h1 {
+		font-size: 2em !important;
+	}
+}
