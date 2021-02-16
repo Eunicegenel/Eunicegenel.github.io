@@ -261,4 +261,29 @@
 	.franchise h1 {
 		font-size: 2em !important;
 	}
+
+	.thanks {
+		margin-left: 5rem !important;
+	}
+
+	.thanks h1 {
+		font-size: 1.75em !important;
+		font-weight: 700 !important;
+	}
+
+	.thanks p {
+		margin-top: 1em !important; 
+		font-size: 1.25em !important;
+	}
+
+	#logoWhite {
+		margin-top: 4em !important; 
+		width: 15rem !important;
+	}
+
+	.thankYou {
+		background-image: linear-gradient(to right bottom, #1e282e, #192125, #141a1c, #0f1314, #080909);
+		background-attachment: fixed;
+		padding: 1em !important;
+	}
 }
