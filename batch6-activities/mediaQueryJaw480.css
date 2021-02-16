@@ -68,6 +68,7 @@
 		display: flex !important;
 		flex-direction: column !important;
 		height: 70rem !important;
+		margin-bottom: 20rem !important;
 	}
 
 	.bStory {
@@ -163,10 +164,10 @@
 	}
 
 	#menu {
-		margin-top: 5em !important; 
+		margin-top: 15em !important; 
 		display: flex !important;
 		flex-direction: column !important;  
-		margin-bottom: 40rem !important;
+		margin-bottom: 20rem !important;
 		height: 620vh !important;  
 	}
 

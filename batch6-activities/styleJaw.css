@@ -327,6 +327,7 @@ section {
 	position: relative;
 	height: 42rem;
 	width: 100%;
+	margin-bottom: 15rem;
 	display: grid;
 	grid-template-columns: 15% 40% 40% 5%; 
 }
