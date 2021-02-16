@@ -1,5 +1,4 @@
 @import "mediaQueryJaw480.css";
-@import "mediaQueryJaw360.css";
 
 * {
 	margin: 0;
@@ -38,7 +37,7 @@ body {
 
 #slider figure img {
 	width: 20%; 
-	height: 95vh;
+	height: 96vh;
 	float: left;
 	z-index: -2;
 	object-fit: cover;
@@ -221,7 +220,8 @@ section {
 	display: grid;
 	grid-template-columns: 16% 94%; 
 	align-items: center;
-	margin-top: 20rem;  
+	margin-top: 20rem; 
+	margin-bottom: 10rem;  
 }
 
 .menuArea {
@@ -259,13 +259,6 @@ section {
 	font-weight: 600; 
 }
 
-.dish1 {
-	color: #4b8077;
-	font-family: "Lato";
-	font-size: 2.5vh;
-	text-align: right; 
-}
-
 .menuArea a {
 	color: #fb6b5e;
 	font-family: "Dosis";
@@ -275,6 +268,9 @@ section {
 
 .foodTray {
 	display: flex;
+	background-image: linear-gradient(to right bottom, #1e282e, #192125, #141a1c, #0f1314, #080909);
+	background-attachment: fixed;
+	padding: 2em 1em 2em 1em;
 }
 
 .menuPics {
@@ -289,12 +285,12 @@ section {
 	padding: 0;
 	height: 12.5rem;
 	width: auto;
-	transition: ease 0.5s;
+	transition: ease 0.3s;
 	box-shadow: 5px 5px rgba(4,4,4,0.1);
 }
 
 .mPics:hover {
-	transform: scale(1.25);
+	transform: scale(1.5);
 }
 
 
@@ -327,11 +323,12 @@ section {
 
 
 .landingPage {
+	background-image: linear-gradient(to right bottom, #fdfdeb, #fcfae0, #fcf6d4, #fdf2c8, #ffeebd); 
 	position: relative;
 	height: 42rem;
 	width: 100%;
 	display: grid;
-	grid-template-columns: 15% 45% 30% 10%; 
+	grid-template-columns: 15% 40% 40% 5%; 
 }
 
 .bStory {
@@ -339,36 +336,47 @@ section {
 	margin: 5vh 0 0 0;
 	font-family: "Raleway";
 	font-size: 1.25vw;
-	text-align: center;
-	color: #ffebcd;
+	color: #4b8077;
+	line-height: 1.6em;
 }
 
 .logo img {
 	position: relative;
-	width: 30vw;
-	margin-top: 27.5vh;
+	width: 5em;
+	/*margin-top: 27.5vh;*/
 	z-index: 1;
 }
 
 .ytVID {
-	text-align: left;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.vid {
+	width: 100%;
+	height: 17.75rem;
+	margin: 0.25em; 
 }
 
 .title {
-	display: grid;
-	grid-template-rows: 5% 10% 10% 40% 20% auto;
+	display: flex;
+	flex-direction: column; 
 	align-items: center;
+	justify-content: center;
 	padding: 1rem;
+	border: solid 5px #4b8077; 
+	margin: 3rem;
 }
 
 .title h1 {
 	margin: 0;
 	padding: 0;
-	text-align: left; 
 	font-family: "Dosis";
 	font-weight: bold;
 	font-size: 4.5vw;
-	color: white;
+	color: #fa991c;
 }
 
 .title p {
@@ -376,9 +384,9 @@ section {
 	padding: 0;
 	font-family: "Lato";
 	font-size: 1.5vw;
-	font-weight: 0; 
-	color: #fa991c;
-	text-align: left; 
+	font-weight: 600; 
+	color: #2f4858;
+	line-height: 1.6em;
 }
 
 @keyframes captionAnimation {
@@ -412,20 +420,24 @@ section {
 	text-align: left;
 	font-family: "Dosis";
 	color: white;
-	font-size: 3vw;
+	font-size: 2.5em;
 }
 
 .info {
+	background-image: linear-gradient(to right bottom, #1e282e, #192125, #141a1c, #0f1314, #080909);
+	background-attachment: fixed;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
+	padding: 1em;
 }
 
 .info h3 {
-	margin-top: 3vh; 
+	margin-top: 2em; 
 	text-align: left;
 	font-family: "Lato";
 	color: #fa991c;
-	font-size: 2vw;
+	font-size: 1.5em;
 }
 
 .info p {
@@ -433,14 +445,14 @@ section {
 	text-align: left;
 	font-family: "Raleway";
 	color: #ffebcd;
-	font-size: 1.5vw;
+	font-size: 1.25em;
 }
 
 .franchise {
 	display: flex;
 	flex-direction: column;
 	margin: 10rem 5rem 5rem 5rem;
-	background-color: rgba(255,255,255,0.8);
+	background-color: rgba(255,255,255,0.85);
 	border-radius: 25px; 
 	padding: 2em 2em; 
 }
@@ -503,9 +515,11 @@ input[type=number] {
 .tempSub {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 
 .btnSub {
+	margin-top: 1em; 
 	width: 50%;
 	font-family: "Lato";
 	color: #2f4858;
@@ -518,4 +532,5 @@ input[type=number] {
 
 .btnSub:hover {
 	transform: scale(1.25);
+	font-weight: bold; 
 }

@@ -67,6 +67,7 @@
 	.landingPage {
 		display: flex !important;
 		flex-direction: column !important;
+		height: 70rem !important;
 	}
 
 	.bStory {
@@ -76,12 +77,17 @@
 	}
 
 	.logo img {
-		display: none !important;
+		/*display: none !important;*/
 	}
 
 	.ytVID {
 		margin-top: 1rem !important; 
-		text-align: left;
+	}
+
+	.vid {
+		width: 80% !important;
+		height: 13.5rem !important;
+		margin: 0.25em; 
 	}
 
 	.title {
@@ -101,42 +107,66 @@
 
 
 	.fries {
-		display: none !important;
+		/*display: none !important;*/
+		width: 4rem !important;
+		left: 80vw;
+		top: 10vh !important;
 	}
 
 	.nachos {
-		display: none !important;
+		/*display: none !important;*/
+		width: 4rem !important;
+		left: 50vw !important;
+		top: 10vh !important;
 	}
 
 	.onionRings {
-		display: none !important;
+		/*display: none !important;*/
+		width: 4rem !important;
+		left: 65vw !important;
+		top: 25vh !important;
 	}
 
 	.hamburger {
-		display: none !important;
+		/*display: none !important;*/
+		width: 4rem !important;
+		left: 80vw !important;
+		top: 40vh !important;
 	}
 
 	.chicken {
-		display: none !important;
+		/*display: none !important;*/
+		width: 4rem !important;
+		left: 65vw !important;
+		top: 55vh !important;
 	}
 
 	.steak {
-		display: none !important;
+		/*display: none !important;*/
+		width: 4rem !important;
+		left: 50vw !important;
+		top: 40vh !important;
 	}
 
 	.cake {
-		display: none !important;
+		/*display: none !important;*/
+		width: 4rem !important;
+		left: 50vw !important;
+		top: 70vh !important;
 	}
 
 	.drinks {
-		display: none !important;
+		/*display: none !important;*/
+		width: 4rem !important;
+		left: 80vw !important;
+		top: 70vh !important;
 	}
 
 	#menu {
 		margin-top: 5em !important; 
 		display: flex !important;
 		flex-direction: column !important;  
-		margin-bottom: 0rem !important;
+		margin-bottom: 40rem !important;
 		height: 620vh !important;  
 	}
 
@@ -145,7 +175,7 @@
 	}
 
 	.menuArea h3 {
-		font-size: 4vh;
+		font-size: 2.5em !important;
 	}
 
 	.menuArea h4 {
@@ -173,7 +203,7 @@
 	}
 
 	.menuPics {
-		margin-top: 2rem !important;
+		margin-top: 3rem !important;
 		margin-left: 0 !important; 
 		display: flex;
 		flex-direction: row !important;
@@ -206,20 +236,21 @@
 	}
 
 	.info h2 {
-		font-size: 3rem !important;
+		font-size: 2.5rem !important;
 	}
 
 	.info h3 {
-		font-size: 1.5rem !important;
+		font-size: 1.25rem !important;
 	}
 
 	.info p {
-		font-size: 1.5rem !important;
+		font-size: 1rem !important;
 	}
 
 	.franchise {
 		margin: 5rem 0 5rem 0rem !important;
 		width: 20em !important;
+		border-radius: 0px !important; 
 	}
 
 	.franchise h1 {
