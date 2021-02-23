@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Metrophobic&family=Permanent+Marker&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="styleTicTacToe.css">
+</head>
+<body>
+    <section>
+        <div class="player">
+            <p id="X" onClick="player(this.id)">X</p>
+            <h1>PLAY AS?</h1>
+            <p id="O" onClick="player(this.id)">O</p>
+        </div>
+        <div class="previous">
+            <p>ᐊ</p>
+        </div>
+        <div class="next">
+            <p>ᐅ</p>
+        </div>
+        <div class="infoCover">
+            <p>#</p>
+        </div>
+        <div class="wholePage">
+            <div class="gamePage">
+                <div class="gameContainer">
+                    <div class="border"><p>C</p></div>
+                    <div data-cell-index="0" id="C1" class="cell"></div>
+                    <div data-cell-index="1" id="C2" class="cell"></div>
+                    <div data-cell-index="2" id="C3" class="cell"></div>
+
+                    <div class="border"><p>B</p></div>
+                    <div data-cell-index="3" id="B1" class="cell"></div>
+                    <div data-cell-index="4" id="B2" class="cell"></div>
+                    <div data-cell-index="5" id="B3" class="cell"></div>
+
+                    <div class="border"><p>A</p></div>
+                    <div data-cell-index="6" id="A1" class="cell"></div>
+                    <div data-cell-index="7" id="A2" class="cell"></div>
+                    <div data-cell-index="8" id="A3" class="cell"></div>
+
+                    <div class="border"><p> </p></div>
+                    <div class="border"><p>1</p></div>
+                    <div class="border"><p>2</p></div>
+                    <div class="border"><p>3</p></div>
+                </div>
+                <h2 class="gameStatus"></h2>
+            </div>
+            <div class="infoPage">
+                <div></div>
+                <h1 class="gameTitle">Tic Tac Toe</h1>
+                <div class="infoX">
+                    <h2>X</h2>
+                    <P id="moveX"></P>
+                </div>
+                <div class="infoO">
+                    <p id="moveO"></p>
+                    <h2>O</h2>
+                    
+                </div>
+                <button class="gameRestart">RESTART GAME</button>
+                <div></div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const winningConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        var currentPlayer="X";
+
+        function player (id) {
+            currentPlayer = String(id);
+            statusDisplay.innerHTML = currentPlayerTurn();
+            console.log(currentPlayer);
+            document.querySelector('.player').style.display = "none";
+            document.querySelector('.infoCover').style.display = "none";
+        }
+
+        const statusDisplay = document.querySelector('.gameStatus');
+
+        let gameActive = true;
+
+        let xMoves = [];
+
+        let oMoves = [];
+
+        var prevXmoves = [];
+
+        var prevOmoves = [];
+
+        let gameState = ["", "", "", "", "", "", "", "", ""];
+
+        var prevState = [];
+
+        const winningMessage = () => `${currentPlayer} WON`;
+        const drawMessage = () => `DRAW`;
+        const currentPlayerTurn = () => `${currentPlayer} TURN`;
+
+        statusDisplay.innerHTML = currentPlayerTurn();
+
+        function handleCellClick(clickedCellEvent) {
+            const clickedCell = clickedCellEvent.target;
+
+            prevState = gameState.slice(0);
+
+            prevXmoves = xMoves.slice(0);
+            prevOmoves = oMoves.slice(0);
+            console.log(prevXmoves);
+            console.log(prevOmoves);
+
+            const clickedCellIndex = parseInt(
+              clickedCell.getAttribute('data-cell-index')
+            );
+
+            if (gameState[clickedCellIndex] !== "" || !gameActive) {
+                return;
+            }
+
+            if (currentPlayer === "X") {
+                var x = clickedCell.getAttribute('id');
+                var moveX = document.querySelector('#moveX');
+                xMoves.push(x);
+                moveX.innerHTML = xMoves;
+            }
+            else if (currentPlayer === "O") {
+                var o = clickedCell.getAttribute('id');
+                var moveO = document.querySelector('#moveO');
+                oMoves.unshift(o);
+                moveO.innerHTML = oMoves;
+            }
+
+            handleCellPlayed(clickedCell, clickedCellIndex);
+            handleResultValidation();
+        }
+
+        function handleCellPlayed(clickedCell, clickedCellIndex) {
+            gameState[clickedCellIndex] = currentPlayer;
+            clickedCell.innerHTML = currentPlayer;
+        }
+
+        function handleResultValidation() {
+            let roundWon = false;
+            for (let i = 0; i <= 7; i++) {
+                const winCondition = winningConditions[i];
+                let a = gameState[winCondition[0]];
+                let b = gameState[winCondition[1]];
+                let c = gameState[winCondition[2]];
+                if (a === '' || b === '' || c === '') {
+                    continue;
+                }
+                if (a === b && b === c) {
+                    roundWon = true;
+                    break
+                }
+            }
+            if (roundWon) {
+                statusDisplay.innerHTML = winningMessage();
+                gameActive = false;
+                document.querySelector('.previous').style.visibility = "visible";
+                return;
+            }
+
+            let roundDraw = !gameState.includes("");
+            if (roundDraw) {
+                statusDisplay.innerHTML = drawMessage();
+                gameActive = false;
+                document.querySelector('.previous').style.visibility = "visible";
+                return;
+            }
+
+            handlePlayerChange();
+        }
+
+        function handlePlayerChange() {
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            statusDisplay.innerHTML = currentPlayerTurn();
+        }
+
+        function handleRestartGame() {
+            gameActive = true;
+            currentPlayer = "X";
+            gameState = ["", "", "", "", "", "", "", "", ""];
+            statusDisplay.innerHTML = currentPlayerTurn();
+            xMoves = [];
+            moveX.innerHTML = xMoves;
+            oMoves = [];
+            moveO.innerHTML = oMoves;
+            prevState = [];
+            document.querySelector('.player').style.display = "grid";
+            document.querySelector('.infoCover').style.display = "grid";
+            document.querySelector('.next').style.visibility = "hidden";
+            document.querySelector('.previous').style.visibility = "hidden";
+            document.querySelectorAll('.cell')
+                       .forEach(cell => cell.innerHTML = "");
+        }
+
+        function prevLayout() {
+            document.querySelector('.next').style.visibility = "visible";
+            document.querySelector('.previous').style.visibility = "hidden";
+            document.querySelector('#moveX').innerHTML = prevXmoves;
+            document.querySelector('#moveO').innerHTML = prevOmoves;
+            for (var i = 0; i < gameState.length; i++) {
+                if (i===0) {
+                    document.querySelector('#C1').innerHTML = prevState[i];
+                }
+                else if (i===1) {
+                    document.querySelector('#C2').innerHTML = prevState[i];
+                }
+                else if (i===2) {
+                    document.querySelector('#C3').innerHTML = prevState[i];
+                }
+                else if (i===3) {
+                    document.querySelector('#B1').innerHTML = prevState[i];
+                }
+                else if (i===4) {
+                    document.querySelector('#B2').innerHTML = prevState[i];
+                }
+                else if (i===5) {
+                    document.querySelector('#B3').innerHTML = prevState[i];
+                }
+                else if (i===6) {
+                    document.querySelector('#A1').innerHTML = prevState[i];
+                }
+                else if (i===7) {
+                    document.querySelector('#A2').innerHTML = prevState[i];
+                }
+                else if (i===8) {
+                    document.querySelector('#A3').innerHTML = prevState[i];
+                }
+            }
+        }
+
+        function finalLayout() {
+            document.querySelector('.previous').style.visibility = "visible";
+            document.querySelector('.next').style.visibility = "hidden";
+            document.querySelector('#moveX').innerHTML = xMoves;
+            document.querySelector('#moveO').innerHTML = oMoves;
+            for (var i = 0; i < gameState.length; i++) {
+                if (i===0) {
+                    document.querySelector('#C1').innerHTML = gameState[i];
+                }
+                else if (i===1) {
+                    document.querySelector('#C2').innerHTML = gameState[i];
+                }
+                else if (i===2) {
+                    document.querySelector('#C3').innerHTML = gameState[i];
+                }
+                else if (i===3) {
+                    document.querySelector('#B1').innerHTML = gameState[i];
+                }
+                else if (i===4) {
+                    document.querySelector('#B2').innerHTML = gameState[i];
+                }
+                else if (i===5) {
+                    document.querySelector('#B3').innerHTML = gameState[i];
+                }
+                else if (i===6) {
+                    document.querySelector('#A1').innerHTML = gameState[i];
+                }
+                else if (i===7) {
+                    document.querySelector('#A2').innerHTML = gameState[i];
+                }
+                else if (i===8) {
+                    document.querySelector('#A3').innerHTML = gameState[i];
+                }
+            }
+        }
+
+        document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+        document.querySelector('.gameRestart').addEventListener('click', handleRestartGame);
+        document.querySelector('.previous').addEventListener('click', prevLayout);
+        document.querySelector('.next').addEventListener('click', finalLayout);
+
+    </script>
+</body>
+</html>
+
+<!-- https://css-tricks.com/controlling-css-animations-transitions-javascript/ -->
