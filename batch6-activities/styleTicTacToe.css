@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Arial";
+
+}
+
+.player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 50%;
+    background-color: #275e71;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: 45% 10% 45%;
+    align-items: center;
+}
+
+.player p {
+    cursor: pointer;
+    font-family: "Permanent Marker";
+    font-size: 30vh;
+    color: #ffebcd;
+    transition: 0.5s ease;
+}
+
+.player p:hover {
+    background-color: rgba(4,4,4,0.5);
+}
+
+.player h1 {
+    font-family: "Permanent Marker";
+    font-size: 10vh;
+    color: #ffebcd;
+}
+
+.infoCover {
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    height: 63vh;
+    width: 50%;
+    background-color: #00a59c;
+    z-index: 1;
+    display: grid;
+    align-items: center;
+}
+
+.infoCover p {
+    font-family: "Permanent Marker";
+    font-size: 30vh;
+    color: #ffebcd;
+}
+
+.previous {
+    cursor: pointer;
+    visibility: hidden;
+    position: absolute;
+    display: grid;
+    padding: 0 3vh 0 3vh;
+    z-index: 0;
+    top: 76%;
+    left: 52.5%;
+    background-color: rgba(0,0,0,0);
+    font-size: 10vh;
+    color: #364b45;
+    font-weight: bold;
+    transition: 0.5s ease;
+}
+
+.previous:hover, .next:hover {
+    transform: scale(1.5);
+}
+
+.next {
+    cursor: pointer;
+    visibility: hidden;
+    display: grid;
+    position: absolute;
+    padding: 0 3vh 0 3vh;
+    z-index: 0;
+    top: 76%;
+    left: 90.75%;
+    background-color: rgba(0,0,0,0);
+    font-size: 10vh;
+    border-radius: 50%;
+    color: #364b45;
+    font-weight: bold;
+    transition: 0.5s ease;
+}
+
+
+
+.wholePage {
+    display: grid;
+    justify-content: center;
+    align-items: center; 
+    grid-template-columns: 50% 50%;
+}
+
+.gamePage {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to left top, #2ecc71, #20ca7b, #12c785, #08c48d, #09c194, #00bea2, #00baae, #00b6b6, #00b0c4, #00aad0, #00a2d8, #3498db);
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-auto-rows: 70% 30%;
+}
+
+section {
+    text-align: center;
+}
+
+.gameContainer {
+    margin: 25vh 0 0 -5vw;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    align-items: center;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Permanent Marker";
+    width: 10vw;
+    height: 10vw;
+    cursor: pointer;
+    font-size: 10vh;
+    color: #ffebcd;
+}
+
+.cell:hover {
+    background-color: rgba(255,255,255,0.15);
+}
+
+.gamePage h2 {
+    margin-top: 10vh;
+    font-family: "Metrophobic";
+    font-size: 7vh;
+    color: #2f4858;
+}
+
+.border {
+    font-family: "Metrophobic";
+    font-size: 5vh;
+    font-weight: bold;
+    color: #364b45;
+    margin: 5vh
+}
+
+.infoPage {
+    display: grid;
+    grid-auto-columns: auto 80% auto;
+    justify-content: center;
+}
+
+.gameTitle {
+    font-family: "Permanent Marker";
+    color: #2f4858;
+    font-size: 10vh;
+}
+
+.infoX {
+    margin: 10vh 0 5vh 0;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.infoX h2 {
+    font-family: "Permanent Marker";
+    color: #364b45;
+    font-size: 7.5vh;
+}
+
+.infoX p {
+    font-family: "Metrophobic";
+    color: #364b45;
+    font-size: 5vh;
+    margin-left: 3vw;
+}
+
+.infoO {
+    margin: 5vh 0 10vh 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.infoO h2 {
+    font-family: "Permanent Marker";
+    color: #364b45;
+    font-size: 7.5vh;
+}
+
+.infoO p {
+    font-family: "Metrophobic";
+    color: #364b45;
+    font-size: 5vh;
+    margin-right: 3vw;
+}
+
+.gameRestart {
+    cursor: pointer;
+    padding: 2vh 3vh;
+    background-color: rgba(0,0,0,0);
+    border: 1vh solid #4b8077;
+    font-family: "Metrophobic";
+    font-size: 3vh;
+    color: #364b45;
+    font-weight: bold;
+    transition: 0.5s ease;
+}
+
+.gameRestart:hover {
+    transform: scale(1.2);
+}
+
+#C1 {
+    border-bottom: 0.5vh solid #2f4858;
+    border-right: 0.5vh solid #2f4858;
+}
+
+#C2 {
+    border-bottom: 0.5vh solid #2f4858;
+    border-right: 0.5vh solid #2f4858;
+    border-left: 0.5vh solid #2f4858;
+}
+
+#C3 {
+    border-bottom: 0.5vh solid #2f4858;
+    border-left: 0.5vh solid #2f4858;
+}
+
+#B1 {
+    border-top: 0.5vh solid #2f4858;
+    border-bottom: 0.5vh solid #2f4858;
+    border-right: 0.5vh solid #2f4858;
+}
+
+#B2 {
+    border: 0.5vh solid #2f4858;
+}
+
+#B3 {
+    border-top: 0.5vh solid #2f4858;
+    border-bottom: 0.5vh solid #2f4858;
+    border-left: 0.5vh solid #2f4858;
+}
+
+#A1 {
+    border-top: 0.5vh solid #2f4858;
+    border-right: 0.5vh solid #2f4858;
+}
+
+#A2 {
+    border-top: 0.5vh solid #2f4858;
+    border-right: 0.5vh solid #2f4858;
+    border-left: 0.5vh solid #2f4858;
+}
+
+#A3 {
+    border-top: 0.5vh solid #2f4858;
+    border-left: 0.5vh solid #2f4858;
+}
