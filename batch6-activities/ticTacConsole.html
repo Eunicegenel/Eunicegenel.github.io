@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac Toe</title>
+</head>
+<body>
+	 <script>
+        const winningConditions = [
+            [[0,0],[0,1],[0,2]],
+            [[1,0],[1,1],[1,2]],
+            [[2,0],[2,1],[2,2]],
+            [[0,0],[1,0],[2,0]],
+            [[0,1],[1,1],[2,1]],
+            [[0,2],[1,2],[2,2]],
+            [[0,0],[1,1],[2,2]],
+            [[0,2],[1,1],[2,0]]
+        ];
+
+        var player1 = "";
+
+        var player2 = "";
+
+        var currentPlayer = "";
+
+        var gameActive = true;
+
+        var cellX = 0;
+
+        var cellY = 0;
+
+        var gameState = [["","",""], ["","",""], ["","",""]];
+
+        var boardMoves = [["1","2","3"], ["4","5","6"], ["7","8","9"]];
+
+        var prevState = [];
+
+        var newState = [];
+
+       function newGame() {
+       		console.log("Welcome to TicTacToe IN CONSOLE");
+       		console.log("This down here's the board")
+        	console.log(gameState[0]);
+        	console.log(gameState[1]);
+        	console.log(gameState[2]);
+        	console.log("Input Player Characters")
+        	player1 = prompt("Enter Player 1's Player Character : ");
+        	player2 = prompt("Enter Player 2's Player Character : ");
+        	console.log("Player 1 is " + player1);
+        	console.log("Player 2 is " + player2);
+        	console.log("Enter coordinate, this is the basis for the moves");
+        	console.log(boardMoves[0]);
+        	console.log(boardMoves[1]);
+        	console.log(boardMoves[2]);
+        	console.log("Enter the number based on the image above, this number is the placement/move of your character")
+
+        	currentPlayer = player1;
+        	
+        	for (var i = 0; i <= 50; i++) {
+        		if (gameActive) {
+        			move = parseInt(prompt("Player " + currentPlayer + "'s Turn"));
+	        		if (move === 1) {
+	        			cellX = 0;
+	        			cellY = 0;
+	        		} else if (move === 2) {
+	        			cellX = 0;
+	        			cellY = 1;
+	        		} else if (move === 3) {
+	        			cellX = 0;
+	        			cellY = 2;
+	        		} else if (move === 4) {
+	        			cellX = 1;
+	        			cellY = 0;
+	        		} else if (move === 5) {
+	        			cellX = 1;
+	        			cellY = 1;
+	        		} else if (move === 6) {
+	        			cellX = 1;
+	        			cellY = 2;
+	        		} else if (move === 7) {
+	        			cellX = 2;
+	        			cellY = 0;
+	        		} else if (move === 8) {
+	        			cellX = 2;
+	        			cellY = 1;
+	        		} else if (move === 9) {
+	        			cellX = 2;
+	        			cellY = 2;
+	        		} else {
+	        			console.log("Move not possible")
+	        			i--;
+	        			continue;
+	        		}
+        		}
+
+	            console.log(currentPlayer + " chose slot " + move);
+	            placement(cellX, cellY);
+	            handleResultValidation(cellX, cellY);
+        	}
+        	console.log("Input 1 to Restart Game");
+        	final();
+		}
+
+		function placement(cellX, cellY) {
+    		newState = [...gameState];
+			prevState.unshift(newState);
+			newState = [];
+			console.log(prevState);
+
+			if (gameState[cellX][cellY] === "") {
+				gameState[cellX][cellY] = currentPlayer;
+            } else {
+            	console.log("Move not possible");
+            	changePlayer();
+            }
+            console.log(gameState[0]);
+        	console.log(gameState[1]);
+        	console.log(gameState[2]);
+		}
+
+		function handleResultValidation(cellX, cellY) {
+            let roundWon = false;
+            for (let i = 0; i <= 7; i++) {
+                const winCondition = winningConditions[i];
+                var x0 = parseInt(winCondition[0][0]);
+                var y0 = parseInt(winCondition[0][1]);
+                var x1 = parseInt(winCondition[1][0]);
+                var y1 = parseInt(winCondition[1][1]);
+                var x2 = parseInt(winCondition[2][0]);
+                var y2 = parseInt(winCondition[2][1]);
+                let a = gameState[x0][y0];
+                let b = gameState[x1][y1];
+                let c = gameState[x2][y2];
+                if (a === '' || b === '' || c === '') {
+                    continue;
+                }
+                if (a === b && b === c) {
+                    roundWon = true;
+                    break
+                }
+            }
+
+            if (roundWon) {
+            	console.log("Player " + currentPlayer + " won!!!")
+                gameActive = false;
+                return;
+            }
+
+            let roundDraw = !gameState[0].includes("")&&!gameState[1].includes("")&&!gameState[2].includes("");
+            if (roundDraw) {
+                console.log("It's a draw!!!")
+                gameActive = false;
+                return;
+            }
+
+	        changePlayer();
+        }
+
+        function changePlayer() {
+        	if (currentPlayer == player1) {
+            	currentPlayer = player2;
+            } else if (currentPlayer == player2) {
+            	currentPlayer = player1;
+            }
+        }
+
+        function final() {
+        	choice = parseInt(prompt("Restart Game?"));
+        	if (choice === 1) {
+        		location.reload(); 
+        	}
+        }
+
+		newGame();
+
+
+
+
+    </script>
+
+</body>
+</html>
