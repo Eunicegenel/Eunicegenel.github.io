@@ -29,7 +29,7 @@
 
     .wholePage {
     	animation: transitionIn ease 1s;
-    	cursor: url("vanguardAssets/cursorV.png"), pointer;
+    	cursor: url("vanguardAssets/cursorV.png"), auto;
     	height: 100vh;
         width: 100%;
         max-width: 3000px;
