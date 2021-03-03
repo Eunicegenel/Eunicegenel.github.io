@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Card Game</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const cardDeck = [["♣","A"],["♠","A"],["♥","A"],["◆","A"],["♣","2"],["♠","2"],["♥","2"],["◆","2"],["♣","3"],["♠","3"],["♥","3"],["◆","3"],["♣","4"],["♠","4"],["♥","4"],["◆","4"],["♣","5"],["♠","5"],["♥","5"],["◆","5"],["♣","6"],["♠","6"],["♥","6"],["◆","6"],["♣","7"],["♠","7"],["♥","7"],["◆","7"],["♣","8"],["♠","8"],["♥","8"],["◆","8"], ["♣","9"],["♠","9"],["♥","9"],["◆","9"],["♣","10"],["♠","10"],["♥","10"],["◆","10"],["♣","J"],["♠","J"],["♥","J"],["◆","J"],["♣","Q"],["♠","Q"],["♥","Q"],["◆","Q"],["♣","K"],["♠","K"],["♥","K"],["◆","K"]];
+
+		const shuffledDeck = [...cardDeck];
+
+		const wordDeck = [...cardDeck];
+
+		const cardGame = true;
+
+		function newGame() {
+			console.log("Play Cards");
+			console.log("Enter Corresponding Numbers for Actions");
+			console.log("1. New Deck");
+			console.log("2. Shuffle Deck");
+			console.log("3. Ascending Deck");
+			console.log("4. Descending Deck");
+			console.log("5. Deck of Words");
+
+			for (let i = 0; i <= 2; i++) {
+				var choice = parseInt(prompt("Enter Corresponding Numbers for Actions"));
+				i--;
+				if(choice===1) {
+					showDeck(cardDeck);
+				} else if(choice===2) {
+					shuffleDeck(shuffledDeck);
+					showDeck(shuffledDeck);
+				} else if(choice===3) {
+
+				} else if(choice===4) {
+
+				} else if(choice===5) {
+					wordedDeck();
+				} else {
+					console.log("Wrong Input");
+				}
+
+				
+			}
+		}
+
+		function showDeck(array) {
+			for (let i = 1; i <= array.length; i++) {
+				console.log(array[i-1][0] + " " + array[i-1][1]);
+			}
+		}
+
+		function shuffleDeck(array) {
+			for (let i = array.length - 1; i > 0; i--) {
+				let j = Math.floor(Math.random() * (i + 1));
+				[array[i], array[j]] = [array[j], array[i]];
+			}
+		}
+
+		function wordedDeck() {
+			shuffleDeck(wordDeck);
+			if (wordDeck[0] === undefined) {
+				console.log("No Cards Left");
+			} else {
+				let wordCard = wordDeck[0][0];
+				let wordNumber = wordDeck[0][1];
+
+				if (wordCard === "♣") {
+					wordCard = "Clubs";
+				} else if (wordCard === "♠") {
+					wordCard = "Spades";
+				} else if (wordCard === "♥") {
+					wordCard = "Hearts";
+				} else if (wordCard === "◆") {
+					wordCard = "Diamonds";
+				}
+
+				if (wordNumber === "A") {
+					wordNumber = "Ace of ";
+				} else if (wordNumber === "2") {
+					wordNumber = "Two of ";
+				} else if (wordNumber === "3") {
+					wordNumber = "Three of ";
+				} else if (wordNumber === "4") {
+					wordNumber = "Four of ";
+				} else if (wordNumber === "5") {
+					wordNumber = "Five of ";
+				} else if (wordNumber === "6") {
+					wordNumber = "Six of ";
+				} else if (wordNumber === "7") {
+					wordNumber = "Seven of ";
+				} else if (wordNumber === "8") {
+					wordNumber = "Four of ";
+				} else if (wordNumber === "9") {
+					wordNumber = "Nine of ";
+				} else if (wordNumber === "10") {
+					wordNumber = "Ten of ";
+				} else if (wordNumber === "J") {
+					wordNumber = "Jack of ";
+				} else if (wordNumber === "Q") {
+					wordNumber = "Queen of ";
+				} else if (wordNumber === "K") {
+					wordNumber = "King of ";
+				}
+
+				console.log(wordNumber+wordCard);
+				wordDeck.shift();
+			}
+		}
+
+		newGame();
+	</script>
+</body>
+</html>
