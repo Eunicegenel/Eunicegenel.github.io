@@ -5,9 +5,33 @@
 </head>
 <body>
 	<script type="text/javascript">
-		const cardDeck = [["♣","A"],["♠","A"],["♥","A"],["◆","A"],["♣","2"],["♠","2"],["♥","2"],["◆","2"],["♣","3"],["♠","3"],["♥","3"],["◆","3"],["♣","4"],["♠","4"],["♥","4"],["◆","4"],["♣","5"],["♠","5"],["♥","5"],["◆","5"],["♣","6"],["♠","6"],["♥","6"],["◆","6"],["♣","7"],["♠","7"],["♥","7"],["◆","7"],["♣","8"],["♠","8"],["♥","8"],["◆","8"], ["♣","9"],["♠","9"],["♥","9"],["◆","9"],["♣","10"],["♠","10"],["♥","10"],["◆","10"],["♣","J"],["♠","J"],["♥","J"],["◆","J"],["♣","Q"],["♠","Q"],["♥","Q"],["◆","Q"],["♣","K"],["♠","K"],["♥","K"],["◆","K"]];
+		const cardDeck = [["♣","A"],["♠","A"],["♥","A"],["◆","A"],
+		["♣","2"],["♠","2"],["♥","2"],["◆","2"],
+		["♣","3"],["♠","3"],["♥","3"],["◆","3"],
+		["♣","4"],["♠","4"],["♥","4"],["◆","4"],
+		["♣","5"],["♠","5"],["♥","5"],["◆","5"],
+		["♣","6"],["♠","6"],["♥","6"],["◆","6"],
+		["♣","7"],["♠","7"],["♥","7"],["◆","7"],
+		["♣","8"],["♠","8"],["♥","8"],["◆","8"], 
+		["♣","9"],["♠","9"],["♥","9"],["◆","9"],
+		["♣","10"],["♠","10"],["♥","10"],["◆","10"],
+		["♣","J"],["♠","J"],["♥","J"],["◆","J"],
+		["♣","Q"],["♠","Q"],["♥","Q"],["◆","Q"],
+		["♣","K"],["♠","K"],["♥","K"],["◆","K"]];
 
 		const shuffledDeck = [...cardDeck];
+
+		const dealDeck = [];
+
+		const suitDeck = [...cardDeck];
+
+		const clubDeck = [];
+
+		const spadeDeck = [];
+
+		const heartDeck = [];
+
+		const diamondDeck = [];
 
 		const wordDeck = [...cardDeck];
 
@@ -16,8 +40,8 @@
 		function newGame() {
 			console.log("Play Cards");
 			console.log("Enter Corresponding Numbers for Actions");
-			console.log("1. New Deck");
-			console.log("2. Shuffle Deck");
+			console.log("1. Shuffle Deck");
+			console.log("2. Arrange by Suit");
 			console.log("3. Ascending Deck");
 			console.log("4. Descending Deck");
 			console.log("5. Deck of Words");
@@ -26,16 +50,30 @@
 				var choice = parseInt(prompt("Enter Corresponding Numbers for Actions"));
 				i--;
 				if(choice===1) {
-					showDeck(cardDeck);
-				} else if(choice===2) {
+					console.log(" ");
+					console.log("Shuffling Deck...");
+					console.log("Dealing 5 Cards...");
+					// console.log(shuffledDeck.length)
 					shuffleDeck(shuffledDeck);
-					showDeck(shuffledDeck);
+					deal5deck(shuffledDeck);
+					console.log(" ");
+					// console.log(shuffledDeck.length)
+					// showDeck(shuffledDeck);
+					// console.log("");
+				} else if(choice===2) {
+					console.log(" ");
+					console.log("Arranging by Suit...");
+					bySuitDeck();
+					console.log(" ");
 				} else if(choice===3) {
 
 				} else if(choice===4) {
 
 				} else if(choice===5) {
+					console.log(" ");
+					console.log("Translating Card...");
 					wordedDeck();
+					console.log(" ");
 				} else {
 					console.log("Wrong Input");
 				}
@@ -51,11 +89,94 @@
 		}
 
 		function shuffleDeck(array) {
-			for (let i = array.length - 1; i > 0; i--) {
-				let j = Math.floor(Math.random() * (i + 1));
-				[array[i], array[j]] = [array[j], array[i]];
+			for (let i = array.length - 1; i >= 0; i--) {
+				if (array[i] !== undefined) {
+					let j = Math.floor(Math.random() * (i + 1));
+					[array[i], array[j]] = [array[j], array[i]];
+				} 
 			}
 		}
+
+		function deal5deck(array) {
+			if (array.length >= 5) {
+				for (let i = 0; i <= 4; i++ ){
+					// console.log(array[i][0] + " " + array[i][1]);
+					dealDeck.push(array[i][0] + " " + array[i][1]); 
+				}
+				array.splice(0,5);
+				console.log(dealDeck[0] + "  " + dealDeck[1] + "  " + dealDeck[2] + "  " + dealDeck[3] + "  " + dealDeck[4]);
+				dealDeck.splice(0,5);
+			}
+			else {
+				console.log("There are Not Enough Cards, Open a New Deck? Yes/No?");
+				let restart = prompt("There are Not Enough Cards, Open a New Deck? Yes/No?");
+				if (restart === "Yes" || restart == "yes") {
+					location.reload(); 
+				} else {
+					console.log("No more cards to shuffle, you can still do other actions than shuffling cards")
+					console.log("Enter Corresponding Numbers for Actions");
+					console.log("2. Arrange by Suit");
+					console.log("3. Ascending Deck");
+					console.log("4. Descending Deck");
+					console.log("5. Deck of Words");
+				}
+			}
+		}
+
+
+		function bySuitDeck() {
+			shuffleDeck(suitDeck);
+			clubDeck.splice(0,13);
+			spadeDeck.splice(0,13);
+			heartDeck.splice(0,13);
+			diamondDeck.splice(0,13);
+			for (let i = suitDeck.length - 1; i >= 0; i--) {
+				let cardSuit = suitDeck[i][0];
+				if (cardSuit === "♣") {
+					clubDeck.push(suitDeck[i]);
+				} else if (cardSuit === "♠") {
+					spadeDeck.push(suitDeck[i]);
+				} else if (cardSuit === "♥") {
+					heartDeck.push(suitDeck[i]);
+				} else if (cardSuit === "◆") {
+					diamondDeck.push(suitDeck[i]);
+				}
+			}
+			console.log(clubDeck[0][0] + " " + clubDeck[0][1] + "  " + clubDeck[1][0] + " " + clubDeck[1][1] +  "  " 
+				+ clubDeck[2][0] + " " + clubDeck[2][1] +  "  " + clubDeck[3][0] + " " + clubDeck[3][1] +  "  " 
+				+ clubDeck[4][0] + " " + clubDeck[4][1] +  "  " + clubDeck[5][0] + " " + clubDeck[5][1] +  "  "
+				+ clubDeck[6][0] + " " + clubDeck[6][1] +  "  " + clubDeck[7][0] + " " + clubDeck[7][1] +  "  "
+				+ clubDeck[8][0] + " " + clubDeck[8][1] +  "  " + clubDeck[9][0] + " " + clubDeck[9][1] +  "  "
+				+ clubDeck[10][0] + " " + clubDeck[10][1] +  "  " + clubDeck[11][0] + " " + clubDeck[11][1] +  "  " 
+				+ clubDeck[12][0] + " " + clubDeck[12][1]);
+
+			console.log(spadeDeck[0][0] + " " + spadeDeck[0][1] + "  " + spadeDeck[1][0] + " " + spadeDeck[1][1] +  "  " 
+				+ spadeDeck[2][0] + " " + spadeDeck[2][1] +  "  " + spadeDeck[3][0] + " " + spadeDeck[3][1] +  "  " 
+				+ spadeDeck[4][0] + " " + spadeDeck[4][1] +  "  " + spadeDeck[5][0] + " " + spadeDeck[5][1] +  "  "
+				+ spadeDeck[6][0] + " " + spadeDeck[6][1] +  "  " + spadeDeck[7][0] + " " + spadeDeck[7][1] +  "  "
+				+ spadeDeck[8][0] + " " + spadeDeck[8][1] +  "  " + spadeDeck[9][0] + " " + spadeDeck[9][1] +  "  "
+				+ spadeDeck[10][0] + " " + spadeDeck[10][1] +  "  " + spadeDeck[11][0] + " " + spadeDeck[11][1] +  "  " 
+				+ spadeDeck[12][0] + " " + spadeDeck[12][1]);
+
+			console.log(heartDeck[0][0] + " " + heartDeck[0][1] + "  " + heartDeck[1][0] + " " + heartDeck[1][1] +  "  " 
+				+ heartDeck[2][0] + " " + heartDeck[2][1] +  "  " + heartDeck[3][0] + " " + heartDeck[3][1] +  "  " 
+				+ heartDeck[4][0] + " " + heartDeck[4][1] +  "  " + heartDeck[5][0] + " " + heartDeck[5][1] +  "  "
+				+ heartDeck[6][0] + " " + heartDeck[6][1] +  "  " + heartDeck[7][0] + " " + heartDeck[7][1] +  "  "
+				+ heartDeck[8][0] + " " + heartDeck[8][1] +  "  " + heartDeck[9][0] + " " + heartDeck[9][1] +  "  "
+				+ heartDeck[10][0] + " " + heartDeck[10][1] +  "  " + heartDeck[11][0] + " " + heartDeck[11][1] +  "  " 
+				+ heartDeck[12][0] + " " + heartDeck[12][1]);
+
+			console.log(diamondDeck[0][0] + " " + diamondDeck[0][1] + "  " + diamondDeck[1][0] + " " + diamondDeck[1][1] +  "  " 
+				+ diamondDeck[2][0] + " " + diamondDeck[2][1] +  "  " + diamondDeck[3][0] + " " + diamondDeck[3][1] +  "  " 
+				+ diamondDeck[4][0] + " " + diamondDeck[4][1] +  "  " + diamondDeck[5][0] + " " + diamondDeck[5][1] +  "  "
+				+ diamondDeck[6][0] + " " + diamondDeck[6][1] +  "  " + diamondDeck[7][0] + " " + diamondDeck[7][1] +  "  "
+				+ diamondDeck[8][0] + " " + diamondDeck[8][1] +  "  " + diamondDeck[9][0] + " " + diamondDeck[9][1] +  "  "
+				+ diamondDeck[10][0] + " " + diamondDeck[10][1] +  "  " + diamondDeck[11][0] + " " + diamondDeck[11][1] +  "  " 
+				+ diamondDeck[12][0] + " " + diamondDeck[12][1]);
+		}
+
+
+
 
 		function wordedDeck() {
 			shuffleDeck(wordDeck);
@@ -107,6 +228,8 @@
 				wordDeck.shift();
 			}
 		}
+
+		
 
 		newGame();
 	</script>

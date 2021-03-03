@@ -92,6 +92,10 @@
 	        		}
         		}
 
+        		if (gameState[cellX][cellY] !== "" || !gameActive) {
+	                return;
+	            }
+
 	            console.log(currentPlayer + " chose slot " + move);
 	            placement(cellX, cellY);
 	            handleResultValidation(cellX, cellY);
@@ -101,13 +105,11 @@
 		}
 
 		function placement(cellX, cellY) {
-    		newState = [...gameState];
-			prevState.unshift(newState);
-			newState = [];
-			console.log(prevState);
-
 			if (gameState[cellX][cellY] === "") {
 				gameState[cellX][cellY] = currentPlayer;
+				newState = [cellX, cellY];
+				prevState.unshift(newState);
+				console.log(prevState);
             } else {
             	console.log("Move not possible");
             	changePlayer();
