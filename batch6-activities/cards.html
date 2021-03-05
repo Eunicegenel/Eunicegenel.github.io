@@ -21,30 +21,48 @@
 
 		const shuffledDeck = [...cardDeck];
 
+		var dealingDeck = [];
+
 		const dealDeck = [];
 
-		const suitDeck = [...cardDeck];
-
 		const clubDeck = [];
+		var clubAscDeck = [];
+		var clubDescDeck = [];
 
 		const spadeDeck = [];
+		var spadeAscDeck = [];
+		var spadeDescDeck = [];
 
 		const heartDeck = [];
+		var heartAscDeck = [];
+		var heartDescDeck = [];
 
 		const diamondDeck = [];
+		var diamondAscDeck = [];
+		var diamondDescDeck = [];
+
+		var clubs = "";
+
+		var spades = "";
+
+		var hearts = "";
+
+		var diamonds = "";
 
 		const wordDeck = [...cardDeck];
 
 		const cardGame = true;
 
+		var option1 = true;
+		var option5 = true;
+
 		function newGame() {
 			console.log("Play Cards");
-			console.log("Enter Corresponding Numbers for Actions");
-			console.log("1. Shuffle Deck");
-			console.log("2. Arrange by Suit");
-			console.log("3. Ascending Deck");
-			console.log("4. Descending Deck");
-			console.log("5. Deck of Words");
+			
+			options();
+
+			shuffleDeck(shuffledDeck);
+			dealingDeck = [...shuffledDeck];
 
 			for (let i = 0; i <= 2; i++) {
 				var choice = parseInt(prompt("Enter Corresponding Numbers for Actions"));
@@ -54,8 +72,7 @@
 					console.log("Shuffling Deck...");
 					console.log("Dealing 5 Cards...");
 					// console.log(shuffledDeck.length)
-					shuffleDeck(shuffledDeck);
-					deal5deck(shuffledDeck);
+					deal5deck(dealingDeck);
 					console.log(" ");
 					// console.log(shuffledDeck.length)
 					// showDeck(shuffledDeck);
@@ -63,29 +80,62 @@
 				} else if(choice===2) {
 					console.log(" ");
 					console.log("Arranging by Suit...");
-					bySuitDeck();
+					bySuitDeck(choice);
 					console.log(" ");
 				} else if(choice===3) {
-
+					console.log(" ");
+					console.log("Arranging by Ascending Rank...");
+					bySuitDeck(choice);
+					console.log(" ");
 				} else if(choice===4) {
-
+					console.log(" ");
+					console.log("Arranging by Descending Rank...");
+					bySuitDeck(choice);
+					console.log(" ");
 				} else if(choice===5) {
 					console.log(" ");
 					console.log("Translating Card...");
 					wordedDeck();
 					console.log(" ");
+				} else if(choice===6) {
+					console.log(" ");
+					console.log("Getting New Deck...");
+					location.reload();
+					console.log(" ");
 				} else {
+					console.log(" ");
 					console.log("Wrong Input");
+					console.log(" ");
 				}
 
 				
 			}
 		}
 
-		function showDeck(array) {
-			for (let i = 1; i <= array.length; i++) {
-				console.log(array[i-1][0] + " " + array[i-1][1]);
+		function options() {
+			console.log("Enter Corresponding Numbers for Actions");
+			if (option1!==false) {
+				console.log("1. Shuffle Deck");
 			}
+			console.log("2. Arrange by Suit");
+			console.log("3. Ascending Deck");
+			console.log("4. Descending Deck");
+
+			if (option5!==false) {
+				console.log("5. Deck of Words");
+			}
+
+			console.log("6. Get New Deck");
+		}
+
+		function showDeck(array) {
+			console.log(array[0][0] + " " + array[0][1] + "  " + array[1][0] + " " + array[1][1] +  "  " 
+				+ array[2][0] + " " + array[2][1] +  "  " + array[3][0] + " " + array[3][1] +  "  " 
+				+ array[4][0] + " " + array[4][1] +  "  " + array[5][0] + " " + array[5][1] +  "  "
+				+ array[6][0] + " " + array[6][1] +  "  " + array[7][0] + " " + array[7][1] +  "  "
+				+ array[8][0] + " " + array[8][1] +  "  " + array[9][0] + " " + array[9][1] +  "  "
+				+ array[10][0] + " " + array[10][1] +  "  " + array[11][0] + " " + array[11][1] +  "  " 
+				+ array[12][0] + " " + array[12][1]);
 		}
 
 		function shuffleDeck(array) {
@@ -108,80 +158,120 @@
 				dealDeck.splice(0,5);
 			}
 			else {
+				option1 = false;
 				console.log("There are Not Enough Cards, Open a New Deck? Yes/No?");
 				let restart = prompt("There are Not Enough Cards, Open a New Deck? Yes/No?");
 				if (restart === "Yes" || restart == "yes") {
 					location.reload(); 
 				} else {
+					console.log(" ");
 					console.log("No more cards to shuffle, you can still do other actions than shuffling cards")
-					console.log("Enter Corresponding Numbers for Actions");
-					console.log("2. Arrange by Suit");
-					console.log("3. Ascending Deck");
-					console.log("4. Descending Deck");
-					console.log("5. Deck of Words");
+					console.log(" ");
+					options();
 				}
 			}
 		}
 
 
-		function bySuitDeck() {
-			shuffleDeck(suitDeck);
+		function bySuitDeck(choice) {
+			shuffleDeck(shuffledDeck);
 			clubDeck.splice(0,13);
 			spadeDeck.splice(0,13);
 			heartDeck.splice(0,13);
 			diamondDeck.splice(0,13);
-			for (let i = suitDeck.length - 1; i >= 0; i--) {
-				let cardSuit = suitDeck[i][0];
+			for (let i = shuffledDeck.length - 1; i >= 0; i--) {
+				let cardSuit = shuffledDeck[i][0];
 				if (cardSuit === "♣") {
-					clubDeck.push(suitDeck[i]);
+					clubDeck.push(shuffledDeck[i]);
 				} else if (cardSuit === "♠") {
-					spadeDeck.push(suitDeck[i]);
+					spadeDeck.push(shuffledDeck[i]);
 				} else if (cardSuit === "♥") {
-					heartDeck.push(suitDeck[i]);
+					heartDeck.push(shuffledDeck[i]);
 				} else if (cardSuit === "◆") {
-					diamondDeck.push(suitDeck[i]);
+					diamondDeck.push(shuffledDeck[i]);
 				}
 			}
-			console.log(clubDeck[0][0] + " " + clubDeck[0][1] + "  " + clubDeck[1][0] + " " + clubDeck[1][1] +  "  " 
-				+ clubDeck[2][0] + " " + clubDeck[2][1] +  "  " + clubDeck[3][0] + " " + clubDeck[3][1] +  "  " 
-				+ clubDeck[4][0] + " " + clubDeck[4][1] +  "  " + clubDeck[5][0] + " " + clubDeck[5][1] +  "  "
-				+ clubDeck[6][0] + " " + clubDeck[6][1] +  "  " + clubDeck[7][0] + " " + clubDeck[7][1] +  "  "
-				+ clubDeck[8][0] + " " + clubDeck[8][1] +  "  " + clubDeck[9][0] + " " + clubDeck[9][1] +  "  "
-				+ clubDeck[10][0] + " " + clubDeck[10][1] +  "  " + clubDeck[11][0] + " " + clubDeck[11][1] +  "  " 
-				+ clubDeck[12][0] + " " + clubDeck[12][1]);
 
-			console.log(spadeDeck[0][0] + " " + spadeDeck[0][1] + "  " + spadeDeck[1][0] + " " + spadeDeck[1][1] +  "  " 
-				+ spadeDeck[2][0] + " " + spadeDeck[2][1] +  "  " + spadeDeck[3][0] + " " + spadeDeck[3][1] +  "  " 
-				+ spadeDeck[4][0] + " " + spadeDeck[4][1] +  "  " + spadeDeck[5][0] + " " + spadeDeck[5][1] +  "  "
-				+ spadeDeck[6][0] + " " + spadeDeck[6][1] +  "  " + spadeDeck[7][0] + " " + spadeDeck[7][1] +  "  "
-				+ spadeDeck[8][0] + " " + spadeDeck[8][1] +  "  " + spadeDeck[9][0] + " " + spadeDeck[9][1] +  "  "
-				+ spadeDeck[10][0] + " " + spadeDeck[10][1] +  "  " + spadeDeck[11][0] + " " + spadeDeck[11][1] +  "  " 
-				+ spadeDeck[12][0] + " " + spadeDeck[12][1]);
-
-			console.log(heartDeck[0][0] + " " + heartDeck[0][1] + "  " + heartDeck[1][0] + " " + heartDeck[1][1] +  "  " 
-				+ heartDeck[2][0] + " " + heartDeck[2][1] +  "  " + heartDeck[3][0] + " " + heartDeck[3][1] +  "  " 
-				+ heartDeck[4][0] + " " + heartDeck[4][1] +  "  " + heartDeck[5][0] + " " + heartDeck[5][1] +  "  "
-				+ heartDeck[6][0] + " " + heartDeck[6][1] +  "  " + heartDeck[7][0] + " " + heartDeck[7][1] +  "  "
-				+ heartDeck[8][0] + " " + heartDeck[8][1] +  "  " + heartDeck[9][0] + " " + heartDeck[9][1] +  "  "
-				+ heartDeck[10][0] + " " + heartDeck[10][1] +  "  " + heartDeck[11][0] + " " + heartDeck[11][1] +  "  " 
-				+ heartDeck[12][0] + " " + heartDeck[12][1]);
-
-			console.log(diamondDeck[0][0] + " " + diamondDeck[0][1] + "  " + diamondDeck[1][0] + " " + diamondDeck[1][1] +  "  " 
-				+ diamondDeck[2][0] + " " + diamondDeck[2][1] +  "  " + diamondDeck[3][0] + " " + diamondDeck[3][1] +  "  " 
-				+ diamondDeck[4][0] + " " + diamondDeck[4][1] +  "  " + diamondDeck[5][0] + " " + diamondDeck[5][1] +  "  "
-				+ diamondDeck[6][0] + " " + diamondDeck[6][1] +  "  " + diamondDeck[7][0] + " " + diamondDeck[7][1] +  "  "
-				+ diamondDeck[8][0] + " " + diamondDeck[8][1] +  "  " + diamondDeck[9][0] + " " + diamondDeck[9][1] +  "  "
-				+ diamondDeck[10][0] + " " + diamondDeck[10][1] +  "  " + diamondDeck[11][0] + " " + diamondDeck[11][1] +  "  " 
-				+ diamondDeck[12][0] + " " + diamondDeck[12][1]);
+			if (choice===2) {
+				suitArrangement();
+			} else {
+				ranking(choice);
+			}
 		}
 
+		function suitArrangement() {
+			showDeck(clubDeck);
+			console.log(" ");
+			showDeck(spadeDeck);
+			console.log(" ");
+			showDeck(heartDeck);
+			console.log(" ");
+			showDeck(diamondDeck);
+		}
+
+		function ranking(choice) {
+			clubAscDeck = [...clubDeck];
+			clubDescDeck = [...clubDeck];
+
+			spadeAscDeck = [...spadeDeck];
+			spadeDescDeck = [...spadeAscDeck];
+
+			heartAscDeck = [...heartDeck];
+			heartDescDeck = [...heartAscDeck];
+
+			diamondAscDeck = [...diamondDeck];
+			diamondDescDeck = [...diamondAscDeck];
+
+			if (choice===3) {
+				ascendingOrder(clubAscDeck, choice);
+				ascendingOrder(spadeAscDeck, choice);
+				ascendingOrder(heartAscDeck, choice);
+				ascendingOrder(diamondAscDeck, choice);
+			} else if (choice===4) {
+				descendingOrder(diamondDescDeck);
+				descendingOrder(heartDescDeck);
+				descendingOrder(spadeDescDeck);
+				descendingOrder(clubDescDeck);
+			}
+		}
+
+		function ascendingOrder(array, choice){
+			array.sort();
+			for (let i = 12; i >= 0; i--) {
+				if (array[i][1]==="A"){
+					// clubDeck[0].splice(1,1,"A")
+					let temp = array[0];
+					array[0] = array[9];
+					array[9] = temp;
+					break;
+				}
+			}
+			let temp = array[11];
+			array[11] = array[12];
+			array[12] = temp;
+			
+			if (choice === 3) {
+				showDeck(array);
+			}
+		}
+
+		function descendingOrder(array){
+			ascendingOrder(array);
+			array.reverse();
+			showDeck(array);
+		}
 
 
 
 		function wordedDeck() {
 			shuffleDeck(wordDeck);
 			if (wordDeck[0] === undefined) {
-				console.log("No Cards Left");
+				option5 = false;
+				console.log("No Cards Left to Translate");
+				console.log("You can still do other actions than translating cards");
+				console.log(" ");
+				options();
+				console.log(" ");
 			} else {
 				let wordCard = wordDeck[0][0];
 				let wordNumber = wordDeck[0][1];
