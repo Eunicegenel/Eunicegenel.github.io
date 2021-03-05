@@ -1,9 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Card Game</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Montserrat&display=swap" rel="stylesheet"> 
+	<title>Card Console</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+		div {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+		}
+		h1 {
+			margin-top: 50vh;
+			font-family: "Dosis";
+			font-weight: bold;
+			font-size: 20vh;
+		}
+		h3 {
+			margin-top: -10vh;
+			font-family: "Montserrat";
+			font-size: 5vh;
+		}
+
+		@media screen and (max-width: 900px) {
+			h1 {
+				margin-top: 60vh;
+				font-size: 10vh;
+			}
+			h3 {
+				font-size: 3vh;
+				margin-top: 0;
+			}
+		}
+	</style>
 </head>
 <body>
+	<div>
+		<h1>CARD CONSOLE</h1>
+		<h3>press f12 to access console</h3>
+	</div>
 	<script type="text/javascript">
 		const cardDeck = [["♣","A"],["♠","A"],["♥","A"],["◆","A"],
 		["♣","2"],["♠","2"],["♥","2"],["◆","2"],
@@ -56,53 +94,60 @@
 		var option1 = true;
 		var option5 = true;
 
+		// starts with a new deck
 		function newGame() {
 			console.log("Play Cards");
 			
+			// possible actions
 			options();
 
+			// already shuffles deck so that shuffled deck remains at same length when shuffling deck and dealing cards later
 			shuffleDeck(shuffledDeck);
 			dealingDeck = [...shuffledDeck];
 
+			// actions for possible actions
 			for (let i = 0; i <= 2; i++) {
 				var choice = parseInt(prompt("Enter Corresponding Numbers for Actions"));
 				i--;
 				if(choice===1) {
+					// shuffle deck
 					console.log(" ");
 					console.log("Shuffling Deck...");
 					console.log("Dealing 5 Cards...");
-					// console.log(shuffledDeck.length)
 					deal5deck(dealingDeck);
 					console.log(" ");
-					// console.log(shuffledDeck.length)
-					// showDeck(shuffledDeck);
-					// console.log("");
 				} else if(choice===2) {
+					// arrange deck by suit
 					console.log(" ");
 					console.log("Arranging by Suit...");
 					bySuitDeck(choice);
 					console.log(" ");
 				} else if(choice===3) {
+					// arrange deck by ascending rank
 					console.log(" ");
 					console.log("Arranging by Ascending Rank...");
 					bySuitDeck(choice);
 					console.log(" ");
 				} else if(choice===4) {
+					// arrange deck by descending rank
 					console.log(" ");
 					console.log("Arranging by Descending Rank...");
 					bySuitDeck(choice);
 					console.log(" ");
 				} else if(choice===5) {
+					// deal translated card
 					console.log(" ");
 					console.log("Translating Card...");
 					wordedDeck();
 					console.log(" ");
 				} else if(choice===6) {
+					// get new deck
 					console.log(" ");
 					console.log("Getting New Deck...");
 					location.reload();
 					console.log(" ");
 				} else {
+					// wrong input
 					console.log(" ");
 					console.log("Wrong Input");
 					console.log(" ");
@@ -112,6 +157,7 @@
 			}
 		}
 
+		// possible actions
 		function options() {
 			console.log("Enter Corresponding Numbers for Actions");
 			if (option1!==false) {
@@ -128,6 +174,7 @@
 			console.log("6. Get New Deck");
 		}
 
+		// shows deck or arrangments made into clean and neat outputs
 		function showDeck(array) {
 			console.log(array[0][0] + " " + array[0][1] + "  " + array[1][0] + " " + array[1][1] +  "  " 
 				+ array[2][0] + " " + array[2][1] +  "  " + array[3][0] + " " + array[3][1] +  "  " 
@@ -138,30 +185,34 @@
 				+ array[12][0] + " " + array[12][1]);
 		}
 
+		// shuffle deck with fisher-yates shuffle
 		function shuffleDeck(array) {
 			for (let i = array.length - 1; i >= 0; i--) {
-				if (array[i] !== undefined) {
-					let j = Math.floor(Math.random() * (i + 1));
-					[array[i], array[j]] = [array[j], array[i]];
-				} 
+				let j = Math.floor(Math.random() * (i + 1));
+				[array[i], array[j]] = [array[j], array[i]];
 			}
 		}
 
+		// dealing 5 cards after shuffling
 		function deal5deck(array) {
 			if (array.length >= 5) {
 				for (let i = 0; i <= 4; i++ ){
-					// console.log(array[i][0] + " " + array[i][1]);
 					dealDeck.push(array[i][0] + " " + array[i][1]); 
 				}
 				array.splice(0,5);
 				console.log(dealDeck[0] + "  " + dealDeck[1] + "  " + dealDeck[2] + "  " + dealDeck[3] + "  " + dealDeck[4]);
+
+
+
 				dealDeck.splice(0,5);
 			}
+			// if there are not enough cards to be grouped into 5, offer new deck or other actions
 			else {
+				// make option 1 false, so that shuffle cards won't show up in future options, but is still made to be accessible 
 				option1 = false;
 				console.log("There are Not Enough Cards, Open a New Deck? Yes/No?");
 				let restart = prompt("There are Not Enough Cards, Open a New Deck? Yes/No?");
-				if (restart === "Yes" || restart == "yes") {
+				if (restart === "Yes" || restart == "yes" || restart === "YES") {
 					location.reload(); 
 				} else {
 					console.log(" ");
@@ -172,13 +223,15 @@
 			}
 		}
 
-
+		// arrange deck by suit
 		function bySuitDeck(choice) {
 			shuffleDeck(shuffledDeck);
+			// clear out previous inputs to make way for new shuffled values
 			clubDeck.splice(0,13);
 			spadeDeck.splice(0,13);
 			heartDeck.splice(0,13);
 			diamondDeck.splice(0,13);
+			// takes suit as standard to push values into respective arrays
 			for (let i = shuffledDeck.length - 1; i >= 0; i--) {
 				let cardSuit = shuffledDeck[i][0];
 				if (cardSuit === "♣") {
@@ -191,14 +244,16 @@
 					diamondDeck.push(shuffledDeck[i]);
 				}
 			}
-
+			// if arranging deck by suite
 			if (choice===2) {
 				suitArrangement();
 			} else {
+				// if arranging deck by ranks
 				ranking(choice);
 			}
 		}
 
+		// show arrangement by suits neat and cleanly
 		function suitArrangement() {
 			showDeck(clubDeck);
 			console.log(" ");
@@ -209,7 +264,9 @@
 			showDeck(diamondDeck);
 		}
 
+		// arranging by ranks from clubs to diamonds, from A to K, and reverse
 		function ranking(choice) {
+			// assigned new arrays for decks for ascending and descending orders
 			clubAscDeck = [...clubDeck];
 			clubDescDeck = [...clubDeck];
 
@@ -222,12 +279,14 @@
 			diamondAscDeck = [...diamondDeck];
 			diamondDescDeck = [...diamondAscDeck];
 
+			// for ascending ranks
 			if (choice===3) {
 				ascendingOrder(clubAscDeck, choice);
 				ascendingOrder(spadeAscDeck, choice);
 				ascendingOrder(heartAscDeck, choice);
 				ascendingOrder(diamondAscDeck, choice);
 			} else if (choice===4) {
+				// for descending ranks
 				descendingOrder(diamondDescDeck);
 				descendingOrder(heartDescDeck);
 				descendingOrder(spadeDescDeck);
@@ -235,36 +294,36 @@
 			}
 		}
 
+		// for ascending ranks
 		function ascendingOrder(array, choice){
 			array.sort();
-			for (let i = 12; i >= 0; i--) {
-				if (array[i][1]==="A"){
-					// clubDeck[0].splice(1,1,"A")
-					let temp = array[0];
-					array[0] = array[9];
-					array[9] = temp;
-					break;
-				}
-			}
-			let temp = array[11];
-			array[11] = array[12];
-			array[12] = temp;
+			// after sorting the values and index for both A and 10, as well as Q and K are reversed so a function is made to switch their values
+			switchCards(array,0,9);
+			switchCards(array,11,12);
 			
 			if (choice === 3) {
 				showDeck(array);
 			}
 		}
 
+		// switching values inside array
+		function switchCards(array,index1,index2) {
+			let temp = array[index1];
+			array[index1] = array[index2];
+			array[index2] = temp;
+		}
+
+		// for descending ranks, needed to arrange it first in ascending, and then reverse the array
 		function descendingOrder(array){
 			ascendingOrder(array);
 			array.reverse();
 			showDeck(array);
 		}
 
-
-
+		// for dealing translated cards
 		function wordedDeck() {
 			shuffleDeck(wordDeck);
+			// when there are no more cards to translate, offer other options
 			if (wordDeck[0] === undefined) {
 				option5 = false;
 				console.log("No Cards Left to Translate");
@@ -273,6 +332,7 @@
 				options();
 				console.log(" ");
 			} else {
+				// translate cards by getting their values
 				let wordCard = wordDeck[0][0];
 				let wordNumber = wordDeck[0][1];
 
