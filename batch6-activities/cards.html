@@ -43,43 +43,15 @@
 		<h3>press f12 to access console</h3>
 	</div>
 	<script type="text/javascript">
-		const cardDeck = [["♣","A"],["♠","A"],["♥","A"],["◆","A"],
-		["♣","2"],["♠","2"],["♥","2"],["◆","2"],
-		["♣","3"],["♠","3"],["♥","3"],["◆","3"],
-		["♣","4"],["♠","4"],["♥","4"],["◆","4"],
-		["♣","5"],["♠","5"],["♥","5"],["◆","5"],
-		["♣","6"],["♠","6"],["♥","6"],["◆","6"],
-		["♣","7"],["♠","7"],["♥","7"],["◆","7"],
-		["♣","8"],["♠","8"],["♥","8"],["◆","8"], 
-		["♣","9"],["♠","9"],["♥","9"],["◆","9"],
-		["♣","10"],["♠","10"],["♥","10"],["◆","10"],
-		["♣","J"],["♠","J"],["♥","J"],["◆","J"],
-		["♣","Q"],["♠","Q"],["♥","Q"],["◆","Q"],
-		["♣","K"],["♠","K"],["♥","K"],["◆","K"]];
-
-		const shuffledDeck = [...cardDeck];
-
+		const cardDeck = [["♣","A"],["♠","A"],["♥","A"],["◆","A"],["♣","2"],["♠","2"],["♥","2"],["◆","2"],["♣","3"],["♠","3"],["♥","3"],["◆","3"],["♣","4"],["♠","4"],["♥","4"],["◆","4"],["♣","5"],["♠","5"],["♥","5"],["◆","5"],["♣","6"],["♠","6"],["♥","6"],["◆","6"],["♣","7"],["♠","7"],["♥","7"],["◆","7"],["♣","8"],["♠","8"],["♥","8"],["◆","8"],["♣","9"],["♠","9"],["♥","9"],["◆","9"],["♣","10"],["♠","10"],["♥","10"],["◆","10"],["♣","J"],["♠","J"],["♥","J"],["◆","J"],["♣","Q"],["♠","Q"],["♥","Q"],["◆","Q"],["♣","K"],["♠","K"],["♥","K"],["◆","K"]];
 		var dealingDeck = [];
-
 		const dealDeck = [];
 		const verdict = [];
-
 		const clubDeck = [];
-		var clubAscDeck = [];
-		var clubDescDeck = [];
-
 		const spadeDeck = [];
-		var spadeAscDeck = [];
-		var spadeDescDeck = [];
-
 		const heartDeck = [];
-		var heartAscDeck = [];
-		var heartDescDeck = [];
-
 		const diamondDeck = [];
-		var diamondAscDeck = [];
-		var diamondDescDeck = [];
-
+		const rankedDeck = [];
 		var count = 0;
 		var sFlush = 0;
 		var fourKind = 0;
@@ -90,76 +62,56 @@
 		var twoPair = 0;
 		var pair = 0;
 		var tempPoker = [];
-
 		var clubs = "";
-
 		var spades = "";
-
 		var hearts = "";
-
 		var diamonds = "";
-
 		const wordDeck = [...cardDeck];
-
 		const cardGame = true;
-
 		var option1 = true;
 		var option5 = true;
 
-		// starts with a new deck
 		function newGame() {
 			console.log("Play Cards");
-			
-			// possible actions
 			options();
+			shuffleDeck(cardDeck);
+			dealingDeck = [...cardDeck];
 
-			// already shuffles deck so that shuffled deck remains at same length when shuffling deck and dealing cards later
-			shuffleDeck(shuffledDeck);
-			dealingDeck = [...shuffledDeck];
-
-			// actions for possible actions
 			for (let i = 0; i <= 2; i++) {
 				var choice = parseInt(prompt("Enter Corresponding Numbers for Actions"));
 				i--;
 				if(choice===1) {
-					// shuffle deck
 					console.log(" ");
 					console.log("Shuffling Deck...");
 					console.log("Dealing 5 Cards...");
 					deal5deck(dealingDeck);
 					console.log(" ");
 				} else if(choice===2) {
-					// arrange deck by suit
 					console.log(" ");
 					console.log("Arranging by Suit...");
 					bySuitDeck(choice);
 					console.log(" ");
 				} else if(choice===3) {
-					// arrange deck by ascending rank
 					console.log(" ");
 					console.log("Arranging by Ascending Rank...");
 					bySuitDeck(choice);
 					console.log(" ");
 				} else if(choice===4) {
-					// arrange deck by descending rank
 					console.log(" ");
 					console.log("Arranging by Descending Rank...");
 					bySuitDeck(choice);
 					console.log(" ");
 				} else if(choice===5) {
-					// deal translated card
 					console.log(" ");
 					console.log("Translating Card...");
 					wordedDeck();
 					console.log(" ");
 				} else if(choice===6) {
-					// get new deck
 					console.log(" ");
 					console.log("Getting New Deck...");
 					location.reload();
 					console.log(" ");
 				} else {
-					// wrong input
 					console.log(" ");
 					console.log("Wrong Input");
 					console.log(" ");
@@ -169,7 +121,6 @@
 			}
 		}
 
-		// possible actions
 		function options() {
 			console.log("Enter Corresponding Numbers for Actions");
 			if (option1!==false) {
@@ -186,18 +137,17 @@
 			console.log("6. Get New Deck");
 		}
 
-		// shows deck or arrangments made into clean and neat outputs
-		function showDeck(array) {
-			console.log(array[0][0] + " " + array[0][1] + "  " + array[1][0] + " " + array[1][1] +  "  " 
-				+ array[2][0] + " " + array[2][1] +  "  " + array[3][0] + " " + array[3][1] +  "  " 
-				+ array[4][0] + " " + array[4][1] +  "  " + array[5][0] + " " + array[5][1] +  "  "
-				+ array[6][0] + " " + array[6][1] +  "  " + array[7][0] + " " + array[7][1] +  "  "
-				+ array[8][0] + " " + array[8][1] +  "  " + array[9][0] + " " + array[9][1] +  "  "
-				+ array[10][0] + " " + array[10][1] +  "  " + array[11][0] + " " + array[11][1] +  "  " 
-				+ array[12][0] + " " + array[12][1]);
+		function showDeck(array,start) {
+			console.log(array[start+0][0] + " " + array[start+0][1] + "  " + array[start+1][0] + " " + array[start+1][1] +  "  " + array[start+2][0] + " " + array[start+2][1] +  "  " + array[start+3][0] + " " + array[start+3][1] +  "  " + array[start+4][0] + " " + array[start+4][1] +  "  " + array[start+5][0] + " " + array[start+5][1] +  "  " + array[start+6][0] + " " + array[start+6][1] +  "  " + array[start+7][0] + " " + array[start+7][1] +  "  " + array[start+8][0] + " " + array[start+8][1] +  "  " + array[start+9][0] + " " + array[start+9][1] +  "  " + array[start+10][0] + " " + array[start+10][1] +  "  " + array[start+11][0] + " " + array[start+11][1] +  "  " + array[start+12][0] + " " + array[start+12][1]);	
 		}
 
-		// shuffle deck with fisher-yates shuffle
+		function showWholeDeck(choice) {
+			showDeck(rankedDeck,0);
+			showDeck(rankedDeck,13);
+			showDeck(rankedDeck,26);
+			showDeck(rankedDeck,39);
+		}
+
 		function shuffleDeck(array) {
 			for (let i = array.length - 1; i >= 0; i--) {
 				let j = Math.floor(Math.random() * (i + 1));
@@ -205,10 +155,8 @@
 			}
 		}
 
-		// dealing 5 cards after shuffling
 		function deal5deck(array) {
 			if (array.length >= 5) {
-				// transforming cards to bit value 0-51
 				for (let i = 0; i <= 4; i++ ){
 					dealDeck.push(array[i][0] + " " + array[i][1]);
 					let value = 0;
@@ -244,9 +192,7 @@
 				verdict.splice(0,5);
 				dealDeck.splice(0,5);
 			}
-			// if there are not enough cards to be grouped into 5, offer new deck or other actions
 			else {
-				// make option 1 false, so that shuffle cards won't show up in future options, but is still made to be accessible 
 				option1 = false;
 				console.log("There are Not Enough Cards, Open a New Deck? Yes/No?");
 				let restart = prompt("There are Not Enough Cards, Open a New Deck? Yes/No?");
@@ -261,27 +207,12 @@
 			}
 		}
 
-		// getting index of first card in rank
 		function checkIndex(index) {
 			return index === 1;
 		}
 
-		// checking for poker hands
 		function readDeck(array) {
-			// TESTING VALUE------
-			// array.splice(0,5);
-			// array[0]=33;
-			// array[1]=46;
-			// array[2]=24;
-			// array[3]=20;
-			// array[4]=37;
-			// -------------------
-
-			// safe storage of array
 			tempPoker = [...array];
-			// console.log(tempPoker);
-
-			// call array functions
 			straightFlush(array);
 			threeFourOfAKind(array);
 			flushes(array);
@@ -289,24 +220,22 @@
 			fullHouses(array);
 			straights(array);
 
-			// array conditionals according to poker hands list
 			if (sFlush!==1) {
-				if (fourKind!==1) {
-					if (fullHouse!==1) {
-						if (flush!==1) {
-							if (straight!==1) {
-								if (threeKind!==1) {
-									if (twoPair!==1) {
-										if (pair===1) {console.log("Pair");}
-									} else {console.log("Two Pair");}
-								} else {console.log("Three of a Kind");}
-							} else {console.log("Straight");}
-						} else {console.log("Flush");}
-					} else {console.log("Full House");}
-				} else {console.log("Four of a Kind");}
+			if (fourKind!==1) {
+			if (fullHouse!==1) {
+			if (flush!==1) {
+			if (straight!==1) {
+			if (threeKind!==1) {
+			if (twoPair!==1) {
+			if (pair===1) {console.log("Pair");}
+			} else {console.log("Two Pair");}
+			} else {console.log("Three of a Kind");}
+			} else {console.log("Straight");}
+			} else {console.log("Flush");}
+			} else {console.log("Full House");}
+			} else {console.log("Four of a Kind");}
 			} else {console.log("Straight Flush");}
 
-			// reset values for next shuffle
 			tempPoker.splice(0,5);
 			sFlush = 0;
 			fourKind = 0;
@@ -318,8 +247,6 @@
 			pair = 0;
 		}
 
-		// determines whether values are succeeding with numerical sort
-		// King indexes cannot be in middle of the array after sorting 
 		function straightFlush(array) {
 			array.splice(0,5);
 			array = [...tempPoker];
@@ -329,18 +256,10 @@
 					if (array.includes(array[0]+2)) {
 						if (array.includes(array[0]+3)) {
 							if (array.includes(array[0]+4)) {
-								sFlush = 1;
-							}
-						}
-					}
-				}
-			}
+								sFlush = 1;}}}}}
 			array.splice(0,5);
 		}
 
-		// sets all values inside array to their base number without suits
-		// ex. ♣ Q = 11, ◆ Q = 11
-		// do numerical sort to arrange values, for easier confirmation, as there can only be a set amount of moves for this type of poker hand
 		function threeFourOfAKind(array) {
 			array.splice(0,5);
 			array = [...tempPoker];	
@@ -362,8 +281,7 @@
 			}
 			array.splice(0,5);
 		}
-		
-		// check if all values in array are clubs(0-12), spades(13-25), hearts(26-38), diamonds(39-51)
+
 		function flushes(array) {
 			array.splice(0,5);
 			array = [...tempPoker];	
@@ -391,9 +309,6 @@
 			array.splice(0,5);
 		}
 
-		// sets all values inside array to their base number without suits
-		// ex. ♣ Q = 11, ◆ Q = 11
-		// do numerical sort to arrange values, for easier confirmation, as there can only be a set amount of moves for this type of poker hand
 		function fullHouses(array) {
 			array.splice(0,5);
 			array = [...tempPoker];	
@@ -414,10 +329,6 @@
 			array.splice(0,5);
 		}
 
-		// sets all values inside array to their base number without suits
-		// ex. ♣ Q = 11, ◆ Q = 11
-		// determines whether values are succeeding with numerical sort
-		// King indexes cannot be in middle of the array after sorting
 		function straights(array) {
 			array.splice(0,5);
 			array = [...tempPoker];	
@@ -446,108 +357,87 @@
 			array.splice(0,5);
 		}
 
-		// arrange deck by suit
 		function bySuitDeck(choice) {
-			shuffleDeck(shuffledDeck);
-			// clear out previous inputs to make way for new shuffled values
+			shuffleDeck(cardDeck);
 			clubDeck.splice(0,13);
 			spadeDeck.splice(0,13);
 			heartDeck.splice(0,13);
 			diamondDeck.splice(0,13);
-			// takes suit as standard to push values into respective arrays
-			for (let i = shuffledDeck.length - 1; i >= 0; i--) {
-				let cardSuit = shuffledDeck[i][0];
+			for (let i = cardDeck.length - 1; i >= 0; i--) {
+				let cardSuit = cardDeck[i][0];
 				if (cardSuit === "♣") {
-					clubDeck.push(shuffledDeck[i]);
+					clubDeck.push(cardDeck[i]);
 				} else if (cardSuit === "♠") {
-					spadeDeck.push(shuffledDeck[i]);
+					spadeDeck.push(cardDeck[i]);
 				} else if (cardSuit === "♥") {
-					heartDeck.push(shuffledDeck[i]);
+					heartDeck.push(cardDeck[i]);
 				} else if (cardSuit === "◆") {
-					diamondDeck.push(shuffledDeck[i]);
+					diamondDeck.push(cardDeck[i]);
 				}
 			}
-			// if arranging deck by suite
 			if (choice===2) {
 				suitArrangement();
 			} else {
-				// if arranging deck by ranks
 				ranking(choice);
 			}
 		}
 
-		// show arrangement by suits neat and cleanly
 		function suitArrangement() {
-			showDeck(clubDeck);
+			showDeck(clubDeck,0);
 			console.log(" ");
-			showDeck(spadeDeck);
+			showDeck(spadeDeck,0);
 			console.log(" ");
-			showDeck(heartDeck);
+			showDeck(heartDeck,0);
 			console.log(" ");
-			showDeck(diamondDeck);
+			showDeck(diamondDeck,0);
 		}
 
-		// arranging by ranks from clubs to diamonds, from A to K, and reverse
 		function ranking(choice) {
-			// assigned new arrays for decks for ascending and descending orders
-			clubAscDeck = [...clubDeck];
-			clubDescDeck = [...clubDeck];
-
-			spadeAscDeck = [...spadeDeck];
-			spadeDescDeck = [...spadeAscDeck];
-
-			heartAscDeck = [...heartDeck];
-			heartDescDeck = [...heartAscDeck];
-
-			diamondAscDeck = [...diamondDeck];
-			diamondDescDeck = [...diamondAscDeck];
-
-			// for ascending ranks
 			if (choice===3) {
-				ascendingOrder(clubAscDeck, choice);
-				ascendingOrder(spadeAscDeck, choice);
-				ascendingOrder(heartAscDeck, choice);
-				ascendingOrder(diamondAscDeck, choice);
+				ascendingOrder(clubDeck,spadeDeck, heartDeck, diamondDeck, choice);
 			} else if (choice===4) {
-				// for descending ranks
-				descendingOrder(diamondDescDeck);
-				descendingOrder(heartDescDeck);
-				descendingOrder(spadeDescDeck);
-				descendingOrder(clubDescDeck);
+				descendingOrder(clubDeck,spadeDeck, heartDeck, diamondDeck, choice);
 			}
 		}
 
-		// for ascending ranks
-		function ascendingOrder(array, choice){
-			array.sort();
-			// after sorting the values and index for both A and 10, as well as Q and K are reversed so a function is made to switch their values
-			// for clarification A = 9, 10 = 0, Q = 12, K = 11
-			switchCards(array,0,9);
-			switchCards(array,11,12);
-			
-			if (choice === 3) {
-				showDeck(array);
+		function ascendingOrder(clubs, spades, hearts, diamonds, choice){
+			clubs.sort();
+			spades.sort();
+			hearts.sort();
+			diamonds.sort();
+			switchCards(clubs,0,9);
+			switchCards(clubs,11,12);
+			switchCards(spades,0,9);
+			switchCards(spades,11,12);
+			switchCards(hearts,0,9);
+			switchCards(hearts,11,12);
+			switchCards(diamonds,0,9);
+			switchCards(diamonds,11,12);
+			for (var i = 0; i <= 12; i++) {
+				rankedDeck.push(clubs[i]);
+				rankedDeck.push(spades[i]);
+				rankedDeck.push(hearts[i]);
+				rankedDeck.push(diamonds[i]);
+			}
+			if (choice===3) {
+				showWholeDeck(rankedDeck);
 			}
 		}
 
-		// switching values inside array
 		function switchCards(array,index1,index2) {
 			let temp = array[index1];
 			array[index1] = array[index2];
 			array[index2] = temp;
 		}
 
-		// for descending ranks, needed to arrange it first in ascending, and then reverse the array
-		function descendingOrder(array){
-			ascendingOrder(array);
-			array.reverse();
-			showDeck(array);
+		function descendingOrder(clubs, spades, hearts, diamonds, choice){
+			ascendingOrder(clubs, spades, hearts, diamonds, choice);
+			rankedDeck.reverse();
+			showWholeDeck(rankedDeck);
 		}
 
-		// for dealing translated cards
 		function wordedDeck() {
 			shuffleDeck(wordDeck);
-			// when there are no more cards to translate, offer other options
 			if (wordDeck[0] === undefined) {
 				option5 = false;
 				console.log("No Cards Left to Translate");
@@ -556,7 +446,6 @@
 				options();
 				console.log(" ");
 			} else {
-				// translate cards by getting their values
 				let wordCard = wordDeck[0][0];
 				let wordNumber = wordDeck[0][1];
 
@@ -567,8 +456,7 @@
 				} else if (wordCard === "♥") {
 					wordCard = "Hearts";
 				} else if (wordCard === "◆") {
-					wordCard = "Diamonds";
-				}
+					wordCard = "Diamonds";}
 
 				if (wordNumber === "A") {
 					wordNumber = "Ace of ";
@@ -585,7 +473,7 @@
 				} else if (wordNumber === "7") {
 					wordNumber = "Seven of ";
 				} else if (wordNumber === "8") {
-					wordNumber = "Four of ";
+					wordNumber = "Eight of ";
 				} else if (wordNumber === "9") {
 					wordNumber = "Nine of ";
 				} else if (wordNumber === "10") {
@@ -595,8 +483,7 @@
 				} else if (wordNumber === "Q") {
 					wordNumber = "Queen of ";
 				} else if (wordNumber === "K") {
-					wordNumber = "King of ";
-				}
+					wordNumber = "King of ";}
 
 				console.log(wordNumber+wordCard);
 				wordDeck.shift();
