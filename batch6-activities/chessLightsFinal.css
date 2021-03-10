@@ -2,7 +2,6 @@
 	*  {
 		margin: 0;
 		padding: 0;
-		text-align: center; 
 	}
 
 	body {
@@ -12,6 +11,7 @@
 		background-attachment: fixed;
 		display: grid;
 		grid-template-columns: 5% 45% 45% 5%;
+		align-items: center;
 	}
 
 	.sideText {
@@ -22,10 +22,10 @@
 	}
 
 	.chessBoard {
-		margin-top: 2.5vh;
+		margin-top: 10vh;
 		display: grid;
-		grid-template-columns: repeat(8, 4.25vw);
-		grid-template-rows: repeat(8, 4.25vw);
+		grid-template-columns: repeat(8, 5vw);
+		grid-template-rows: repeat(8, 5vw);
 		justify-content: center;
 		align-items: center;
 	}
@@ -37,8 +37,8 @@
 	.wRook, .wKnight, .wBishop, .wQueen, .wKing {
 		display: grid;
 		justify-content: center;
-		width: 4.25vw;
-		height: 4.25vw;
+		width: 5vw;
+		height: 5vw;
 		position: relative;
 		background-position: relative;
 		background-size: cover;
@@ -46,10 +46,12 @@
 
 	.wBlock {
 		background-image: url("chessAssets/white.png");
+		z-index: -1;
 	}
 
 	.bBlock {
-		background-image: url("chessAssets/black.png");  
+		background-image: url("chessAssets/black.png");
+		z-index: -1;  
 	}
 
 	.wBlock:hover, .bBlock:hover {
