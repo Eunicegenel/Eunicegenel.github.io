@@ -24,8 +24,8 @@
 	.chessBoard {
 		margin-top: 2.5vh;
 		display: grid;
-		grid-template-columns: auto repeat(9,  4.25vw) auto;
-		grid-template-rows: auto repeat(9,  4.25vw) auto;
+		grid-template-columns: repeat(8, 4.25vw);
+		grid-template-rows: repeat(8, 4.25vw);
 		justify-content: center;
 		align-items: center;
 	}
