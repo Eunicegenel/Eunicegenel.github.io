@@ -18,7 +18,7 @@
 		margin-top: 2.5vh;
 		font-family: "Dosis";
 		font-size: 2.5vw;
-		color: #ce8652;a
+		color: #ce8652;
 	}
 
 	.chessBoard {
@@ -45,17 +45,15 @@
 	}
 
 	.wBlock {
-		background-image: url("chessAssets/white.png");
-		z-index: -1;
+		background-color: #cf8652;
 	}
 
 	.bBlock {
-		background-image: url("chessAssets/black.png");
-		z-index: -1;  
+		background-image: rgba(0,0,0,0);
 	}
 
 	.wBlock:hover, .bBlock:hover {
-		background-image: url("chessAssets/tileHover.png");  
+		background-color: rgba(154,154,154,0.25);
 	}
 
 	.no1 {

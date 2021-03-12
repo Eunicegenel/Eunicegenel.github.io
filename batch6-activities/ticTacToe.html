@@ -140,7 +140,7 @@
             }
 
             if (currentPlayer === "X") {
-                var x = clickedCell.getAttribute('id');
+                var x = clickedCell.('id');
                 var moveX = document.querySelector('#moveX');
                 xMoves.push(x);
                 moveX.innerHTML = xMoves;
