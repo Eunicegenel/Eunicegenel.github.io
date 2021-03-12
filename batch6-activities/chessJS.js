@@ -23,28 +23,36 @@ function createBoard(board) {
 	for (var i = 1; i <= 32; i++) {
 		var wBlock = document.createElement('div');
 		wBlock.className = 'wBlock';
+		wBlock.setAttribute("ondrop", "drop(event)"); 
+		wBlock.setAttribute("ondragover", "allowDrop(event)"); 
 		var bBlock = document.createElement('div');
 		bBlock.className = 'bBlock';
+		bBlock.setAttribute("ondrop", "drop(event)"); 
+		bBlock.setAttribute("ondragover", "allowDrop(event)");
 		var cell = document.createElement('div');
 		cell.className = 'cell';
 		cell.setAttribute("name", "none"); 
+		cell.setAttribute("draggable", "true");
+		cell.setAttribute("ondragstart", "drag(event)");
 		var cell1 = document.createElement('div');
 		cell1.className = 'cell';
 		cell1.setAttribute("name", "none"); 
+		cell1.setAttribute("draggable", "true");
+		cell1.setAttribute("ondragstart", "drag(event)");
 		if(count%2===0) {
 			board.appendChild(bBlock);
 			board.appendChild(wBlock);
 			wBlock.appendChild(cell);
 			bBlock.appendChild(cell1);
-			cell1.id = idCount;
-			cell.id = idCount + 1;
+			bBlock.id = idCount;
+			wBlock.id = idCount + 1;
 		} else {
 			board.appendChild(wBlock);
 			board.appendChild(bBlock);
 			wBlock.appendChild(cell);
 			bBlock.appendChild(cell1);
-			cell.id = idCount;
-			cell1.id = idCount + 1;
+			wBlock.id = idCount;
+			bBlock.id = idCount + 1;
 		}
 		idCount+=2;
 		if (i%4===0) {
@@ -140,6 +148,20 @@ function queenMoves(index,color) {
 
 function kingMoves(index,color) {
 	
+}
+
+function allowDrop(ev) {
+	ev.preventDefault();
+}
+
+function drag(ev) {
+	ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+	ev.preventDefault();
+	var data = ev.dataTransfer.getData("text");
+	ev.target.appendChild(document.getElementById(data));
 }
 
 newGame();
