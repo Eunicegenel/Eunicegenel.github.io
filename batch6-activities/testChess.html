@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chess</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		h1,h2,h3 {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>Chess</h1>
+	<canvas id="chesscanvas" width="400" height="400" style="margin-left: 37%;"></canvas>
+	<h2 id="currentTeamText"></h2>
+	<h2>White Pieces Lost:</h2>
+	<h3 id="whiteCasualties"></h3>
+	<h2>Black Pieces Lost:</h2>
+	<h3 id="blackCasualties"></h3>
+	<h2 id="totalVictories"></h2>
+	<script type="text/javascript">
+		const white = 1;
+		const black = 1;
+		const boardHeight = 8;
+		const boardWith = 8;
+
+		const empty = -1;
+		const pawn = 0;
+		const knight = 1;
+		const bishop = 2;
+		const rook = 3;
+		const queen = 4;
+		const king = 5;
+
+		const invalid = 0;
+		const valid = 1;
+		const validCapture = 2;
+
+		const piecesCharacters = {
+			0:'p',
+			1:'k',
+			2:'b',
+			3:'r',
+			4:'q',
+			5:'k',
+		};
+
+		let chessCanvas;
+		let chessCtx;
+		let currentTeamText;
+		let whiteCasualtiesText;
+		let blackCasualtiesText;
+		let totalVictoriesText;
+
+		let board;
+		let currentTeam;
+
+		let curX;
+		let curY;
+
+		let whiteCasualties;
+		let blackCasualties;
+
+		let whiteVictories;
+		let blackVictories;
+
+		document.addEventListener("DOMContentLoaded", onLoad);
+
+		function onLoad() {
+			chessCanvas = document.getElementById('chesscanvas');
+			chessCtx = chessCanvas.getContext("2d");
+			chessCanvas.addEventListener("click", onClick);
+			currentTeamText = document.getElementById(currentTeamText);
+
+			whiteCasualtiesText = document.getElementById('whiteCasualties');
+			blackCasualtiesText = document.getElementById('blackCasualties');
+
+			totalVictoriesText = document.getElementById('totalVictories');
+			whiteVictories = 0;
+			blackVictories = 0;
+
+			startGame();
+		}
+
+		function startGame() {
+			board = new Board();
+			curX = -1;
+			curY = -1;
+
+			currentTeam = white;
+			currentTeamText.textContent = "white's turn";
+
+			whiteCasualties = [0,0,0,0,0];
+			blackCasualties = [0,0,0,0,0];
+
+			repaintBoard();
+			updateWhiteCasualties();
+			updateBlackCasualties();
+			updateTotalVictories();
+		}
+
+		function onClick(event) {
+			let chessCanvasX = chessCanvas.getBoundingClientRect().left;
+			let chessCanvasY = chessCanvas.getBoundingClientRect().top;
+
+			let x = Math.floor((event.clientX-chessCanvasX)/tileSize);
+			let y = Math.floor((event.clientY-chessCanvasY)/tileSize);
+
+			if (checkValidMovement(x,y) === true) {
+				if (checkValidCapture(x,y) === true) {
+					if (board.tiles[y][x].pieceType === king) {
+						if (currentTeam === WHITE) whiteVictories++;
+						else blackVictories++;
+
+						startGame();
+					}
+
+					if (currentTeam === white) {
+						blackCasualties[board.tiles[y][x].pieceType]++;
+						updateBlackCasualties();
+					} else {
+						whiteCasualties[board.tiles[y][x].pieceType]++;
+						updateWhiteCasualties();
+					}
+				}
+				moveSelectedPiece(x,y);
+
+				changeCurrentTeam();
+			} else {
+				curX = x;
+				curY = y;
+			}
+			repaintBoard();
+		}
+
+		function checkPossiblePlays() {
+			if (curX < 0 || curY < 0) return;
+
+			let tile = board.tile[curX][curY];
+			if (tile.team === empty || tile.team !== currentTeam) return;
+
+			drawTile(curX,curY, highlightColor); 
+			board.resetValidMoves();
+
+			if(tile.pieceType === pawn) checkPossiblePlaysPawn(curX,curY);
+			else if (tile.pieceType === knight) checkPossiblePlaysKnight(curX,curY);
+			else if (tile.pieceType === bishop) checkPossiblePlaysBishop(curX,curY);
+			else if (tile.pieceType === rook) checkPossiblePlaysRook(curX,curY);
+			else if (tile.pieceType === queen) checkPossiblePlaysQueen(curX,curY);
+			else if (tile.pieceType === king) checkPossiblePlaysKing(curX,curY);
+		}
+
+		function checkPossiblePlaysPawn(curX,curY) {
+			let direction;
+			if (currentTeam === white) direction = -1;
+			else direction = 1;
+
+			if (curY+direction < 0 || curY+direction > boardHeight-1) return;
+
+			checkPossibleMove(curX,curY+direction);
+
+			if (curY === 1 || curY === 6) {
+				checkPossibleMove(curX, curY+2*direction);
+			}
+
+			if (curX - 1 >= 0) checkPossibleCapture(curX-1, curY+direction);
+			if (curX + 1 <= boardWith - 1) checkPossibleCapture(curX+1, curY+direction);
+		}
+
+		function checkPossiblePlaysKnight(curX,curY) {
+			if (curX - 2 >= 0) {
+				if (curY - 1 >= 0) checkPossiblePlay(curX-2, curY-1);
+				if (curY + 1 <= boardHeight-1) checkPossiblePlay(curX-2, curY+1);
+			}
+
+			if (curX - 1 > 0) {
+				if (curY - 2 >= 0) checkPossiblePlay(curX-1, curY-2);
+				if (curY + 2 <= boardHeight-1) checkPossiblePlay(curX+1, curY+2); 
+			}
+
+			if (curX+2 <= boardHeight-1) {
+				if (curY-1 >= 0) checkPossiblePlay(curX+2, curY-1);
+				if (curY+1 <= boardHeight-1) checkPossiblePlay(curX+2, curY+1);
+			}
+		}
+
+		function checkPossiblePlaysRook(curX,curY) {
+			for (let i = 1; curY-i >= 0; i++) {
+				if (checkPossiblePlay(curX, curY-i)) break;
+			}
+			for (let i = 1; curX-i >= 0; i++) {
+				if (checkPossiblePlay(curX-i, curY)) break;
+			}
+		}
+
+		function checkPossiblePlaysBishop(curX,curY) {
+			for (let i = 1; curX+1 <= boardWith-1 && curY-1 >=0; i++) {
+				if (checkPossiblePlay(curX+i, curY-i)) break;
+			}
+
+			for (let i = 1; curX-i >= 0 && curY+i <= boardHeight-1; i++) {
+				if (checkPossiblePlay(curX-i, curY+i)) break;
+			}
+
+			for (let i = 1; curX-i >= 0 && curY-i >= 0; i++) {
+				if(checkPossiblePlay(curX-i, curY-i)) break;
+			}
+		}
+
+		function checkPossiblePlaysQueen(curX,curY) {
+			checkPosiblePlaysBishop(curX,curY);
+			checkPossiblePlaysRook(curX,curY);
+		}
+
+		function checkPossiblePlaysKing(curX,curY) {
+			for (let i = -1; i <= 1; i++) {
+				if (curY+1 < 0 || curY+i > boardHeight-1) continue;
+
+				for (let j = -1; j <= 1; j++) {
+					if (curX+j < 0 || curX+j > boardWith-1) continue;
+					if (i == 0 && j == 0) continue;
+
+					checkPossiblePlay(curX+j, curY+i);
+				}
+			}
+		}
+
+		function checkPossiblePlay(x,y) {
+			if (checkPossibleCapture(x,y)) return true;
+
+			return !checkPossibleMove(x,y);
+		}
+
+		function checkPossibleMove(x,y) {
+			if(board.tile[y][x].team !== empty) return true;
+
+			board.validMoves[y][x] = valid;
+			drawCircle(x,y, highlightColor);
+			return true;
+		}
+
+		function checkPossibleCapture(x,y) {
+			if (board.tiles[y][x].team !== getOppositeTeam(currentTeam)) return false;
+
+			board.validMoves[y][x] = validCapture;
+			drawCorners(x,y, highlightColor);
+			return true;
+		}
+
+		function checkValidMovement(x,y) {
+			if (board.validMoves[y][x] === valid || board.validMoves[y][x] === validCapture) return true;
+			else return false;
+		}
+
+		function checkValidCapture(x,y) {
+			if (board.validMoves[y][x] === validCapture) return true;
+			else return false;
+		}
+
+		function moveSelectedPiece(x,y) {
+			board.tiles[y][x].pieceType = board.tiles[curY][curX].pieceType;
+			board.tiles[y][x].team = boar.tiles[curY][curX].team;
+
+			board.tiles[curY][curX].pieceType = empty;
+			board.tiles[curY][curX].team = empty;
+
+			curX = -1;
+			curY = -1;
+			board.resetValidMoves();
+		}
+
+		function changeCurrentTeam() {
+			if (currentTeam === white) {
+				currentTeamText.textContent = "Black's Turn";
+				currentTeam = black;
+			} else {
+				currentTeamText.textContent = "White's Turn";
+				currentTeam = white;
+			}
+		}
+
+		function repaintBoard() {
+			drawBoard();
+			checkPossiblePlays();
+			drawPieces();
+		}
+
+		function drawBoard() {
+			chessCtx.fillStyle = whiteTileColor;
+			chessCtx.fillRect(0,0, boardWith*tileSize, boardHeight*tileSize);
+
+			for (let i = 0; i < boardHeight; i++) {
+				for (let j = 0; j < boardWith; j++) {
+					if ((i+j)%2 === 1) {
+						drawTile(j,i, blackTileColor);
+					}
+				}
+			}
+		}
+
+		function drawTile(x,y,fillStyle) {
+			chessCtx.fillStyle = fillStyle;
+			chessCtx.fillRect(tileSize*x, tileSize*y, tileSize, tileSize);
+		}
+
+		function drawCircle(x,y,fillStyle) {
+			chessCtx.fillStyle = fillStyle;
+			chessCtx.beginPath();
+			chessCtx.arc(tileSize*(x+0.5),tileSize/5,0,2*Math.PI);
+			chessCtx.fill();
+		}
+
+		function drawCorners(x,y,fillStyle) {
+			chessCtx.fillStyle = fillStyle;
+
+			chessCtx.beginPath();
+			chessCtx.moveTo(tileSize*x, tileSize*y);
+			chessCtx.lineTo(tileSize*x+15, tileSize*y);
+			chessCtx.moveTo(tileSize*x, tileSize*y+15);
+			chessCtx.fill();
+
+			chessCtx.beginPath();
+			chessCtx.moveTo(tileSize*(x+1), tileSize*y);
+			chessCtx.lineTo(tileSize*(x+1)-15, tileSize*y);
+			chessCtx.lineTo(tileSize*x, tileSize*(y+1)-15);
+			chessCtx.fill();
+
+			chessCtx.beginPath();
+			chessCtx.moveTo(tileSize*(x+1), tileSize*(y+1));
+			chessCtx.lineTo(tileSize*(x+1)-15, tileSize*(y+1));
+			chessCtx.lineTo(tileSize*(x+1), tileSize*(y+1)-15);
+			chessCtx.fill();
+		}
+
+		function drawPieces() {
+			for (let i = 0; i < boardHeight; i++) {
+				for (let j = 0; j < boardWith; j++) {
+					if (board.tiles[i][j].team === empty) continue;
+
+					if (board.tiles[i][j].team === white) {
+						chessCtx.fillStyle = "#ff0000";
+					} else {
+						chessCtx.fillStyle = "#0000ff";
+					}
+					chessCtx.font = "38 Arial";
+					let pieceType = board.tiles[i][j].pieceType;
+					chessCtx.fillText(piecesCharacters[pieceType], tileSize*(j+1/8), tileSize*(i+4/5));
+				}
+			}
+		}
+
+		function updateWhiteCasualties() {
+			updateCasualties(whiteCasualties, whiteCasualtiesText);
+		}
+
+		function updateBlackCasualties() {
+			updateCasualties(blackCasualties, blackCasualtiesText);
+		}
+
+		function updateCasualties(casualties,text) {
+			let none = true;
+
+			for (let i = queen; i >= pawn; i--) {
+				if (casualties[i] === 0) continue;
+
+				if (none) {
+					text.textContent = casualties[i] + " " + piecesCharacters[i];
+				}
+			}
+			if (none) text.textContent = "None";
+		}
+
+		function updateTotalVictories() {
+			totalVictoriesText.textContent = "Games Won : White " + whiteVictories + " " + "-Black " + blackVictories;
+		}
+
+		function getOppositeTeam(team) {
+			if (team === white) return black;
+			else if (team === black) return white;
+			else return empty;
+		}
+
+		class Board {
+			constructor() {
+				this.tiles = [];
+
+				this.tiles.push([
+					new Tile(rook, black),
+					new Tile(knight, black),
+					new Tile(bishop, black),
+					new Tile(queen, black),
+					new Tile(king, black),
+					new Tile(bishop, black),
+					new Tile(knight, black),
+					new Tile(rook, black),
+				]);
+
+				this.tiles.push([
+					new Tile(pawn, black),
+					new Tile(pawn, black),
+					new Tile(pawn, black),
+					new Tile(pawn, black),
+					new Tile(pawn, black),
+					new Tile(pawn, black),
+					new Tile(pawn, black),
+					new Tile(pawn, black),
+				]);
+
+				for (let i = 0; i < 4; i++) {
+					this.tiles.push([
+						new Tile(empty, empty),
+						new Tile(empty, empty),
+						new Tile(empty, empty),
+						new Tile(empty, empty),
+						new Tile(empty, empty),
+						new Tile(empty, empty),
+						new Tile(empty, empty),
+						new Tile(empty, empty),
+					]);
+				}
+
+				this.tiles.push([
+					new Tile(pawn, white),
+					new Tile(pawn, white),
+					new Tile(pawn, white),
+					new Tile(pawn, white),
+					new Tile(pawn, white),
+					new Tile(pawn, white),
+					new Tile(pawn, white),
+					new Tile(pawn, white),
+				]);
+
+				this.tiles.push([
+					new Tile(rook, white),
+					new Tile(knight, white),
+					new Tile(bishop, white),
+					new Tile(queen, white),
+					new Tile(king, white),
+					new Tile(bishop, white),
+					new Tile(knight, white),
+					new Tile(rook, white),
+				]);
+
+				this.validMoves = [];
+				for (let i = 0; i < boardHeight; i++) {
+					this.validMoves.push([
+						invalid,
+						invalid,
+						invalid,
+						invalid,
+						invalid,
+						invalid,
+						invalid,
+						invalid,
+					]);
+				}
+			}
+		}
+
+		function resetValidMoves() {
+			for(let i = 0; i < boardHeight; i++) {
+				for (let j = 0; j < boardWith; j++) {
+					this.validMoves[i][j] = invalid;
+				}
+			}
+		}
+
+		class Tile {
+			constructor(pieceType, team) {
+				this.pieceType = pieceType;
+				this.team = team;
+			}
+		}
+
+	</script>
+</body>
+</html>
+
+<!-- https://www.youtube.com/watch?v=ry9l9Ua1Ikg
+3:32 -->

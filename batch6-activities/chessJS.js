@@ -2,6 +2,12 @@
 const chessboard = [];
 var count = 1;
 var idCount = 1;
+const rook = [1,8,57,64];
+const knight = [2,7,58,63];
+const bishop = [3,6,59,62];
+const queen = [4,60];
+const king = [5,61];
+const pawn = [9,10,11,12,13,14,15,16,49,50,51,52,53,54,55,56];
 
 for (var i = 0; i <= 63; i++) {
 	chessboard.push("");
@@ -10,21 +16,21 @@ for (var i = 0; i <= 63; i++) {
 function newGame() {
 	let board = document.querySelector(".chessBoard");
 	createBoard(board);
-	initialPlaces(board);
+	initialPlaces();
 }
 
 function createBoard(board) {
 	for (var i = 1; i <= 32; i++) {
 		var wBlock = document.createElement('div');
 		wBlock.className = 'wBlock';
-		wBlock.setAttribute("name", "none"); 
 		var bBlock = document.createElement('div');
 		bBlock.className = 'bBlock';
-		bBlock.setAttribute("name", "none");
 		var cell = document.createElement('div');
 		cell.className = 'cell';
+		cell.setAttribute("name", "none"); 
 		var cell1 = document.createElement('div');
 		cell1.className = 'cell';
+		cell1.setAttribute("name", "none"); 
 		if(count%2===0) {
 			board.appendChild(bBlock);
 			board.appendChild(wBlock);
@@ -47,9 +53,94 @@ function createBoard(board) {
 	}
 }
 
-function initialPlaces(board) {
-	var wRook = document.getElementById("64").name;
-	console.log(wRook);
+function initialPlaces() {
+	piecePlacement(rook,"wRook","bRook","rook");
+	piecePlacement(knight,"wKnight","bKnight","knight");
+	piecePlacement(bishop,"wBishop","bBishop","bishop");
+	piecePlacement(queen,"wQueen","bQueen","queen");
+	piecePlacement(king,"wKing","bKing","king");
+	piecePlacement(pawn,"wPawn","bPawn","pawn");
+}
+
+function piecePlacement(set,white,black,piece) {
+	for (let i in set) {
+		let pieces = document.getElementById(set[i]);
+
+		if(pieces.id <= 16) {
+			pieces.setAttribute("name", piece);
+			pieces.setAttribute("color", "black");
+			pieces.classList.add(black);
+		} else {
+			pieces.setAttribute("name", piece);
+			pieces.setAttribute("color", "white");
+			pieces.classList.add(white);
+		}
+	}
+}
+
+function handleCellClick(clickedCellEvent) {
+    const clickedCell = clickedCellEvent.target;
+
+    const index = clickedCell.id;
+    const character = clickedCell.getAttribute('name');
+    const color = clickedCell.getAttribute('color');
+
+    charMovement(index,character,color);
+}
+
+function charMovement(index,character,color) {
+	switch(character) {
+		case "pawn":
+			pawnMoves(index,color);
+		case "rook":
+			rookMoves(index,color);
+		case "knight":
+			knightMoves(index,color);
+		case "bishop":
+			bishopMoves(index,color);
+		case "queen":
+			queenMoves(index,color);
+		case "king":
+			kingMoves(index,color);
+	}
+}
+
+function pawnMoves(index,color) {
+	let pawns = [];
+	let counter = 8;
+	if (index<=16&&color==="black") {
+		do {
+			pawns.push(parseInt(index)+parseInt(counter));
+			counter*=2;
+		} while (pawns.length<=1);
+
+	console.log(pawns);
+	for (let i in pawns) {
+		document.getElementById(pawns[i]).parentElement.style.boxShadow = "inset 0px 0px 0px 3px white";
+	}
+	document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+	}
+}
+
+function rookMoves(index,color) {
+
+}
+
+function knightMoves(index,color) {
+	
+}
+
+function bishopMoves(index,color) {
+	
+}
+
+function queenMoves(index,color) {
+	
+}
+
+function kingMoves(index,color) {
+	
 }
 
 newGame();
+document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
