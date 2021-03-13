@@ -23,17 +23,17 @@ function createBoard(board) {
 	for (var i = 1; i <= 32; i++) {
 		var wBlock = document.createElement('div');
 		wBlock.className = 'wBlock';
-		wBlock.setAttribute("ondrop", "drop(event)"); 
+		wBlock.setAttribute("ondrop", "drop(event)");
 		wBlock.setAttribute("ondragover", "allowDrop(event)"); 
 		var bBlock = document.createElement('div');
 		bBlock.className = 'bBlock';
-		bBlock.setAttribute("ondrop", "drop(event)"); 
-		bBlock.setAttribute("ondragover", "allowDrop(event)");
+		bBlock.setAttribute("ondrop", "drop(event)");
+		bBlock.setAttribute("ondragover", "allowDrop(event)"); 
 		var cell = document.createElement('div');
 		cell.className = 'cell';
-		cell.setAttribute("name", "none"); 
+		cell.setAttribute("name", "none");
 		cell.setAttribute("draggable", "true");
-		cell.setAttribute("ondragstart", "drag(event)");
+		cell.setAttribute("ondragstart", "drag(event)"); 
 		var cell1 = document.createElement('div');
 		cell1.className = 'cell';
 		cell1.setAttribute("name", "none"); 
@@ -44,15 +44,19 @@ function createBoard(board) {
 			board.appendChild(wBlock);
 			wBlock.appendChild(cell);
 			bBlock.appendChild(cell1);
-			bBlock.id = idCount;
-			wBlock.id = idCount + 1;
+			cell1.id = idCount;
+			cell.id = idCount + 1;
+			bBlock.setAttribute("cellno", idCount);
+			wBlock.setAttribute("cellno", idCount+1);
 		} else {
 			board.appendChild(wBlock);
 			board.appendChild(bBlock);
 			wBlock.appendChild(cell);
 			bBlock.appendChild(cell1);
-			wBlock.id = idCount;
-			bBlock.id = idCount + 1;
+			cell.id = idCount;
+			cell1.id = idCount + 1;
+			wBlock.setAttribute("cellno", idCount);
+			bBlock.setAttribute("cellno", idCount+1);
 		}
 		idCount+=2;
 		if (i%4===0) {
@@ -126,7 +130,7 @@ function pawnMoves(index,color) {
 	for (let i in pawns) {
 		document.getElementById(pawns[i]).parentElement.style.boxShadow = "inset 0px 0px 0px 3px white";
 	}
-	document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+	
 	}
 }
 
@@ -150,19 +154,27 @@ function kingMoves(index,color) {
 	
 }
 
-function allowDrop(ev) {
-	ev.preventDefault();
+function allowDrop(event) {
+	event.preventDefault();
 }
 
-function drag(ev) {
-	ev.dataTransfer.setData("text", ev.target.id);
+function drag(event) {
+	event.dataTransfer.setData("text", event.target.id);
 }
 
-function drop(ev) {
-	ev.preventDefault();
-	var data = ev.dataTransfer.getData("text");
-	ev.target.appendChild(document.getElementById(data));
+function drop(event) {
+	event.preventDefault();
+	let data = event.dataTransfer.getData("text");
+	
+	let eventParent = event.target.parentElement;	
+	let cellno = eventParent.getAttribute("cellno");
+	console.log(eventParent);
+	console.log(cellno);
+
+	if(cellno !== null ) {
+		eventParent.appendChild(document.getElementById(data));
+	} else event.target.appendChild(document.getElementById(data));
+	
 }
 
 newGame();
-document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
