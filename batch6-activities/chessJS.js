@@ -168,13 +168,28 @@ function drop(event) {
 	
 	let eventParent = event.target.parentElement;	
 	let cellno = eventParent.getAttribute("cellno");
-	console.log(eventParent);
-	console.log(cellno);
-
-	if(cellno !== null ) {
-		eventParent.appendChild(document.getElementById(data));
-	} else event.target.appendChild(document.getElementById(data));
+	capturePosition(event,data,cellno,eventParent);
 	
+}
+
+function capturePosition(event,data,cellno,eventParent) {
+	let color1 = document.getElementById(data).getAttribute("color");
+	let color2 = event.target.getAttribute("color");
+
+	if (color1 !== color2) {
+		if(cellno !== null) {
+			eventParent.appendChild(document.getElementById(data));
+			if (eventParent.children[0] !== undefined) eventParent.children[0].remove();
+		} else {
+			if (event.target.children[0] !== undefined) event.target.children[0].remove();
+			event.target.appendChild(document.getElementById(data));
+		}
+	}
+	
+	
+
+	console.log(color1);
+	console.log(color2);
 }
 
 newGame();
