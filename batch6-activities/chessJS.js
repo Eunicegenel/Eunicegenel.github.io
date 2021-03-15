@@ -25,10 +25,14 @@ function createBoard(board) {
 		wBlock.className = 'wBlock';
 		wBlock.setAttribute("ondrop", "drop(event)");
 		wBlock.setAttribute("ondragover", "allowDrop(event)"); 
+		wBlock.setAttribute("capture", "1"); 
+		wBlock.setAttribute("color", "none");
 		var bBlock = document.createElement('div');
 		bBlock.className = 'bBlock';
 		bBlock.setAttribute("ondrop", "drop(event)");
 		bBlock.setAttribute("ondragover", "allowDrop(event)"); 
+		bBlock.setAttribute("capture", "1"); 
+		bBlock.setAttribute("color", "none");
 		var cell = document.createElement('div');
 		cell.className = 'cell';
 		cell.setAttribute("name", "none");
@@ -46,8 +50,8 @@ function createBoard(board) {
 			bBlock.appendChild(cell1);
 			cell1.id = idCount;
 			cell.id = idCount + 1;
-			bBlock.setAttribute("cellno", idCount);
-			wBlock.setAttribute("cellno", idCount+1);
+			bBlock.id = "a" + idCount;
+			wBlock.id = "a" + (idCount + 1);
 		} else {
 			board.appendChild(wBlock);
 			board.appendChild(bBlock);
@@ -55,8 +59,8 @@ function createBoard(board) {
 			bBlock.appendChild(cell1);
 			cell.id = idCount;
 			cell1.id = idCount + 1;
-			wBlock.setAttribute("cellno", idCount);
-			bBlock.setAttribute("cellno", idCount+1);
+			wBlock.id = "a" + idCount;
+			bBlock.id = "a" + (idCount + 1);
 		}
 		idCount+=2;
 		if (i%4===0) {
@@ -117,24 +121,55 @@ function charMovement(index,character,color) {
 	}
 }
 
-function pawnMoves(index,color) {
-	let pawns = [];
+function pawnMoves(data,color,test) {
+	index = test.match(/\d+/g);
+	let pawns = []; 
 	let counter = 8;
-	if (index<=16&&color==="black") {
-		do {
-			pawns.push(parseInt(index)+parseInt(counter));
-			counter*=2;
-		} while (pawns.length<=1);
+	let cellUp = document.getElementById(parseInt(data)-counter);
+	let cellDown = document.getElementById(parseInt(data)+counter);
 
-	console.log(pawns);
-	for (let i in pawns) {
-		document.getElementById(pawns[i]).parentElement.style.boxShadow = "inset 0px 0px 0px 3px white";
-	}
-	
-	}
+	if(cellUp.getAttribute("name") === "none"||cellDown.getAttribute("name") === "none") {
+		if (index<=16&&color==="black") {
+			do {
+				pawns.push(parseInt(index)+parseInt(counter));
+				counter*=2;
+			} while (pawns.length<=1);
+
+			for (let i in pawns) {
+				let boardLight = document.getElementById("a"+(pawns[i]));
+				boardLight.style.boxShadow = "inset 0px 0px 0px 3px white";
+			}
+			return pawns;
+		} else if (color==="black") {
+			pawns.push(parseInt(index)+parseInt(counter));
+			let boardLight = document.getElementById("a"+(pawns));
+			boardLight.style.boxShadow = "inset 0px 0px 0px 3px white";
+			return pawns;
+		}
+
+		if (index>=49&&color==="white") {
+			counter*=-1;
+			do {
+				pawns.push(parseInt(index)+parseInt(counter));
+				counter*=2;
+			} while (pawns.length<=1);
+
+			for (let i in pawns) {
+				let boardLight = document.getElementById("a"+(pawns[i]));
+				boardLight.style.boxShadow = "inset 0px 0px 0px 3px white";
+			}
+			return pawns;
+		} else if (color==="white") {
+			counter*=-1;
+			pawns.push(parseInt(index)+parseInt(counter));
+			let boardLight = document.getElementById("a"+(pawns));
+			boardLight.style.boxShadow = "inset 0px 0px 0px 3px white";
+			return pawns;
+		}
+	} else return pawns;
 }
 
-function rookMoves(index,color) {
+function pawnCapture(event){
 
 }
 
@@ -160,36 +195,59 @@ function allowDrop(event) {
 
 function drag(event) {
 	event.dataTransfer.setData("text", event.target.id);
+	let data = event.dataTransfer.getData("text");
+	let eventParent = document.getElementById(data).parentElement.id;	
+	let pieceName = document.getElementById(data).getAttribute("name");
+	let pieceColor = document.getElementById(data).getAttribute("color");
+	pawnMoves(data,pieceColor,eventParent); 
 }
 
 function drop(event) {
 	event.preventDefault();
 	let data = event.dataTransfer.getData("text");
+	let eventParent = document.getElementById(data).parentElement.id;
+	let eventTargetParent = event.target.parentElement;	
+	let capture = eventTargetParent.getAttribute("capture");
+	let pieceName = document.getElementById(data).getAttribute("name");
+	let pieceColor = document.getElementById(data).getAttribute("color");
+
+	let pawnValid = pawnMoves(data,pieceColor,eventParent);
+	let validPawnCapture = pawnCapture(event);
+	for (var i = 0; i <= pawnValid.length - 1; i++) {
+		if(("a" + pawnValid[i]) === event.target.id) {
+			capturePosition(event,data,capture,eventTargetParent);
+			break;
+		} else if ("a" + pawnValid[i] === "a" + event.target.id) {
+			capturePosition(event,data,capture,eventTargetParent);
+			break;
+		}
+	}
+
+
 	
-	let eventParent = event.target.parentElement;	
-	let cellno = eventParent.getAttribute("cellno");
-	capturePosition(event,data,cellno,eventParent);
-	
+	for (var i = 1; i <= 64; i++) {
+		document.getElementById("a"+i).style.boxShadow = "none";
+	}
 }
 
-function capturePosition(event,data,cellno,eventParent) {
+function capturePosition(event,data,capture,eventTargetParent) {
+	let targetID = parseInt(event.target.id.match(/\d+/g));
 	let color1 = document.getElementById(data).getAttribute("color");
-	let color2 = event.target.getAttribute("color");
+	let color2 = document.getElementById(targetID).getAttribute("color");
 
 	if (color1 !== color2) {
-		if(cellno !== null) {
-			eventParent.appendChild(document.getElementById(data));
-			if (eventParent.children[0] !== undefined) eventParent.children[0].remove();
+		if(capture !== null) {
+			eventTargetParent.appendChild(document.getElementById(data));
+			if (eventTargetParent.children[0] !== undefined) {
+				eventTargetParent.children[0].remove();
+				document.getElementById(data).setAttribute("id",targetID);
+			}
 		} else {
 			if (event.target.children[0] !== undefined) event.target.children[0].remove();
 			event.target.appendChild(document.getElementById(data));
+			document.getElementById(data).setAttribute("id",targetID);
 		}
 	}
-	
-	
-
-	console.log(color1);
-	console.log(color2);
 }
 
 newGame();
