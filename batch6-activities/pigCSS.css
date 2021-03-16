@@ -1,0 +1,22 @@
+<!--
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url("pigAssets/bg2.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	object-fit: contain; 
+	height: 100%;
+	width: 100%;
+	z-index: -3; 
+}
+
+.box {
+	height: 50px;
+	width: 50px;
+	background-color: blue; 
+}
+-->
