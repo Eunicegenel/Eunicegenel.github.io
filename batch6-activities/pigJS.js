@@ -44,15 +44,21 @@ function firstPlayer(playerX,playerY) {
 
 function skirmishSelect() {
 	skirmish = true;
+	campaign = false;
+	conquest = false;
 	return skirmish;
 }
 
 function campaignSelect() {
+	skirmish = false;
 	campaign = true;
+	conquest = false;
 	return campaign;
 }
 
 function conquestSelect() {
+	skirmish = false;
+	campaign = false
 	conquest = true;
 	return conquest;
 }
@@ -153,3 +159,15 @@ function changePlayer() {
 	}
 }
 
+function play() {
+	console.log("fuk");
+	document.getElementById("up1").style.animation = "menuUp 1s ease forwards";
+	document.getElementById("up2").style.animation = "menuUp 1s ease forwards";
+	document.getElementById("up3").style.animation = "menuUp 1s ease forwards";
+	document.getElementById("up4").style.animation = "menuUp 1s ease forwards";
+	document.getElementById("gate1").style.animation = "menuLeft 1s ease forwards";
+	document.getElementById("gate2").style.animation = "menuRight 1s ease forwards";
+	document.getElementById("skirmishSelect").style.animation = "fadeInTop 1.5s ease forwards";
+	document.getElementById("campaignSelect").style.animation = "fadeInTop 1.5s ease forwards";
+	document.getElementById("conquestSelect").style.animation = "fadeInTop 1.5s ease forwards";
+}
