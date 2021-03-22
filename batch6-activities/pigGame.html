@@ -13,7 +13,7 @@
 	<img class="logo" id="up1" src="pigAssets/sign.png">
 	<img class="options" id="up2" src="pigAssets/options.png">
 	<h1 id="up3">PIG ARENA</h1>
-	<h1 id="up4" class="play" onclick="play()">PLAY</h1>
+	<h1 id="up4" class="play" onclick="play()" onmousedown="btnClick.play()">PLAY</h1>
 	<div class="gate">
 		<img  id="gate1" src="pigAssets/gate1.png">
 		<img  id="gate2" src="pigAssets/gate2.png">
@@ -29,27 +29,27 @@
 					<p>DIFFICULTY</p>
 					<div class="difficulty">
 						<p></p>
-						<p class="choice" id="skirmish" onclick="skirmishSelect()">SKIRMISH</p>
+						<p class="choice" id="skirmish" onclick="skirmishSelect()" onmousedown="btnClick.play()">SKIRMISH</p>
 						<p class="detes">RACE TO 30 PTS</p>
 						<p></p>
 					</div>
 					<div class="difficulty">
 						<p></p>
-						<p class="choice" id="campaign" onclick="campaignSelect()">CAMPAIGN</p>
+						<p class="choice" id="campaign" onclick="campaignSelect()" onmousedown="btnClick.play()">CAMPAIGN</p>
 						<p class="detes">RACE TO 60 PTS</p>
 						<p></p>
 					</div>
 					<div class="difficulty">
 						<p></p>
-						<p class="choice" id="conquest" onclick="conquestSelect()">CONQUEST</p>
+						<p class="choice" id="conquest" onclick="conquestSelect()" onmousedown="btnClick.play()">CONQUEST</p>
 						<p class="detes">RACE TO 100 PTS</p>
 						<p></p>
 					</div>
 					<p>DICE NUMBER</p>
 					<div class="versus">
 						<P></P>
-						<p class="choice" id="oneDice" onclick="diceSelect()">ONE DICE</p>
-						<p class="choice" id="twoDie" onclick="dieSelect()">TWO DIE</p>
+						<p class="choice" id="oneDice" onclick="diceSelect()" onmousedown="btnClick.play()">ONE DICE</p>
+						<p class="choice" id="twoDie" onclick="dieSelect()" onmousedown="btnClick.play()">TWO DIE</p>
 						<p></p>
 					</div>
 					<p class="detes diceDetes" id="diceDetails">Choose number of dice to play<br>the game with, rules may vary</p>
@@ -63,8 +63,8 @@
 							<input class="textName" type="text" id="playerXName" value="" placeholder="input name"  maxlength="6">
 							<p>Player</p>
 							<p id="playerXChar">Red</p>
-							<p class="button" id="backPlayerXChar" onclick="changeCharX()"><</p>
-							<p class="button" id="nextPlayerXChar" onclick="changeCharX()">></p>
+							<p class="button" id="backPlayerXChar" onclick="changeCharX()" onmousedown="woodClack.play()"><</p>
+							<p class="button" id="nextPlayerXChar" onclick="changeCharX()" onmousedown="woodClack.play()">></p>
 						</div>
 						<div>
 							<div></div>
@@ -75,10 +75,10 @@
 							<input class="textName" type="text" id="playerYName" value="" placeholder="computer"  maxlength="6">
 							<p id="playerYId">Computer</p>
 							<p id="playerYChar">Red</p>
-							<p class="button" id="backPlayerYId" onclick="changeID()"><</p>
-							<p class="button" id="nextPlayerYId" onclick="changeID()">></p>
-							<p class="button" id="backPlayerYChar" onclick="changeCharY()"><</p>
-							<p class="button" id="nextPlayerYChar" onclick="changeCharY()">></p>
+							<p class="button" id="backPlayerYId" onclick="changeID()" onmousedown="woodClack.play()"><</p>
+							<p class="button" id="nextPlayerYId" onclick="changeID()" onmousedown="woodClack.play()">></p>
+							<p class="button" id="backPlayerYChar" onclick="changeCharY()" onmousedown="woodClack.play()"><</p>
+							<p class="button" id="nextPlayerYChar" onclick="changeCharY()" onmousedown="woodClack.play()">></p>
 						</div>
 						<div>
 							<div></div>
@@ -91,7 +91,7 @@
 		</div>
 		<img id="charX" class="character char1Pos" src="pigAssets/red/redIdleLeft.gif">
 		<img id="charY" class="character char2Pos" src="pigAssets/red/redIdleLeft.gif">
-		<p class="playBtn" id="playNow" onclick="startGame()">PLAY >>></p>
+		<p class="playBtn" id="playNow" onclick="startGame()" onmousedown="btnClick.play()">PLAY >>></p>
 	</div>
 	<img class="playerChar playerXpos" id="playerX" src="pigAssets/red/redIdleRight.gif">
 	<img class="playerChar playerYpos" id="playerY" src="pigAssets/red/redIdleLeft.gif">
@@ -139,9 +139,11 @@
 
 	<div class="winnerLayer" id="winnerPost">
 		<p class="winner" id="winningPlayer">P1 wins with 33</p>
-		<p class="resetBtn" id="reset" onclick="reset()">ᐅ</p>
+		<p class="resetBtn" id="reset" onclick="reset()" onmousedown="btnClick.play()">ᐅ</p>
 		<p class="winner">Play Again ?</p>
 	</div>
+
+	<iframe width="0" height="0" src="https://www.youtuberepeater.com/watch?v=LO3LZohKCnE#gsc.tab=0" frameborder="0" allowfullscreen></iframe>
 
 	<script src="pigJS.js"></script>
 </body>

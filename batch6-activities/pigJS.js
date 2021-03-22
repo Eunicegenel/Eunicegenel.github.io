@@ -17,6 +17,15 @@ var charY = 0;
 const charList = ['Red','Blue'];
 var historyList = ["","","",""];
 
+var btnClick = new Audio();
+btnClick.src = "pigAssets/btnClick.mp3"
+
+var woodClack = new Audio();
+woodClack.src = "pigAssets/woodClack.mp3"
+
+var diceRollSFX = new Audio();
+diceRollSFX.src = "pigAssets/diceRollSFX.mp3"
+
 function skirmishSelect() {
 	goal = 30;
 	document.getElementById("skirmish").style.color = "#ffebcd";
@@ -145,6 +154,7 @@ function dualDiceRollGif(dices1,dices2) {
 }
 
 function diceRoll() {
+	diceRollSFX.play();
 	if (dice === 2) dualDiceRoll();
 	else {
 		if (play1) {
@@ -189,6 +199,7 @@ function diceRoll() {
 }
 
 function dualDiceRoll() {
+	diceRollSFX.play();
 	if (play1) {
 		document.getElementById("aiRoll").style.display = "none";
 		document.getElementById("aiHold").style.display = "none";
@@ -242,6 +253,7 @@ function dualDiceRoll() {
 }
 
 function holdCount() {
+	btnClick.play();
 	if (play1) {
 		total1 += count1;
 		historyList.unshift(playerX + " held their points");
