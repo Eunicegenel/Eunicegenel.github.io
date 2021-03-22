@@ -441,6 +441,58 @@ p {
 	background-color: rgba(4,4,4,0.5);
 }
 
-#aiRoll, #aiHold { display: none; }
+#aiRoll, #aiHold { 
+	display: none;
+	opacity: 0;
+}
+
+.winnerLayer {
+	top: 0%;
+	left: 0%;
+	width: 100vw;
+	height: 100%;
+	background-color: rgba(4,4,4,0.9);
+	position: fixed;
+	flex-direction: column;
+	align-items: center;
+	z-index: 8;
+}
+
+.winner {
+	padding-top: 3vw; 
+	font-size: 3vw;
+}
+
+#winnerPost {
+	display: none;
+}
+
+.resetBtn {
+	cursor: pointer;
+	font-size: 17vw;
+	color: #4b8077; 
+}
+
+.resetBtn:hover {
+	color: #fa991c; 
+}
+
+.rightCount {
+	position: fixed;
+	left: 61vw;
+	z-index: 6;
+	font-size: 3vw;
+}
+
+.leftCount {
+	position: fixed;
+	left: 30vw;
+	z-index: 6;
+	font-size: 3vw;
+}
+
+#pXCount, #pYCount {
+	top: -200vh;
+}
 
 -->

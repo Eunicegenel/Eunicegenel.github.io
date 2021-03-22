@@ -155,6 +155,7 @@ function diceRoll() {
 				diceRollGif(count);
 				historyList.unshift(playerX + " rolled a 1");
 				historyList.unshift(playerX + " now has 0 for the round");
+				document.getElementById("pXCount").innerHTML = 0;
 				changePlayer();
 			}
 			else {
@@ -162,6 +163,7 @@ function diceRoll() {
 				count1 += count;
 				historyList.unshift(playerX + " rolled a " + count);
 				historyList.unshift(playerX + " now has " + count1);
+				document.getElementById("pXCount").innerHTML = count1;
 				showHistory(); 
 			}
 		} else if (play2) {
@@ -170,6 +172,7 @@ function diceRoll() {
 				diceRollGif(count);
 				historyList.unshift(playerY + " rolled a 1");
 				historyList.unshift(playerY + " now has 0 for the round");
+				document.getElementById("pYCount").innerHTML = 0;
 				changePlayer();
 			}
 			else {
@@ -177,6 +180,7 @@ function diceRoll() {
 				count2 += count;
 				historyList.unshift(playerY + " rolled a " + count);
 				historyList.unshift(playerY + " now has " + count2);
+				document.getElementById("pYCount").innerHTML = count2;
 				showHistory();
 				if (vsai === 0) aimoves(); 
 			}
@@ -194,16 +198,20 @@ function dualDiceRoll() {
 		if (dices1 === 1 || dices2 === 1) {
 			historyList.unshift(playerX + " rolled a " + dices1 + " and a " + dices2);
 			historyList.unshift(playerX + " now has 0 for the round");
+			document.getElementById("pXCount").innerHTML = 0;
 			changePlayer();
 		} else if (dices1 === 1 && dices2 === 1) {
 			total1 = 0;
 			historyList.unshift(playerX + " rolled double 1");
 			historyList.unshift(playerX + " now has 0 as total score");
+			document.getElementById("totalLeft").innerHTML = playerX + " &nbsp" + total1;
+			document.getElementById("pXCount").innerHTML = 0;
 			changePlayer();
 		} else {
 			count1 = count1 + dices1 + dices2;
 			historyList.unshift(playerX + " rolled a " + dices1 + " and a " + dices2);
 			historyList.unshift(playerX + " now has " + count1);
+			document.getElementById("pXCount").innerHTML = count1;
 			showHistory();
 		}
 	} else if (play2) {
@@ -213,16 +221,20 @@ function dualDiceRoll() {
 		if (dices1 === 1 || dices2 === 1) {
 			historyList.unshift(playerY + " rolled a " + dices1 + " and a " + dices2);
 			historyList.unshift(playerY + " now has 0 for the round");
+			document.getElementById("pYCount").innerHTML = 0;
 			changePlayer();
 		} else if (dices1 === 1 && dices2 === 1) {
 			total2 = 0;
 			historyList.unshift(playerY + " rolled double 1");
 			historyList.unshift(playerY + " now has 0 as total score");
+			document.getElementById("totalRight").innerHTML = total2+ " &nbsp" + playerY;
+			document.getElementById("pYCount").innerHTML = 0;
 			changePlayer();
 		} else {
 			count2 = count2 + dices1 + dices2;
 			historyList.unshift(playerY + " rolled a " + dices1 + " and a " + dices2);
 			historyList.unshift(playerY + " now has " + count2);
+			document.getElementById("pYCount").innerHTML = count2;
 			showHistory();
 			if (vsai === 0) aimoves(); 
 		}
@@ -232,9 +244,10 @@ function dualDiceRoll() {
 function holdCount() {
 	if (play1) {
 		total1 += count1;
-		historyList.unshift(playerX + " held his points");
+		historyList.unshift(playerX + " held their points");
 		historyList.unshift(playerX + " now has  total of " + total1);
 		document.getElementById("totalLeft").innerHTML = playerX + " &nbsp" + total1;
+		document.getElementById("pXCount").innerHTML = 0;
 		if (goal === 30) skirmishMatch();
 		else if (goal === 60) campaignMatch();
 		else if (goal === 100) conquestMatch();
@@ -243,6 +256,7 @@ function holdCount() {
 		historyList.unshift(playerY + " held his points");
 		historyList.unshift(playerY + " now has  total of " + total2);
 		document.getElementById("totalRight").innerHTML = total2+ " &nbsp" + playerY;
+		document.getElementById("pYCount").innerHTML = 0;
 		if (goal === 30) skirmishMatch();
 		else if (goal === 60) campaignMatch();
 		else if (goal === 100) conquestMatch();
@@ -255,12 +269,16 @@ function skirmishMatch() {
 			winner = playerX;
 			historyList.unshift(winner + " is the Winner");
 			showHistory();
+			document.getElementById("winnerPost").style.display = "flex";
+			document.getElementById("winningPlayer").innerHTML = winner + " wins with a total of " + total1;
 		} else changePlayer();
 	} else if (play2) {
 		if (total2 >= 30) {
 			winner = playerY;
 			historyList.unshift(winner + " is the Winner");
 			showHistory();
+			document.getElementById("winnerPost").style.display = "flex";
+			document.getElementById("winningPlayer").innerHTML = winner + " wins with a total of " + total2;
 		} else changePlayer();
 	} 
 }
@@ -271,12 +289,16 @@ function campaignMatch() {
 			winner = playerX;
 			historyList.unshift(winner + " is the Winner");
 			showHistory();
+			document.getElementById("winnerPost").style.display = "flex";
+			document.getElementById("winningPlayer").innerHTML = playerX + " wins with a total of " + total1;
 		} else changePlayer();
 	} else if (play2) {
 		if (total2 >= 60) {
 			winner = playerY;
 			historyList.unshift(winner + " is the Winner");
 			showHistory();
+			document.getElementById("winnerPost").style.display = "flex";
+			document.getElementById("winningPlayer").innerHTML = playerY + " wins with a total of " + total2;
 		} else changePlayer();
 	} 
 }
@@ -287,12 +309,16 @@ function conquestMatch() {
 			winner = playerX;
 			historyList.unshift(winner + " is the Winner");
 			showHistory();
+			document.getElementById("winnerPost").style.display = "flex";
+			document.getElementById("winningPlayer").innerHTML = playerX + " wins with a total of " + total1;
 		} else changePlayer();
 	} else if (play2) {
 		if (total2 >= 100) {
 			winner = playerY;
 			historyList.unshift(winner + " is the Winner");
 			showHistory();
+			document.getElementById("winnerPost").style.display = "flex";
+			document.getElementById("winningPlayer").innerHTML = playerY + " wins with a total of " + total2;
 		} else changePlayer();
 	} 
 }
@@ -302,14 +328,14 @@ function changePlayer() {
 		count1 = 0;
 		play1 = false;
 		play2 = true;
-		historyList.unshift(player2 + "'s Turn");
+		historyList.unshift(playerY + "'s Turn");
 		showHistory();
 		aimoves(); 
 	} else if (play2) {
 		count2 = 0;
 		play2 = false;
 		play1 = true;
-		historyList.unshift(player1 + "'s Turn");
+		historyList.unshift(playerX + "'s Turn");
 		document.getElementById("aiRoll").style.display = "none";
 		document.getElementById("aiHold").style.display = "none";
 		showHistory(); 
@@ -388,16 +414,20 @@ function startGame() {
 	document.getElementById("scoreBoard").style.opacity = '1';
 	document.getElementById("ruleBoard").style.display = 'grid';}, 500);
 
-	setTimeout(function() { document.getElementById("ruleBoard").style.opacity = '1';}, 600);
+	setTimeout(function() { document.getElementById("ruleBoard").style.opacity = '1';
+	document.getElementById("aiRoll").style.opacity = 1;
+	document.getElementById("aiHold").style.opacity = 1;
+	document.getElementById("pXCount").style.top = "20vh";
+	document.getElementById("pYCount").style.top = "20vh"; }, 600);
 
 	playerX = document.getElementById("playerXName").value; 
 	playerY = document.getElementById("playerYName").value;
 
-	if (playerX === "") playerX = "Player";
+	if (playerX === "") playerX = "P1";
 	document.getElementById("totalLeft").innerHTML = playerX + " &nbsp" + total1;
 
-	if (playerY === ""||vsai===0) playerY = "AI";
-	else if (playerY === ""||vsai===1) playerY = "Player";
+	if (playerY === ""&&vsai===0) playerY = "AI";
+	else if (playerY === ""&&vsai===1) playerY = "P2";
 	document.getElementById("totalRight").innerHTML = total2+ " &nbsp" + playerY;
 
 	firstPlayer(playerX,playerY);
@@ -441,4 +471,44 @@ function aimoves() {
 			}
 		}
 	}
+}
+
+function reset() {
+	playerX = "";
+	playerY = "";
+	player1 = "";
+	player2 = "";
+	play1 = false;
+ 	play2 = false;
+	count1 = 0;
+	count2 = 0;
+	total1 = 0;
+	total2 = 0;
+	winner = "";
+	goal = 30;
+	dice = 1;
+	vsai = 0;
+	charX = 0;
+	charY = 0;
+	historyList.splice(0,4);
+	historyList = ["","","",""];
+	document.getElementById("hideUnderlay").style.top = '0vh';
+	document.getElementById("playNow").style.top = '45vh';
+	document.getElementById("backPlayerXChar").style.top = '31vh';
+	document.getElementById("nextPlayerXChar").style.top = '31vh';
+	document.getElementById("backPlayerYId").style.top = '62.5vh';
+	document.getElementById("nextPlayerYId").style.top = '62.5vh';
+	document.getElementById("backPlayerYChar").style.top = '70.5vh';
+	document.getElementById("nextPlayerYChar").style.top = '70.5vh';
+	document.getElementById("charX").style.top = '20vh';
+	document.getElementById("charY").style.top = '60vh';
+	document.getElementById("winnerPost").style.display = 'none';
+	document.getElementById("playerX").style.top = '-200vh';
+	document.getElementById("playerY").style.top = '-200vh';
+	document.getElementById("scoreBoard").style.opacity = '0';
+	document.getElementById("ruleBoard").style.display = 'none';
+	document.getElementById("aiRoll").style.display = "none";
+	document.getElementById("aiHold").style.display = "none";
+	document.getElementById("pXCount").style.top = "-200vh";
+	document.getElementById("pYCount").style.top = "-200vh";
 }
