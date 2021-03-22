@@ -97,51 +97,350 @@ h1 {
 @keyframes fadeInTop {
   from {
   	top: -30vh;
-  	opacity: : 0;
+  	opacity: 0;
   }
   to {
   	top: 5vh;
-  	opacity: 1
+  	opacity: 1;
   }
 }
-
-.warPics {
-	cursor: pointer;
-	position: fixed;
-	width: 17.5vw;
-	z-index: 6;
-	opacity: 0;
-	filter: grayscale(100%);
-	transition: 1s ease;
-}
-
-.warPics:hover {
-	filter: none;
-	transform: scale(1.1);
-}
-
-.skirmish {left: 10.5vw;}
-
-.campaign {left: 40.5vw;}
-
-.conquest {left: 70.5vw;}
 
 .underlay {
 	position: fixed;
 	top: 0%;
+	left: 0%;
 	height: 100vh;
 	width: 100vw;
 	background-color: rgba(4,4,4,0.95);
-	z-index: 4
+	z-index: 4;
+	transition: 1.5s ease;
 }
 
-.option {
-	position: fixed;
-	top: 75%;
-	left: 40%;
-	height: 10vh;
-	width: 20vw;
-	z-index: 7;
-	opacity: 1;
+.level {
+	display: grid;
+	grid-template-columns: 5% 45% 45% 5%;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s ease;
 }
+
+.form {
+	margin-top: 7.5vh; 
+	margin-left: 4vw;
+	height: 80vh;
+	width: 80%;
+	border: solid 2vh #fa991c;
+	text-align: center;
+	transition: 0.5s ease;
+}
+
+p {
+	font-family: "Press Start 2P";
+	color: #ffebcd;
+	font-size: 1.25vw; 
+	z-index: 8;
+	margin: 1.25vw;
+	transition: 0.5s ease;
+}
+
+.versus {
+	margin-top: -1vh; 
+	margin-left: -1vw; 
+	display: grid;
+	grid-template-columns: auto 45% 45% auto; 
+	transition: 0.5s ease;
+}
+
+.difficulty {
+	margin-top: -1vh; 
+	margin-left: -1vw; 
+	display: grid;
+	grid-template-columns: auto 45% 45% auto; 
+	transition: 0.5s ease;
+}
+
+.choice {
+	cursor: pointer;
+	color: #fa991c;
+	font-size: 1vw;
+	padding: 2vh 1vw;
+	border: solid 0.5vh #4b8077;
+	transition: 0.5s ease; 
+}
+
+.detes {
+	text-align: left;
+	padding-top: 1vh;
+	font-family: "Architects Daughter";
+	color: #ffebcd;
+	font-size: 1.5vw; 
+	z-index: 8;
+	transition: 0.5s ease;
+}
+
+.diceDetes {
+	text-align: center;
+	margin-top: -1vh; 
+	font-family: "Architects Daughter";
+	font-size: 1.75vw; 
+	transition: 0.5s ease;
+}
+
+.player {
+	margin-left: 2.5vw;
+	height: 40vh;
+	width: 36vw;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s ease;
+}
+
+.charDetes {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s ease;
+}
+
+.character {
+	min-width: 10vw;
+	min-height: 10vh;
+	max-width: 20vw;
+	max-height: 20vh;
+	position: fixed;
+	transition: 1.75s ease;
+}
+
+.char1Pos {
+	top: 20%;
+	left: 77%;
+}
+
+.char2Pos {
+	top: 60%;
+	left: 77%;
+}
+
+.textName {
+	border: 0;
+	outline: 0;
+	background: transparent;
+	border-bottom: 0.5vh solid #4b8077;
+	color: #fa991c;
+	font-size: 1.25vw;
+	height: 4vh;
+	width: 12.5vw;
+	font-family: "Press Start 2P";
+	text-align: center;
+	transition: 0.5s ease;
+}
+
+.button {
+	cursor: pointer;
+	position: fixed;
+	color: #fa991c;
+	font-size: 2vw;
+	transition: 1.5s ease;
+}
+
+#backPlayerXChar {
+	top: 31%;
+	left: 57.5%;
+}
+
+#nextPlayerXChar {
+	top: 31%;
+	left: 71.5%;
+}
+
+#backPlayerYId {
+	top: 62.5%;
+	left: 57.5%;
+}
+
+#nextPlayerYId {
+	top: 62.5%;
+	left: 71.5%;
+}
+
+#backPlayerYChar {
+	top: 70.5%;
+	left: 57.5%;
+}
+
+#nextPlayerYChar {
+	top: 70.5%;
+	left: 71.5%;
+}
+
+.playBtn {
+	cursor: pointer;
+	position: fixed;
+	top: 45%;
+	left: 60%;
+	color: #4b8077;
+	font-size: 3vw;
+	font-family: "Press Start 2P";
+	transition: 1.5s ease;
+}
+
+.playBtn:hover {
+	transform: scale(1.2);
+	color: #ffebcd;
+	text-shadow: 0.7vh -0.5vh #4b8077;
+}
+
+.playerChar {
+	transition: 0.5s ease;
+	min-width: 10vw;
+	min-height: 10vh;
+	max-width: 20vw;
+	max-height: 20vh;
+	position: fixed;
+}
+
+.playerXpos { left: 30%; }
+
+.playerYpos { left: 60%; }
+
+#playerX, #playerY { top: -200%; }
+
+.total {
+	color: #ffebcd;
+	font-size: 2vw;
+	font-family: "Press Start 2P";
+	transition: 1.5s ease;
+	z-index: 7;
+}
+
+.player1Detes {
+	text-align: left;
+}
+
+.player2Detes {
+	text-align: right;
+}
+
+#total1, #total2 { top: 8%; }
+
+#scoreTitle { 
+	margin-left: -2.5vw;
+}
+
+
+.overlay {
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	height: 10vh;
+	width: 100vw;
+	background-color: rgba(4,4,4,0.5);
+	display: grid;
+	grid-template-columns: 45% 10% 45%;
+	z-index: 7;
+	transition: 1s ease;
+	opacity: 0; 
+}
+
+.underBoard {
+	position: fixed;
+	top: 60%;
+	left: 0%;
+	height: 40vh;
+	width: 100vw;
+	background-color: rgba(4,4,4,0.75);
+	display: grid;
+	grid-template-columns: 40% 20% 20% 20%;
+	z-index: 4;
+	transition: 1s ease;
+}
+
+#ruleBoard { 
+	display: none;
+	opacity: 0; 
+}
+
+.movesTitle { text-align: center; }
+
+.history { margin-left: 4vw; }
+
+.diceSet {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.rollSet {
+	justify-content: center;
+}
+
+.dice {
+	position: relative;
+	width: 7.5vw;
+	height: 15vh;
+}
+
+#dice2 { display: none; }
+
+.rollBtn {
+	cursor: pointer;
+	text-align: center;
+	padding: 3vh 5vh;
+	border: solid 0.75vh #fa991c;
+	color: #fa991c;
+	font-size: 2vw;
+}
+
+.rollBtn:hover {
+	background-color: #fa991c;
+	color: #ffebcd;
+}
+
+.rollDetes, .holdDetes {
+	font-size: 2vw;
+	text-align: center;
+	line-height: 4vh;
+	font-family: "Architects Daughter";
+}
+
+.holdBtn {
+	cursor: pointer;
+	text-align: center;
+	padding: 3vh 5vh;
+	border: solid 0.75vh #4b8077;
+	color: #4b8077;
+	font-size: 2vw;
+}
+
+.holdBtn:hover {
+	background-color: #4b8077;
+	color: #ffebcd;
+}
+
+.rollCover {
+	position: fixed;
+	height: 13vh;
+	width: 13.7vw;
+	top: 67%;
+	left: 63.15%;
+	z-index: 6;
+	background-color: rgba(4,4,4,0.5);
+}
+
+.holdCover {
+	position: fixed;
+	height: 13vh;
+	width: 13.7vw;
+	top: 67%;
+	left: 83.15%;
+	z-index: 6;
+	background-color: rgba(4,4,4,0.5);
+}
+
+#aiRoll, #aiHold { display: none; }
+
 -->
