@@ -26,6 +26,9 @@ woodClack.src = "pigAssets/woodClack.mp3"
 var diceRollSFX = new Audio();
 diceRollSFX.src = "pigAssets/diceRollSFX.mp3"
 
+var manHit = new Audio();
+manHit.src = "pigAssets/manHit.mp3"
+
 function skirmishSelect() {
 	goal = 30;
 	document.getElementById("skirmish").style.color = "#ffebcd";
@@ -166,6 +169,8 @@ function diceRoll() {
 				historyList.unshift(playerX + " rolled a 1");
 				historyList.unshift(playerX + " now has 0 for the round");
 				document.getElementById("pXCount").innerHTML = 0;
+				document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
+				document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
 				changePlayer();
 			}
 			else {
@@ -174,6 +179,15 @@ function diceRoll() {
 				historyList.unshift(playerX + " rolled a " + count);
 				historyList.unshift(playerX + " now has " + count1);
 				document.getElementById("pXCount").innerHTML = count1;
+				document.getElementById("playerX").setAttribute("src","pigAssets/red/redSlashRight.gif");
+				setTimeout(function() {
+					document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
+				}, 500);
+				setTimeout(function() {
+					manHit.play();
+					document.getElementById("playerY").setAttribute("src","pigAssets/red/redHurt.gif");
+				}, 500);
+				document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
 				showHistory(); 
 			}
 		} else if (play2) {
@@ -183,6 +197,8 @@ function diceRoll() {
 				historyList.unshift(playerY + " rolled a 1");
 				historyList.unshift(playerY + " now has 0 for the round");
 				document.getElementById("pYCount").innerHTML = 0;
+				document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
+				document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
 				changePlayer();
 			}
 			else {
@@ -192,6 +208,15 @@ function diceRoll() {
 				historyList.unshift(playerY + " now has " + count2);
 				document.getElementById("pYCount").innerHTML = count2;
 				showHistory();
+				document.getElementById("playerY").setAttribute("src","pigAssets/red/redSlashLeft.gif");
+				setTimeout(function() {
+					document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
+				}, 500);
+				setTimeout(function() {
+					manHit.play();
+					document.getElementById("playerX").setAttribute("src","pigAssets/red/redHurt.gif");
+				}, 300);
+				document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
 				if (vsai === 0) aimoves(); 
 			}
 		}
@@ -210,6 +235,8 @@ function dualDiceRoll() {
 			historyList.unshift(playerX + " rolled a " + dices1 + " and a " + dices2);
 			historyList.unshift(playerX + " now has 0 for the round");
 			document.getElementById("pXCount").innerHTML = 0;
+			document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
+			document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
 			changePlayer();
 		} else if (dices1 === 1 && dices2 === 1) {
 			total1 = 0;
@@ -217,12 +244,23 @@ function dualDiceRoll() {
 			historyList.unshift(playerX + " now has 0 as total score");
 			document.getElementById("totalLeft").innerHTML = playerX + " &nbsp" + total1;
 			document.getElementById("pXCount").innerHTML = 0;
+			document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
+			document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
 			changePlayer();
 		} else {
 			count1 = count1 + dices1 + dices2;
 			historyList.unshift(playerX + " rolled a " + dices1 + " and a " + dices2);
 			historyList.unshift(playerX + " now has " + count1);
 			document.getElementById("pXCount").innerHTML = count1;
+			document.getElementById("playerX").setAttribute("src","pigAssets/red/redSlashRight.gif");
+			setTimeout(function() {
+				document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
+			}, 500);
+			setTimeout(function() {
+				manHit.play();
+				document.getElementById("playerY").setAttribute("src","pigAssets/red/redHurt.gif");
+			}, 500);
+			document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
 			showHistory();
 		}
 	} else if (play2) {
@@ -233,6 +271,8 @@ function dualDiceRoll() {
 			historyList.unshift(playerY + " rolled a " + dices1 + " and a " + dices2);
 			historyList.unshift(playerY + " now has 0 for the round");
 			document.getElementById("pYCount").innerHTML = 0;
+			document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
+			document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
 			changePlayer();
 		} else if (dices1 === 1 && dices2 === 1) {
 			total2 = 0;
@@ -240,12 +280,23 @@ function dualDiceRoll() {
 			historyList.unshift(playerY + " now has 0 as total score");
 			document.getElementById("totalRight").innerHTML = total2+ " &nbsp" + playerY;
 			document.getElementById("pYCount").innerHTML = 0;
+			document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
+			document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
 			changePlayer();
 		} else {
 			count2 = count2 + dices1 + dices2;
 			historyList.unshift(playerY + " rolled a " + dices1 + " and a " + dices2);
 			historyList.unshift(playerY + " now has " + count2);
 			document.getElementById("pYCount").innerHTML = count2;
+			document.getElementById("playerY").setAttribute("src","pigAssets/red/redSlashLeft.gif");
+			setTimeout(function() {
+				document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
+			}, 500);
+			setTimeout(function() {
+				manHit.play();
+				document.getElementById("playerX").setAttribute("src","pigAssets/red/redHurt.gif");
+			}, 300);
+			document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
 			showHistory();
 			if (vsai === 0) aimoves(); 
 		}
@@ -341,6 +392,8 @@ function changePlayer() {
 		play1 = false;
 		play2 = true;
 		historyList.unshift(playerY + "'s Turn");
+		document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
+		document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
 		showHistory();
 		aimoves(); 
 	} else if (play2) {
@@ -348,6 +401,8 @@ function changePlayer() {
 		play2 = false;
 		play1 = true;
 		historyList.unshift(playerX + "'s Turn");
+		document.getElementById("playerX").setAttribute("src","pigAssets/red/redIdleRight.gif");
+		document.getElementById("playerY").setAttribute("src","pigAssets/red/redIdleLeft.gif");
 		document.getElementById("aiRoll").style.display = "none";
 		document.getElementById("aiHold").style.display = "none";
 		showHistory(); 
