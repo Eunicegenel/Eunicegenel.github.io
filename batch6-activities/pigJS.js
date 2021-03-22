@@ -466,12 +466,12 @@ function changeCharY() {
 
 function startGame() {
 	document.getElementById("playNow").style.top = '-200vh';
-	document.getElementById("backPlayerXChar").style.top = '-200vh';
-	document.getElementById("nextPlayerXChar").style.top = '-200vh';
+	// document.getElementById("backPlayerXChar").style.top = '-200vh';
+	// document.getElementById("nextPlayerXChar").style.top = '-200vh';
 	document.getElementById("backPlayerYId").style.top = '-200vh';
 	document.getElementById("nextPlayerYId").style.top = '-200vh';
-	document.getElementById("backPlayerYChar").style.top = '-200vh';
-	document.getElementById("nextPlayerYChar").style.top = '-200vh';
+	// document.getElementById("backPlayerYChar").style.top = '-200vh';
+	// document.getElementById("nextPlayerYChar").style.top = '-200vh';
 	document.getElementById("charX").style.top = '-200vh';
 	document.getElementById("charY").style.top = '-200vh';
 	document.getElementById("hideUnderlay").style.top = '-200vh';
@@ -561,12 +561,12 @@ function reset() {
 	historyList = ["","","",""];
 	document.getElementById("hideUnderlay").style.top = '0vh';
 	document.getElementById("playNow").style.top = '45vh';
-	document.getElementById("backPlayerXChar").style.top = '31vh';
-	document.getElementById("nextPlayerXChar").style.top = '31vh';
+	// document.getElementById("backPlayerXChar").style.top = '31vh';
+	// document.getElementById("nextPlayerXChar").style.top = '31vh';
 	document.getElementById("backPlayerYId").style.top = '62.5vh';
 	document.getElementById("nextPlayerYId").style.top = '62.5vh';
-	document.getElementById("backPlayerYChar").style.top = '70.5vh';
-	document.getElementById("nextPlayerYChar").style.top = '70.5vh';
+	// document.getElementById("backPlayerYChar").style.top = '70.5vh';
+	// document.getElementById("nextPlayerYChar").style.top = '70.5vh';
 	document.getElementById("charX").style.top = '20vh';
 	document.getElementById("charY").style.top = '60vh';
 	document.getElementById("winnerPost").style.display = 'none';
