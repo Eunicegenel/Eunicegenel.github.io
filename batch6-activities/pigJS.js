@@ -9,7 +9,7 @@ var count2 = 0;
 var total1 = 0;
 var total2 = 0;
 var winner = "";
-var goal = 30;
+var goa1 = 30;
 var dice = 1;
 var vsai = 0;
 var charX = 0;
@@ -156,7 +156,7 @@ function dualDiceRollGif(dices1,dices2) {
 	}, 500);
 }
 
-function diceRoll() {
+function dice1Roll() {
 	diceRollSFX.play();
 	if (dice === 2) dualDiceRoll();
 	else {
@@ -474,7 +474,7 @@ function startGame() {
 	// document.getElementById("nextPlayerYChar").style.top = '-200vh';
 	document.getElementById("charX").style.top = '-200vh';
 	document.getElementById("charY").style.top = '-200vh';
-	document.getElementById("hideUnderlay").style.top = '-200vh';
+	document.getElementById("hideUnderlay").style.top = '0vh';
 
 	setTimeout(function() { document.getElementById("playerX").style.top = '35%';
 	document.getElementById("playerY").style.top = '35%';
