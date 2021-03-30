@@ -11,13 +11,13 @@
 }
 
 body {
-    background-color: white;
+    background-color: #eefdf1;
 }
 
 .overlay {
     height: 12vh;
     width: 100vw;;
-    background-color: #229348;
+    background-color: #27ae60;
 }
 
 .mainMenu {
@@ -27,21 +27,21 @@ body {
 }
 
 .menu {
+    cursor: pointer;
     margin-top: 1.5vh;
     font-family: "Roboto";
     font-weight: bold;
-    color: #ffeccc;
     font-size: 1.75vw;
     padding: 2vh 2vw;
 }
 
-#accts {  }
-#invest { color: #ffeccc; }
+#accts { color: #1c502f; }
+#invest { color: #eefdf1; }
 
 .title { 
     position: fixed;
     top: 2vh;
-    left: 85vw;
+    left: 83vw;
     height: 7vh;
 }
 
