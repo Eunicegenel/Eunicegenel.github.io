@@ -1,8 +1,9 @@
 /*  Color Pallete
-    #2980b9 blue 
-    #e39d22 gold
+    #00b76c green 
+    #2f4858 dark blue
     #ffeccc cream
-    #8b7356 bronze  */
+    #3f7856 teal  
+    #e39d22 gold*/
 
 * {
     margin: 0;
@@ -10,48 +11,43 @@
 }
 
 body {
-    background-color: #ffeccc;
+    background-color: white;
 }
 
 .overlay {
-    height: 20vh;
+    height: 12vh;
     width: 100vw;;
-    background-color: #2980b9;
+    background-color: #229348;
 }
 
 .mainMenu {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .menu {
+    margin-top: 1.5vh;
     font-family: "Roboto";
     font-weight: bold;
-    color: #e39d22;
-    font-size: 2vw;
-    padding: 2.5vh 2.5vw;
+    color: #ffeccc;
+    font-size: 1.75vw;
+    padding: 2vh 2vw;
 }
+
+#accts {  }
+#invest { color: #ffeccc; }
 
 .title { 
     position: fixed;
     top: 2vh;
-    left: 90vw;
-    height: 10vh;
-}
-
-.sub { 
-    position: fixed;
-    top: 12vh;
-    left: 76vw;
-    font-family: "Lato";
-    color: #ffeccc; 
-    font-size: 2vw;
+    left: 85vw;
+    height: 7vh;
 }
 
 .test {
     font-family: "Lato";
     font-weight: bold;
-    color: #8b7356;
+    color: #2f4858;
     font-size: 2vw;
 }
