@@ -1,26 +1,77 @@
-const acctList = [];
+ const acctList = [];
 
-function create_user(user, type, no, bal) {
+function create_user(lname, fname, type, bal, sex) {
     let accounts = {};
-    accounts['acctName'] = user;
+    let no = giveAcctNo();
+    accounts['acctLName'] = lname;
+    accounts['acctFName'] = fname;
     accounts['acctType'] = type;
     accounts['acctNo'] = no;
     accounts['acctBal'] = bal;
-    if (acctList[0] !== undefined) refresh_users();
-    acctList.push(accounts);
+    accounts['acctSex'] = sex;
+    accounts['acctActions'] = [];
+    let check = checkIfSameUser(fname,lname,type);
+    if (check === false) acctList.push(accounts);
+    if (acctList.length > 1) sortUsers(); 
+    refresh_users();
     list_users();
+}
+
+function sortUsers() {
+    acctList.sort(function(a,b){
+        let aa = a.acctLName.toLowerCase() + ', ' + a.acctFName.toLowerCase();
+        let bb = b.acctLName.toLowerCase() + ', ' + b.acctFName.toLowerCase();
+        if (aa > bb) return 1;
+        if (aa < bb) return -1;
+        return 0;
+
+        // if (a.acctLName.toLowerCase() < b.acctLName.toLowerCase()) return -1;
+        // if (a.acctLName.toLowerCase() > b.acctLName.toLowerCase()) return 1;
+        // return 0;
+    });
 }
 
 function refresh_users() {
     userLength = parseInt(document.getElementById('cxAcctNo').children.length);
 
-    for (let x = 1; x <= userLength-1; x++) {
-        console.log(x);
-        document.getElementById('cxName').children[1].remove();
-        document.getElementById('cxAcctNo').children[1].remove();
-        document.getElementById('cxType').children[1].remove();
-        document.getElementById('cxBal').children[1].remove();
-        document.getElementById('php').children[1].remove();
+    for (let x = 0; x <= userLength-1; x++) {
+        document.getElementById('cxName').children[0].remove();
+        document.getElementById('cxAcctNo').children[0].remove();
+        document.getElementById('cxType').children[0].remove();
+        document.getElementById('cxBal').children[0].remove();
+        document.getElementById('php').children[0].remove();
+    }
+}
+
+function checkIfSameUser(fname,lname,type) {
+    for (let x in acctList) {
+        if (fname === acctList[x].acctFName&&lname === acctList[x].acctLName&&type === acctList[x].acctType) {
+            return true; 
+        } 
+    }
+    return false;
+}
+
+function giveAcctNo() {
+    let array = [];
+
+    for (let x = 0; x<=6; x++) {
+        let noTest = String(Math.floor(Math.random() * 9) + 0);
+        array.push(noTest); 
+    }
+
+    let joinedNo = array.join('');
+
+    if (acctList[0] === undefined) return joinedNo;
+    else {
+        for (let x in acctList) {
+            if (joinedNo === acctList[x].acctNo) {
+                giveAcctNo();
+            }
+            else {
+                return joinedNo;
+            }
+        }
     }
 }
 
@@ -32,19 +83,19 @@ function list_users() {
         let bal = document.getElementById('cxBal');
         let php = document.getElementById('php');
         let newName = document.createElement('p');
-        newName.className = 'content contentHeadL';
-        newName.innerHTML = acctList[x].acctName;
+        newName.className = 'content contentHeadL contentMouseHover';
+        newName.innerHTML = acctList[x].acctLName + ', ' + acctList[x].acctFName;
         let newNo = document.createElement('p');
-        newNo.className = 'content contentHeadR';
+        newNo.className = 'content contentHeadC contentMouseHover';
         newNo.innerHTML = acctList[x].acctNo;
-        let newType = document.createElement('p');
-        newType.className = 'content contentHeadR';
+        let newType = document.createElement('p');  
+        newType.className = 'content contentHeadC contentMouseHover';
         newType.innerHTML = acctList[x].acctType;
         let newBal = document.createElement('p');
-        newBal.className = 'content contentHeadR';
+        newBal.className = 'content contentHeadR contentMouseHover';
         newBal.innerHTML = acctList[x].acctBal;
         let newPhp = document.createElement('p');
-        newPhp.className = 'content contentHeadC';
+        newPhp.className = 'content contentHeadC contentMouseHover';
         newPhp.innerHTML = 'php';
 
         name.appendChild(newName);
@@ -65,4 +116,20 @@ function showaccts() {
     document.getElementById('acctPage').style.display = 'grid';
     document.getElementById('accts').style.color = '#1c502f';
     document.getElementById('invest').style.color = '#eefdf1';
+}
+
+function createBtn() {
+    let createWindow = document.createElement('div');
+    createWindow.id = 'modalLayer';
+    createWindow.className = 'darkLayer';
+    createWindow.setAttribute('onclick','closeModal()');
+    let createModal = document.createElement('div');
+    createModal.id = 'modalForm';
+    createModal.className = 'modalBody';
+    document.getElementsByTagName('body')[0].appendChild(createWindow);
+    document.getElementById('modalLayer').appendChild(createModal);
+}
+
+function closeModal() {
+    document.getElementById('modalLayer').remove();
 }

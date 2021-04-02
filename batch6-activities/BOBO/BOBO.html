@@ -19,29 +19,28 @@
         </div>
     </div>
     <div class="acctListing" id="acctPage">
-        <div class="historyScroll">
-            <div class="history">
-                <div class="subHist" id="cxName">
-                    <p class="content contentHeadL topHead">ACCOUNT NAME</p>
-                </div>
-                <div class="subHist" id="cxAcctNo">
-                    <p class="content contentHeadR topHead">ACCOUNT NUMBER</p>
-                </div>
-                <div class="subHist" id="cxType">
-                    <p class="content contentHeadR topHead">ACCOUNT TYPE</p>
-                </div>
-                <div class="subHist" id="cxBal">
-                    <p class="content contentHeadR topHead">BALANCE</p>
-                </div>
-                <div class="subHist" id="php">
-                    <p class="content hidden topHead">PHP</p>
+        <div>
+            <div class="titles">
+                <p class="content contentHeadL topHead">ACCOUNT NAME</p>
+                <p class="content contentHeadC topHead">ACCOUNT NUMBER</p>
+                <p class="content contentHeadC topHead">ACCOUNT TYPE</p>
+                <p class="content contentHeadR topHead">BALANCE</p>
+                <p class="topHead"></p>
+            </div>
+            <div class="historyScroll">
+                <div class="history">
+                    <div class="subHist" id="cxName"></div>
+                    <div class="subHist" id="cxAcctNo"></div>
+                    <div class="subHist" id="cxType"></div>
+                    <div class="subHist" id="cxBal"></div>
+                    <div class="subHist" id="php"></div>
                 </div>
             </div>
         </div>
         <div class="profileLayout">
             <div class="profile">
                 <div class="createSection">
-                    <p class="createAcct">CREATE ACCOUNT</p>
+                    <p class="createAcct" onclick="createBtn()">CREATE ACCOUNT</p>
                     <p>creates a new bank account for customer</p>
                 </div>
                 <hr class="line">
@@ -51,5 +50,6 @@
     </div>
     <script src="BOBOaccts.js"></script>
     <script src="BOBOinvest.js"></script>
+    <script src="BOBOdeposit.js"></script>
 </body>
 </html>

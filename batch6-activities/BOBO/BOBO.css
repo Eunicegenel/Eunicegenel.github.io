@@ -62,16 +62,23 @@ body {
 }
 
 .historyScroll {
-    margin-top: 3vh;
     margin-left: 3vw;
     overflow-y: scroll;
     overflow-x: hidden;
     height: 80vh;
 }
 
+.titles {
+    display: grid;
+    grid-template-columns: 25% 25% 30% 15% 5%;
+    justify-content: center;
+    margin-top: 3vh;
+    margin-left: 3vw;
+}
+
 .history {
     display: grid;
-    grid-template-columns: 35% 20% 20% 20% 5%;
+    grid-template-columns: 25% 25% 30% 15% 5%;
     justify-content: center;
 }
 
@@ -99,10 +106,12 @@ body {
     text-align: center;
 }
 
+.contentMouseHover { cursor: pointer; }
+
 .topHead { border-bottom: 0.5vh solid#00b76c; }
 
 .hidden {
-    color: #eefdf1;
+    opacity: 0;
 }
 
 .profileLayout {
@@ -147,4 +156,26 @@ body {
 .line { 
     color: white;
     border: 0.5vh solid white;
+}
+
+.darkLayer {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(4,4,4,0.5);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modalBody {
+    position: relative;
+    height: 70vh;
+    width: 70vw;
+    background-color: white;
+    border-radius: 2.5vh; 
 }
