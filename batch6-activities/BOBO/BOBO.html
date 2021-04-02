@@ -14,11 +14,41 @@
     <img class="title" src="boboAssets/logo1.png">
     <div class="overlay">
         <div class="mainMenu">
-            <h2 class="menu" id="accts">Accounts</h2>
-            <h2 class="menu" id="invest">Investments</h2>
+            <h2 class="menu" id="accts" onclick="showaccts()">Accounts</h2>
+            <h2 class="menu" id="invest" onclick="showinvest()">Investments</h2>
         </div>
     </div>
-    <p class="test">CREATE ACCOUNT</p>
+    <div class="acctListing" id="acctPage">
+        <div class="historyScroll">
+            <div class="history">
+                <div class="subHist" id="cxName">
+                    <p class="content contentHeadL topHead">ACCOUNT NAME</p>
+                </div>
+                <div class="subHist" id="cxAcctNo">
+                    <p class="content contentHeadR topHead">ACCOUNT NUMBER</p>
+                </div>
+                <div class="subHist" id="cxType">
+                    <p class="content contentHeadR topHead">ACCOUNT TYPE</p>
+                </div>
+                <div class="subHist" id="cxBal">
+                    <p class="content contentHeadR topHead">BALANCE</p>
+                </div>
+                <div class="subHist" id="php">
+                    <p class="content hidden topHead">PHP</p>
+                </div>
+            </div>
+        </div>
+        <div class="profileLayout">
+            <div class="profile">
+                <div class="createSection">
+                    <p class="createAcct">CREATE ACCOUNT</p>
+                    <p>creates a new bank account for customer</p>
+                </div>
+                <hr class="line">
+
+            </div>
+        </div>        
+    </div>
     <script src="BOBOaccts.js"></script>
     <script src="BOBOinvest.js"></script>
 </body>

@@ -51,3 +51,100 @@ body {
     color: #2f4858;
     font-size: 2vw;
 }
+
+.acctListing {
+    grid-template-columns: 55% 45%;
+    justify-content: center;
+}
+
+#acctPage {
+    display: grid;
+}
+
+.historyScroll {
+    margin-top: 3vh;
+    margin-left: 3vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 80vh;
+}
+
+.history {
+    display: grid;
+    grid-template-columns: 35% 20% 20% 20% 5%;
+    justify-content: center;
+}
+
+.subHist { border-bottom: 0.5vh solid#00b76c; }
+
+.content {
+    margin-top: 1vh;
+    font-family: "Lato";
+    font-size: 2vh;
+    color: #3f7856;
+}
+
+.contentHeadL { 
+    font-weight: bold;
+    text-align: left;
+}
+
+.contentHeadR { 
+    font-weight: bold;
+    text-align: right;
+}
+
+.contentHeadC { 
+    font-weight: bold;
+    text-align: center;
+}
+
+.topHead { border-bottom: 0.5vh solid#00b76c; }
+
+.hidden {
+    color: #eefdf1;
+}
+
+.profileLayout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile {
+    margin-top: 3vh;
+    height: 80vh;
+    width: 40vw;
+    background-color: #27ae60;
+}
+
+.createSection {
+    display: grid;
+    grid-template-columns: 35% 65%;
+}
+
+.createSection p {
+    margin: 2vh;
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 2.5vh;
+    color: #eefdf1;
+    text-align: center;
+}
+
+.createAcct {
+    cursor: pointer;
+    margin: 2vh;
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 2.5vh;
+    color: #eefdf1;
+    transition: 0.3s ease;
+}
+
+.createAcct:hover { color:#1c502f; }
+
+.line { 
+    color: white;
+    border: 0.5vh solid white;
+}
