@@ -119,17 +119,28 @@ function showaccts() {
 }
 
 function createBtn() {
-    let createWindow = document.createElement('div');
-    createWindow.id = 'modalLayer';
-    createWindow.className = 'darkLayer';
-    createWindow.setAttribute('onclick','closeModal()');
-    let createModal = document.createElement('div');
-    createModal.id = 'modalForm';
-    createModal.className = 'modalBody';
-    document.getElementsByTagName('body')[0].appendChild(createWindow);
-    document.getElementById('modalLayer').appendChild(createModal);
+    document.getElementById('modalCreateAcct').reset();
+    document.getElementById('modalCreateAcct').style.display = 'flex';
+    document.getElementById('darkBG').style.display = 'block';
 }
 
 function closeModal() {
-    document.getElementById('modalLayer').remove();
+    document.getElementById('darkBG').style.display = 'none';
+    document.getElementById('modalCreateAcct').style.display = 'none';
 }
+
+function submit() {
+    let lname = document.getElementById('lname').value;
+    let fname = document.getElementById('fname').value;
+    let type = document.getElementById('type').value;
+    let sex = document.getElementById('sex').value;
+    let balance = document.getElementById('balance').value;
+
+    if (lname === '') return alert("Wrong value for Lastname");
+    if (fname === '') return alert("Wrong value for Firstname");
+    if (balance === '') return alert("Wrong value for Balance");
+
+    create_user(lname,fname,type,balance,sex);
+    closeModal();
+}
+

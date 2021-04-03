@@ -48,8 +48,29 @@
             </div>
         </div>        
     </div>
+    <form id="modalCreateAcct" class="modalBody">
+        <img class="acctLogo" src="boboAssets/logo2.png">
+        <p class="textContent">ACCOUNT CREATION</p>
+        <input type="text" id="lname" name="lname" value="" placeholder="LASTNAME" class="modalContent modalInfo" required=""> 
+        <input type="text" id="fname" name="fname" value="" placeholder="FIRSTNAME" class="modalContent modalInfo" required>
+        <select id="type" name="type" class="modalContent modalDD">
+            <option value="Savings Account" selected>Savings Account</option>
+            <option value="Payroll Account">Payroll Account</option>
+            <option value="Passbook Account">Passbook Account</option>
+            <option value="Checking Account">Checking Account</option>
+            <option value="Joint Account">Joint Account</option>
+        </select>
+        <select id="sex" name="sex" class="modalContent modalDD">
+            <option value="Male" selected>Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <input type="number" id="balance" name="balance" value="" placeholder="INITIAL BALANCE (300 php min)" class="modalContent modalInfo" required>
+        <p class="submit" onclick="submit()">CREATE ACCOUNT</p>
+    </form>
+    <div id="darkBG" class="darkLayer" onclick="closeModal()"></div>
     <script src="BOBOaccts.js"></script>
     <script src="BOBOinvest.js"></script>
     <script src="BOBOdeposit.js"></script>
+    <script src="BOBOacctList.js"></script>
 </body>
 </html>
