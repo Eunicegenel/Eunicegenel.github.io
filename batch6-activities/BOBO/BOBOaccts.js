@@ -83,20 +83,30 @@ function list_users() {
         let bal = document.getElementById('cxBal');
         let php = document.getElementById('php');
         let newName = document.createElement('p');
-        newName.className = 'content contentHeadL contentMouseHover';
+        newName.className = 'content contentHeadL contentMouseHover padded';
         newName.innerHTML = acctList[x].acctLName + ', ' + acctList[x].acctFName;
+        newName.id = 'a'+x;
+        newName.setAttribute('onclick','personClick(this.id)');
         let newNo = document.createElement('p');
-        newNo.className = 'content contentHeadC contentMouseHover';
+        newNo.className = 'content contentHeadC contentMouseHover padded';
         newNo.innerHTML = acctList[x].acctNo;
+        newNo.id = 'b'+x;
+        newNo.setAttribute('onclick','personClick(this.id)');
         let newType = document.createElement('p');  
-        newType.className = 'content contentHeadC contentMouseHover';
+        newType.className = 'content contentHeadC contentMouseHover padded';
         newType.innerHTML = acctList[x].acctType;
+        newType.id = 'c'+x;
+        newType.setAttribute('onclick','personClick(this.id)');
         let newBal = document.createElement('p');
-        newBal.className = 'content contentHeadR contentMouseHover';
+        newBal.className = 'content contentHeadC contentMouseHover padded';
         newBal.innerHTML = acctList[x].acctBal;
+        newBal.id = 'd'+x;
+        newBal.setAttribute('onclick','personClick(this.id)');
         let newPhp = document.createElement('p');
-        newPhp.className = 'content contentHeadC contentMouseHover';
+        newPhp.className = 'content contentHeadL contentMouseHover padded';
         newPhp.innerHTML = 'php';
+        newPhp.id = 'e'+x;
+        newPhp.setAttribute('onclick','personClick(this.id)');
 
         name.appendChild(newName);
         acctNo.appendChild(newNo);
@@ -122,10 +132,12 @@ function createBtn() {
     document.getElementById('modalCreateAcct').reset();
     document.getElementById('modalCreateAcct').style.display = 'flex';
     document.getElementById('darkBG').style.display = 'block';
+    document.getElementById('closeBtn').style.display = 'block';
 }
 
 function closeModal() {
     document.getElementById('darkBG').style.display = 'none';
+    document.getElementById('closeBtn').style.display = 'none';
     document.getElementById('modalCreateAcct').style.display = 'none';
 }
 
@@ -144,3 +156,26 @@ function submit() {
     closeModal();
 }
 
+function personClick(clicked) {
+    refresh_users();
+    list_users();
+    let id = parseInt(clicked.match(/(\d+)/));
+    document.getElementById('a'+id).style.backgroundColor = 'rgba(144,238,144,1)';
+    document.getElementById('b'+id).style.backgroundColor = 'rgba(144,238,144,1)';
+    document.getElementById('c'+id).style.backgroundColor = 'rgba(144,238,144,1)';
+    document.getElementById('d'+id).style.backgroundColor = 'rgba(144,238,144,1)';
+    document.getElementById('e'+id).style.backgroundColor = 'rgba(144,238,144,1)';
+
+    let account = acctList[id];
+    document.getElementById('profName').innerHTML = account.acctFName + ' ' + account.acctLName;
+    document.getElementById('profSex').innerHTML = account.acctSex;
+    document.getElementById('profNo').innerHTML = account.acctNo;
+    document.getElementById('profType').innerHTML = account.acctType;
+    document.getElementById('profBal').innerHTML = account.acctBal;
+    if (account.acctSex === 'Female') document.getElementById('pic').setAttribute('src','boboAssets/woman.png');
+    else document.getElementById('pic').setAttribute('src','boboAssets/man.png');
+}
+
+window.onload = function() {
+    personClick('a0');
+};

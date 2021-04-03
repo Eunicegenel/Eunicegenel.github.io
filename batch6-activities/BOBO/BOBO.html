@@ -44,7 +44,23 @@
                     <p>creates a new bank account for customer</p>
                 </div>
                 <hr class="line">
-
+                <div class="profileSection">
+                    <img id="pic" class="picSquare" src="boboAssets/man.png">
+                    <div>
+                        <p class="content whiteText">NAME</p>
+                        <p class="content whiteText">SEX</p>
+                        <p class="content whiteText">NUMBER</p>
+                        <p class="content whiteText">TYPE</p>
+                        <p class="content whiteText">BALANCE</p>
+                    </div>
+                    <div>
+                        <p id="profName" class="content whiteText">NAME</p>
+                        <p id="profSex" class="content whiteText">SEX</p>
+                        <p id="profNo" class="content whiteText">ACCOUNT NUMBER</p>
+                        <p id="profType" class="content whiteText">ACCOUNT TYPE</p>
+                        <p id="profBal" class="content whiteText">BALANCE</p>
+                    </div>
+                </div>
             </div>
         </div>        
     </div>
@@ -67,6 +83,7 @@
         <input type="number" id="balance" name="balance" value="" placeholder="INITIAL BALANCE (300 php min)" class="modalContent modalInfo" required>
         <p class="submit" onclick="submit()">CREATE ACCOUNT</p>
     </form>
+    <div id="closeBtn" class="closeAccPos" onclick="closeModal()">×</div>
     <div id="darkBG" class="darkLayer" onclick="closeModal()"></div>
     <script src="BOBOaccts.js"></script>
     <script src="BOBOinvest.js"></script>

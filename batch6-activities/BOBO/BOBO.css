@@ -65,7 +65,7 @@ body {
     margin-left: 3vw;
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 80vh;
+    height: 77vh;
 }
 
 .titles {
@@ -84,11 +84,14 @@ body {
 
 .subHist { border-bottom: 0.5vh solid#00b76c; }
 
+.padded { padding: 1vh; }
+
 .content {
     margin-top: 1vh;
     font-family: "Lato";
     font-size: 2vh;
     color: #3f7856;
+    width: 100%;
 }
 
 .contentHeadL { 
@@ -247,4 +250,37 @@ input[type=number] {
 .submit:hover {
     color: white;
     background-color: #00b76c;
+}
+
+.profileSection {
+    display: grid;
+    grid-template-columns: 30% 25% 45%;
+    height: 25vh;
+    justify-content: center;
+    margin: 1vw;
+}
+
+.picSquare {
+    height: 20vh;
+    width: 10vw;
+}
+
+.whiteText { 
+    color: white;
+    font-weight: bold; 
+}
+
+#closeBtn {
+    cursor: pointer;
+    display: none;
+    font-size: 3vw;
+    color: #00b76c;
+    position: fixed;
+    z-index: 7;
+    font-weight: bold;
+}
+
+.closeAccPos {
+    top: 11%;
+    left: 62%;
 }
