@@ -1,4 +1,5 @@
  const acctList = [];
+ let activeID = 0;
 
 function create_user(lname, fname, type, bal, sex) {
     let accounts = {};
@@ -13,8 +14,7 @@ function create_user(lname, fname, type, bal, sex) {
     let check = checkIfSameUser(fname,lname,type);
     if (check === false) acctList.push(accounts);
     if (acctList.length > 1) sortUsers(); 
-    refresh_users();
-    list_users();
+    personClick('a'+activeID);
 }
 
 function sortUsers() {
@@ -24,10 +24,6 @@ function sortUsers() {
         if (aa > bb) return 1;
         if (aa < bb) return -1;
         return 0;
-
-        // if (a.acctLName.toLowerCase() < b.acctLName.toLowerCase()) return -1;
-        // if (a.acctLName.toLowerCase() > b.acctLName.toLowerCase()) return 1;
-        // return 0;
     });
 }
 
@@ -56,8 +52,13 @@ function giveAcctNo() {
     let array = [];
 
     for (let x = 0; x<=6; x++) {
-        let noTest = String(Math.floor(Math.random() * 9) + 0);
-        array.push(noTest); 
+        if (x===0) {
+            let noTest = String(Math.floor(Math.random() * 9) + 1);
+            array.push(noTest); 
+        } else {
+            let noTest = String(Math.floor(Math.random() * 9) + 0);
+            array.push(noTest); 
+        }
     }
 
     let joinedNo = array.join('');
@@ -103,7 +104,7 @@ function list_users() {
         newBal.id = 'd'+x;
         newBal.setAttribute('onclick','personClick(this.id)');
         let newPhp = document.createElement('p');
-        newPhp.className = 'content contentHeadL contentMouseHover padded';
+        newPhp.className = 'content contentHeadL contentMouseHover padded toTheLeft';
         newPhp.innerHTML = 'php';
         newPhp.id = 'e'+x;
         newPhp.setAttribute('onclick','personClick(this.id)');
@@ -139,6 +140,9 @@ function closeModal() {
     document.getElementById('darkBG').style.display = 'none';
     document.getElementById('closeBtn').style.display = 'none';
     document.getElementById('modalCreateAcct').style.display = 'none';
+    document.getElementById('modalDeposit').style.display = 'none';
+    document.getElementById('modalWithdraw').style.display = 'none';
+    document.getElementById('modalTransfer').style.display = 'none';
 }
 
 function submit() {
@@ -148,8 +152,8 @@ function submit() {
     let sex = document.getElementById('sex').value;
     let balance = document.getElementById('balance').value;
 
-    if (lname === '') return alert("Wrong value for Lastname");
-    if (fname === '') return alert("Wrong value for Firstname");
+    if (lname === '') return alert("Wrong value for Last Name");
+    if (fname === '') return alert("Wrong value for Firs Nname");
     if (balance === '') return alert("Wrong value for Balance");
 
     create_user(lname,fname,type,balance,sex);
@@ -159,7 +163,10 @@ function submit() {
 function personClick(clicked) {
     refresh_users();
     list_users();
+    refresh_transaction();
     let id = parseInt(clicked.match(/(\d+)/));
+    activeID = id;
+    list_transaction();
     document.getElementById('a'+id).style.backgroundColor = 'rgba(144,238,144,1)';
     document.getElementById('b'+id).style.backgroundColor = 'rgba(144,238,144,1)';
     document.getElementById('c'+id).style.backgroundColor = 'rgba(144,238,144,1)';
@@ -171,7 +178,7 @@ function personClick(clicked) {
     document.getElementById('profSex').innerHTML = account.acctSex;
     document.getElementById('profNo').innerHTML = account.acctNo;
     document.getElementById('profType').innerHTML = account.acctType;
-    document.getElementById('profBal').innerHTML = account.acctBal;
+    document.getElementById('profBal').innerHTML = account.acctBal + ' php';
     if (account.acctSex === 'Female') document.getElementById('pic').setAttribute('src','boboAssets/woman.png');
     else document.getElementById('pic').setAttribute('src','boboAssets/man.png');
 }

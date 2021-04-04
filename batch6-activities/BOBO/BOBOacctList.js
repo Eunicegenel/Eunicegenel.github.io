@@ -24,3 +24,54 @@ create_user('De Leon', 'Walter', 'Savings Account', 21000, 'Male');
 create_user('Domingo', 'Xena', 'Savings Account', 17000, 'Female');
 create_user('Martinez', 'Yves', 'Savings Account', 21000, 'Male');
 create_user('Rodriguez', 'Zofia', 'Savings Account', 17000, 'Female');
+
+function setBankAction() {
+	for (let x in acctList) {
+		let action1 = {
+			'event':'DEPOSIT',
+			'actionBy': 'SELF',
+			'amount':12000,
+			'balance': parseInt(acctList[x].acctBal) + 12000,
+			'date': '03/15/2020'
+		};
+		let action2 = {
+			'event':'WITHDRAW',
+			'actionBy': 'SELF',
+			'amount':12000,
+			'balance': parseInt(acctList[x].acctBal),
+			'date': '07/13/2020'
+		};
+		let action3 = {
+			'event':'DEPOSIT',
+			'actionBy': 'SELF',
+			'amount':12000,
+			'balance': parseInt(acctList[x].acctBal) + 12000,
+			'date': '10/28/2020'
+		};
+		let action4 = {
+			'event':'WITHDRAW',
+			'actionBy': 'SELF',
+			'amount':12000,
+			'balance': parseInt(acctList[x].acctBal),
+			'date': '11/02/2020'
+		};
+		let action5 = {
+			'event':'DEPOSIT',
+			'actionBy': 'SELF',
+			'amount':12000,
+			'balance': parseInt(acctList[x].acctBal) + 12000,
+			'date': '01/23/2021'
+		};
+		let action6 = {
+			'event':'WITHDRAW',
+			'actionBy': 'SELF',
+			'amount':12000,
+			'balance': parseInt(acctList[x].acctBal),
+			'date': '03/17/2021'
+		};
+		acctList[x].acctActions.unshift(action6,action5,action4,action3,action2,action1);
+	}
+	personClick('a'+activeID);
+}
+
+// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_filter_list

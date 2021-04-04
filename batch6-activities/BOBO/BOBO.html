@@ -11,11 +11,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <img class="title" src="boboAssets/logo1.png">
+    <img class="title" src="boboAssets/logo1.png" onclick="setBankAction()">
     <div class="overlay">
         <div class="mainMenu">
             <h2 class="menu" id="accts" onclick="showaccts()">Accounts</h2>
-            <h2 class="menu" id="invest" onclick="showinvest()">Investments</h2>
         </div>
     </div>
     <div class="acctListing" id="acctPage">
@@ -41,7 +40,7 @@
             <div class="profile">
                 <div class="createSection">
                     <p class="createAcct" onclick="createBtn()">CREATE ACCOUNT</p>
-                    <p>creates a new bank account for customer</p>
+                    <p class="createDesc">create a new bank account for customer</p>
                 </div>
                 <hr class="line">
                 <div class="profileSection">
@@ -61,9 +60,33 @@
                         <p id="profBal" class="content whiteText">BALANCE</p>
                     </div>
                 </div>
+                <div class="actions">
+                    <p id="depositBtn" class="actionBtns whiteText" onclick="depositClick()">DEPOSIT</p>
+                    <p id="withdrawBtn"class="actionBtns whiteText" onclick="withdrawClick()">WITHDRAW</p>
+                    <p id="transferBtn"class="actionBtns whiteText" onclick="transferClick()">TRANSFER</p>
+                </div>
+                <div class="widthControl">
+                    <div class="transaction">
+                        <p class="content whiteText contentHeadL subTrans">TYPE</p>
+                        <p class="content whiteText contentHeadC subTrans">TO/FROM</p>
+                        <p class="content whiteText contentHeadC subTrans">DATE</p>
+                        <p class="content whiteText contentHeadC subTrans">AMOUNT</p>
+                        <p class="content whiteText contentHeadC subTrans">BALANCE</p>
+                    </div>
+                    <div class="transactionScroll">
+                        <div class="transaction">
+                            <div class="subTrans" id="cxEvent"></div>
+                            <div class="subTrans" id="cxActionBy"></div>
+                            <div class="subTrans" id="cxDate"></div>
+                            <div class="subTrans" id="cxAmount"></div>
+                            <div class="subTrans" id="cxRemBal"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>        
     </div>
+
     <form id="modalCreateAcct" class="modalBody">
         <img class="acctLogo" src="boboAssets/logo2.png">
         <p class="textContent">ACCOUNT CREATION</p>
@@ -83,11 +106,47 @@
         <input type="number" id="balance" name="balance" value="" placeholder="INITIAL BALANCE (300 php min)" class="modalContent modalInfo" required>
         <p class="submit" onclick="submit()">CREATE ACCOUNT</p>
     </form>
+    <div>
+
+    <form id="modalDeposit" class="modalBody">
+        <img class="acctLogo" src="boboAssets/logo2.png">
+        <p class="textContentBig">DEPOSIT</p>
+        <p id="depositLabel" class="textContent">INPUT ACCOUNT NUMBER</p>
+        <input type="number" id="depositContent" name="depositContent" value="" placeholder="ACCOUNT NUMBER" class="modalContent modalInfo" required="true"> 
+        <p id="deposit" class="submit" onclick="acctCheck('1')">VALIDATE</p>
+    </form>
+
+    <form id="modalWithdraw" class="modalBody">
+        <img class="acctLogo" src="boboAssets/logo2.png">
+        <p class="textContentBig">WITHDRAW</p>
+        <p id="withdrawLabel" class="textContent">INPUT ACCOUNT NUMBER</p>
+        <input type="number" id="withdrawContent" name="withdrawContent" value="" placeholder="ACCOUNT NUMBER" class="modalContent modalInfo" required="true"> 
+        <p id="withdraw" class="submit" onclick="acctCheck('2')">VALIDATE</p>
+    </form>
+
+    <form id="modalWithdraw" class="modalBody">
+        <img class="acctLogo" src="boboAssets/logo2.png">
+        <p class="textContentBig">WITHDRAW</p>
+        <p id="withdrawLabel" class="textContent">INPUT ACCOUNT NUMBER</p>
+        <input type="number" id="withdrawContent" name="withdrawContent" value="" placeholder="ACCOUNT NUMBER" class="modalContent modalInfo" required="true"> 
+        <p id="withdraw" class="submit" onclick="acctCheck('2')">VALIDATE</p>
+    </form>
+
+    <form id="modalTransfer" class="modalBody">
+        <img class="acctLogo" src="boboAssets/logo2.png">
+        <p class="textContentBig">TRANSFER</p>
+        <p id="transferLabelAcct" class="textContent">INPUT ACCOUNT NUMBER</p>
+        <input type="number" id="transferAcctContent" name="transferAcctContent" value="" placeholder="ACCOUNT NUMBER" class="modalContent modalInfo" required="true"> 
+        <p id="transferLabelAmt" class="textContent">INPUT TRANSFER AMOUNT</p>
+        <input type="number" id="transferAmtContent" name="transferAmtContent" value="" placeholder="AMOUNT IN PHP" class="modalContent modalInfo" required="true"> 
+        <p id="transfer" class="submit" onclick="acctCheck('3')">VALIDATE</p>
+    </form>
+
+    </div>
     <div id="closeBtn" class="closeAccPos" onclick="closeModal()">×</div>
     <div id="darkBG" class="darkLayer" onclick="closeModal()"></div>
     <script src="BOBOaccts.js"></script>
-    <script src="BOBOinvest.js"></script>
-    <script src="BOBOdeposit.js"></script>
+    <script src="BOBOfunctions.js"></script>
     <script src="BOBOacctList.js"></script>
 </body>
 </html>

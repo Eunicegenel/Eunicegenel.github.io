@@ -27,16 +27,14 @@ body {
 }
 
 .menu {
-    cursor: pointer;
     margin-top: 1.5vh;
+    margin-left: 1.2vw;
     font-family: "Roboto";
     font-weight: bold;
     font-size: 1.75vw;
     padding: 2vh 2vw;
+    color: #eefdf1;
 }
-
-#accts { color: #1c502f; }
-#invest { color: #eefdf1; }
 
 .title { 
     position: fixed;
@@ -132,7 +130,12 @@ body {
 
 .createSection {
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 40% 60%;
+}
+
+.createDesc {
+    display: flex;
+    align-items: center;
 }
 
 .createSection p {
@@ -152,9 +155,9 @@ body {
     font-size: 2.5vh;
     color: #eefdf1;
     transition: 0.3s ease;
+    padding: 1vh;
+    border: solid 1vh white;
 }
-
-.createAcct:hover { color:#1c502f; }
 
 .line { 
     color: white;
@@ -185,7 +188,7 @@ body {
     z-index: 6;
 }
 
-#modalCreateAcct {
+#modalCreateAcct, #modalDeposit, #modalWithdraw, #modalTransfer {
     position: fixed;
     top: 10vh;
     left: 35vw;
@@ -211,7 +214,8 @@ body {
     font-family: "Roboto";
     font-size: 1vw;
     padding: 1vh;
-    margin-top: 2vw;
+    margin-top: 0.5vw;
+    margin-bottom: 2vw;
     align-self: center;
 }
 
@@ -237,7 +241,7 @@ input[type=number] {
     cursor: pointer;
     font-family: "Roboto";
     align-self: center;
-    margin-top: 7vh;
+    margin-top: 3vh;
     font-size: 1.25vw;
     color: #00b76c;
     border: 1vh solid #00b76c;
@@ -245,6 +249,7 @@ input[type=number] {
     width: 14.5vw;
     text-align: center;
     font-weight: bold;
+    transition: ease 0.3s;
 }
 
 .submit:hover {
@@ -283,4 +288,63 @@ input[type=number] {
 .closeAccPos {
     top: 11%;
     left: 62%;
+}
+
+.actions {
+    margin-top: -1.5vw; 
+    display: grid;
+    grid-template-columns: 33% 33% 34%;
+    text-align: center;
+}
+
+.actionBtns {
+    cursor: pointer;
+    margin-left: 1vw;
+    padding: 1vh;
+    font-family: "Lato";
+    font-size: 2vh;
+    width: 70%;
+    border: solid 1vh white;
+    transition: 0.3s ease;
+}
+
+.actionBtns:hover, .createAcct:hover {
+    color: #1c502f;
+    background-color: white;
+}
+
+.transaction {
+    margin-left: 1vw;
+    display: grid;
+    grid-template-columns: 18% 22% 24% 18% 18%;
+    justify-content: center;
+}
+
+.transactionScroll {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 28vh;
+}
+
+.subTrans { border-bottom: 0.5vh solid white; }
+
+.widthControl { width: 97%; }
+
+.redBG { background-color: #ff6455; }
+
+.blueBG { background-color: #00a5ff; }
+
+.toTheLeft { margin-left: -1.5vw; }
+
+.textContentBig {
+    font-family: "Roboto";
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-size: 2.5vw;
+    color: #00b76c;
+}
+
+#transferLabelAmt, #transferAmtContent {
+    display: none;
 }
