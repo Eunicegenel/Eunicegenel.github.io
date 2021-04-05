@@ -214,4 +214,3 @@ function list_transaction() {
         remBal.appendChild(newBalance);
     }
 }
-

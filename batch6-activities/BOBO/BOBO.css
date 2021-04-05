@@ -26,6 +26,14 @@ body {
     align-items: center;
 }
 
+/*#searchBar {
+    margin-top: 1.5vh;
+    margin-left: 1.2vw;
+    width: 15vw;
+    font-size: 1vw;
+    padding: 1vh;
+}*/
+
 .menu {
     margin-top: 1.5vh;
     margin-left: 1.2vw;

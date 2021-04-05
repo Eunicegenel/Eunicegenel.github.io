@@ -1,5 +1,6 @@
  const acctList = [];
  let activeID = 0;
+ let searchArr = [];
 
 function create_user(lname, fname, type, bal, sex) {
     let accounts = {};
