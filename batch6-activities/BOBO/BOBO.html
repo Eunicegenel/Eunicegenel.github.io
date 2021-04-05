@@ -11,45 +11,143 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <img class="title" src="boboAssets/logo1.png">
+    <img class="title" src="boboAssets/logo1.png" onclick="setBankAction()">
     <div class="overlay">
         <div class="mainMenu">
             <h2 class="menu" id="accts" onclick="showaccts()">Accounts</h2>
-            <h2 class="menu" id="invest" onclick="showinvest()">Investments</h2>
+            <!-- <input type="number" id="searchBar" placeholder="search account number..." oninput="search()"> -->
         </div>
     </div>
     <div class="acctListing" id="acctPage">
-        <div class="historyScroll">
-            <div class="history">
-                <div class="subHist" id="cxName">
-                    <p class="content contentHeadL topHead">ACCOUNT NAME</p>
-                </div>
-                <div class="subHist" id="cxAcctNo">
-                    <p class="content contentHeadR topHead">ACCOUNT NUMBER</p>
-                </div>
-                <div class="subHist" id="cxType">
-                    <p class="content contentHeadR topHead">ACCOUNT TYPE</p>
-                </div>
-                <div class="subHist" id="cxBal">
-                    <p class="content contentHeadR topHead">BALANCE</p>
-                </div>
-                <div class="subHist" id="php">
-                    <p class="content hidden topHead">PHP</p>
+        <div>
+            <div class="titles">
+                <p class="content contentHeadL topHead">ACCOUNT NAME</p>
+                <p class="content contentHeadC topHead">ACCOUNT NUMBER</p>
+                <p class="content contentHeadC topHead">ACCOUNT TYPE</p>
+                <p class="content contentHeadR topHead">BALANCE</p>
+                <p class="topHead"></p>
+            </div>
+            <div class="historyScroll">
+                <div class="history">
+                    <div class="subHist" id="cxName"></div>
+                    <div class="subHist" id="cxAcctNo"></div>
+                    <div class="subHist" id="cxType"></div>
+                    <div class="subHist" id="cxBal"></div>
+                    <div class="subHist" id="php"></div>
                 </div>
             </div>
         </div>
         <div class="profileLayout">
             <div class="profile">
                 <div class="createSection">
-                    <p class="createAcct">CREATE ACCOUNT</p>
-                    <p>creates a new bank account for customer</p>
+                    <p class="createAcct" onclick="createBtn()">CREATE ACCOUNT</p>
+                    <p class="createDesc">create a new bank account for customer</p>
                 </div>
                 <hr class="line">
-
+                <div class="profileSection">
+                    <img id="pic" class="picSquare" src="boboAssets/man.png">
+                    <div>
+                        <p class="content whiteText">NAME</p>
+                        <p class="content whiteText">SEX</p>
+                        <p class="content whiteText">NUMBER</p>
+                        <p class="content whiteText">TYPE</p>
+                        <p class="content whiteText">BALANCE</p>
+                    </div>
+                    <div>
+                        <p id="profName" class="content whiteText">NAME</p>
+                        <p id="profSex" class="content whiteText">SEX</p>
+                        <p id="profNo" class="content whiteText">ACCOUNT NUMBER</p>
+                        <p id="profType" class="content whiteText">ACCOUNT TYPE</p>
+                        <p id="profBal" class="content whiteText">BALANCE</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <p id="depositBtn" class="actionBtns whiteText" onclick="depositClick()">DEPOSIT</p>
+                    <p id="withdrawBtn"class="actionBtns whiteText" onclick="withdrawClick()">WITHDRAW</p>
+                    <p id="transferBtn"class="actionBtns whiteText" onclick="transferClick()">TRANSFER</p>
+                </div>
+                <div class="widthControl">
+                    <div class="transaction">
+                        <p class="content whiteText contentHeadL subTrans">TYPE</p>
+                        <p class="content whiteText contentHeadC subTrans">TO/FROM</p>
+                        <p class="content whiteText contentHeadC subTrans">DATE</p>
+                        <p class="content whiteText contentHeadC subTrans">AMOUNT</p>
+                        <p class="content whiteText contentHeadC subTrans">BALANCE</p>
+                    </div>
+                    <div class="transactionScroll">
+                        <div class="transaction">
+                            <div class="subTrans" id="cxEvent"></div>
+                            <div class="subTrans" id="cxActionBy"></div>
+                            <div class="subTrans" id="cxDate"></div>
+                            <div class="subTrans" id="cxAmount"></div>
+                            <div class="subTrans" id="cxRemBal"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>        
     </div>
+
+    <form id="modalCreateAcct" class="modalBody">
+        <img class="acctLogo" src="boboAssets/logo2.png">
+        <p class="textContent">ACCOUNT CREATION</p>
+        <input type="text" id="lname" name="lname" value="" placeholder="LASTNAME" class="modalContent modalInfo" required=""> 
+        <input type="text" id="fname" name="fname" value="" placeholder="FIRSTNAME" class="modalContent modalInfo" required>
+        <select id="type" name="type" class="modalContent modalDD">
+            <option value="Savings Account" selected>Savings Account</option>
+            <option value="Payroll Account">Payroll Account</option>
+            <option value="Passbook Account">Passbook Account</option>
+            <option value="Checking Account">Checking Account</option>
+            <option value="Joint Account">Joint Account</option>
+        </select>
+        <select id="sex" name="sex" class="modalContent modalDD">
+            <option value="Male" selected>Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <input type="number" id="balance" name="balance" value="" placeholder="INITIAL BALANCE (300 php min)" class="modalContent modalInfo" required>
+        <p class="submit" onclick="submit()">CREATE ACCOUNT</p>
+    </form>
+    <div>
+
+    <form id="modalDeposit" class="modalBody">
+        <img class="acctLogo" src="boboAssets/logo2.png">
+        <p class="textContentBig">DEPOSIT</p>
+        <p id="depositLabel" class="textContent">INPUT ACCOUNT NUMBER</p>
+        <input type="number" id="depositContent" name="depositContent" value="" placeholder="ACCOUNT NUMBER" class="modalContent modalInfo" required="true"> 
+        <p id="deposit" class="submit" onclick="acctCheck('1')">VALIDATE</p>
+    </form>
+
+    <form id="modalWithdraw" class="modalBody">
+        <img class="acctLogo" src="boboAssets/logo2.png">
+        <p class="textContentBig">WITHDRAW</p>
+        <p id="withdrawLabel" class="textContent">INPUT ACCOUNT NUMBER</p>
+        <input type="number" id="withdrawContent" name="withdrawContent" value="" placeholder="ACCOUNT NUMBER" class="modalContent modalInfo" required="true"> 
+        <p id="withdraw" class="submit" onclick="acctCheck('2')">VALIDATE</p>
+    </form>
+
+    <form id="modalWithdraw" class="modalBody">
+        <img class="acctLogo" src="boboAssets/logo2.png">
+        <p class="textContentBig">WITHDRAW</p>
+        <p id="withdrawLabel" class="textContent">INPUT ACCOUNT NUMBER</p>
+        <input type="number" id="withdrawContent" name="withdrawContent" value="" placeholder="ACCOUNT NUMBER" class="modalContent modalInfo" required="true"> 
+        <p id="withdraw" class="submit" onclick="acctCheck('2')">VALIDATE</p>
+    </form>
+
+    <form id="modalTransfer" class="modalBody">
+        <img class="acctLogo" src="boboAssets/logo2.png">
+        <p class="textContentBig">TRANSFER</p>
+        <p id="transferLabelAcct" class="textContent">INPUT ACCOUNT NUMBER</p>
+        <input type="number" id="transferAcctContent" name="transferAcctContent" value="" placeholder="ACCOUNT NUMBER" class="modalContent modalInfo" required="true"> 
+        <p id="transferLabelAmt" class="textContent">INPUT TRANSFER AMOUNT</p>
+        <input type="number" id="transferAmtContent" name="transferAmtContent" value="" placeholder="AMOUNT IN PHP" class="modalContent modalInfo" required="true"> 
+        <p id="transfer" class="submit" onclick="acctCheck('3')">VALIDATE</p>
+    </form>
+
+    </div>
+    <div id="closeBtn" class="closeAccPos" onclick="closeModal()">×</div>
+    <div id="darkBG" class="darkLayer" onclick="closeModal()"></div>
     <script src="BOBOaccts.js"></script>
-    <script src="BOBOinvest.js"></script>
+    <script src="BOBOfunctions.js"></script>
+    <script src="BOBOacctList.js"></script>
 </body>
 </html>

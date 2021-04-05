@@ -26,17 +26,23 @@ body {
     align-items: center;
 }
 
-.menu {
-    cursor: pointer;
+/*#searchBar {
     margin-top: 1.5vh;
+    margin-left: 1.2vw;
+    width: 15vw;
+    font-size: 1vw;
+    padding: 1vh;
+}*/
+
+.menu {
+    margin-top: 1.5vh;
+    margin-left: 1.2vw;
     font-family: "Roboto";
     font-weight: bold;
     font-size: 1.75vw;
     padding: 2vh 2vw;
+    color: #eefdf1;
 }
-
-#accts { color: #1c502f; }
-#invest { color: #eefdf1; }
 
 .title { 
     position: fixed;
@@ -62,26 +68,36 @@ body {
 }
 
 .historyScroll {
-    margin-top: 3vh;
     margin-left: 3vw;
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 80vh;
+    height: 77vh;
+}
+
+.titles {
+    display: grid;
+    grid-template-columns: 25% 25% 30% 15% 5%;
+    justify-content: center;
+    margin-top: 3vh;
+    margin-left: 3vw;
 }
 
 .history {
     display: grid;
-    grid-template-columns: 35% 20% 20% 20% 5%;
+    grid-template-columns: 25% 25% 30% 15% 5%;
     justify-content: center;
 }
 
 .subHist { border-bottom: 0.5vh solid#00b76c; }
+
+.padded { padding: 1vh; }
 
 .content {
     margin-top: 1vh;
     font-family: "Lato";
     font-size: 2vh;
     color: #3f7856;
+    width: 100%;
 }
 
 .contentHeadL { 
@@ -99,10 +115,12 @@ body {
     text-align: center;
 }
 
+.contentMouseHover { cursor: pointer; }
+
 .topHead { border-bottom: 0.5vh solid#00b76c; }
 
 .hidden {
-    color: #eefdf1;
+    opacity: 0;
 }
 
 .profileLayout {
@@ -120,7 +138,12 @@ body {
 
 .createSection {
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 40% 60%;
+}
+
+.createDesc {
+    display: flex;
+    align-items: center;
 }
 
 .createSection p {
@@ -140,11 +163,196 @@ body {
     font-size: 2.5vh;
     color: #eefdf1;
     transition: 0.3s ease;
+    padding: 1vh;
+    border: solid 1vh white;
 }
-
-.createAcct:hover { color:#1c502f; }
 
 .line { 
     color: white;
     border: 0.5vh solid white;
+}
+
+.darkLayer {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(4,4,4,0.75);
+    z-index: 5;
+}
+
+#darkBG { display: none; }
+
+.acctLogo { 
+    align-self: center;
+    height: 7vh; 
+}
+
+.modalBody {
+    position: relative;
+    background-color: white;
+    border-radius: 2.5vh;
+    z-index: 6;
+}
+
+#modalCreateAcct, #modalDeposit, #modalWithdraw, #modalTransfer {
+    position: fixed;
+    top: 10vh;
+    left: 35vw;
+    display: none;
+    height: 80vh;
+    width: 30vw;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.createNameSec {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    text-align: center;
+}
+
+.modalDD { width: 16vw; }
+
+.modalInfo { width: 15vw; }
+
+.modalContent {
+    font-family: "Roboto";
+    font-size: 1vw;
+    padding: 1vh;
+    margin-top: 0.5vw;
+    margin-bottom: 2vw;
+    align-self: center;
+}
+
+.textContent {
+    font-family: "Roboto";
+    text-align: center;
+    margin-top: 2vh;
+    font-size: 1.5vw;
+    color: #00b76c;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.submit {
+    cursor: pointer;
+    font-family: "Roboto";
+    align-self: center;
+    margin-top: 3vh;
+    font-size: 1.25vw;
+    color: #00b76c;
+    border: 1vh solid #00b76c;
+    padding: 1vh;
+    width: 14.5vw;
+    text-align: center;
+    font-weight: bold;
+    transition: ease 0.3s;
+}
+
+.submit:hover {
+    color: white;
+    background-color: #00b76c;
+}
+
+.profileSection {
+    display: grid;
+    grid-template-columns: 30% 25% 45%;
+    height: 25vh;
+    justify-content: center;
+    margin: 1vw;
+}
+
+.picSquare {
+    height: 20vh;
+    width: 10vw;
+}
+
+.whiteText { 
+    color: white;
+    font-weight: bold; 
+}
+
+#closeBtn {
+    cursor: pointer;
+    display: none;
+    font-size: 3vw;
+    color: #00b76c;
+    position: fixed;
+    z-index: 7;
+    font-weight: bold;
+}
+
+.closeAccPos {
+    top: 11%;
+    left: 62%;
+}
+
+.actions {
+    margin-top: -1.5vw; 
+    display: grid;
+    grid-template-columns: 33% 33% 34%;
+    text-align: center;
+}
+
+.actionBtns {
+    cursor: pointer;
+    margin-left: 1vw;
+    padding: 1vh;
+    font-family: "Lato";
+    font-size: 2vh;
+    width: 70%;
+    border: solid 1vh white;
+    transition: 0.3s ease;
+}
+
+.actionBtns:hover, .createAcct:hover {
+    color: #1c502f;
+    background-color: white;
+}
+
+.transaction {
+    margin-left: 1vw;
+    display: grid;
+    grid-template-columns: 18% 22% 24% 18% 18%;
+    justify-content: center;
+}
+
+.transactionScroll {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 28vh;
+}
+
+.subTrans { border-bottom: 0.5vh solid white; }
+
+.widthControl { width: 97%; }
+
+.redBG { background-color: #ff6455; }
+
+.blueBG { background-color: #00a5ff; }
+
+.toTheLeft { margin-left: -1.5vw; }
+
+.textContentBig {
+    font-family: "Roboto";
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-size: 2.5vw;
+    color: #00b76c;
+}
+
+#transferLabelAmt, #transferAmtContent {
+    display: none;
 }
