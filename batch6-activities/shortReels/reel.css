@@ -1,0 +1,45 @@
+* {
+	margin: 0;
+	padding: 0; 
+}
+
+body {
+	overflow-x: hidden;
+	background-color: #232b2b;
+}
+
+.container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.ytVid {
+	margin-top: -10vh; 
+	height: 116vh;
+	width: 105vw;
+	z-index: 0;
+}
+
+.vidOverlay {
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	height: 100vh;
+	width: 100vw;
+	z-index: 3; 
+}
+
+#test {
+	background-color: rgba(4,4,4,0.75);
+}
+
+.vidUnderlay {
+	position: absolute;
+	left: 0%;
+	top: 80%;
+	height: 50vh;
+	width: 100vw;
+	background-color: #232b2b;
+	z-index: 4; 
+}
