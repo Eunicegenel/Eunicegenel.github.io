@@ -10,14 +10,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="video" class="container">
-        
+    <div id="reelLayer">
+        <img src="reelAsset/reel.gif">
     </div>
-    <div id="test" class="vidOverlay" onClick="controlVideo('playVideo',1,143000);"></div>
+    <div id="video" class="container"></div>
+    <div id="overlay" class="vidOverlay"></div>
     <div class="vidUnderlay"></div>
     <div class="darkMid"></div>
     <div class="darkTop"></div>
+    <p id="movieTitle" class="movieDetes"></p>
+    <p id="movieYear" class="movieDetes"></p>
+    <p id="movieRuntime" class="movieDetes"></p>
+    <div id="test">ASDASD</div>
+    <div id="cookieBG" class="cookieBackground" onclick="closeCookie()"></div>
+    <div id="cookieM" class="cookieModal" onclick="closeCookie()">
+        <h1>THIS WEBSITE USES COOKIES</h1>
+        <p>We use cookies to personalize our contents<br>from Youtube API and the OMDB API.<br>We use cookies to provide social media<br>features and to analyse our traffic.</p>
+        <h2 class="cookieBtn">ALLOW COOKIE</h2>
+    </div> 
 
+    <div id="trailerArea" class="trailerTray">
+        <img class="trailerPoster" src="reelAsset/spaceJam2Poster.png" onclick="loadVids(0)">
+        <img class="trailerPoster" src="reelAsset/mitchellsPoster.png" onclick="loadVids(1)">
+        <img class="trailerPoster" src="reelAsset/suicideSquadPoster.png" onclick="loadVids(2)">
+        <img class="trailerPoster" src="reelAsset/ghostbustersPoster.png" onclick="loadVids(3)">
+        <img class="trailerPoster" src="reelAsset/gvkPoster.png" onclick="loadVids(4)">
+        <img class="trailerPoster" src="reelAsset/lucaPoster.png" onclick="loadVids(5)">
+        <img class="trailerPoster" src="reelAsset/lokiPoster.png" onclick="loadVids(6)">
+        <img class="trailerPoster" src="reelAsset/rayaDragonPoster.png" onclick="loadVids(7)">
+        <img class="trailerPoster" src="reelAsset/cruellaPoster.png" onclick="loadVids(8)">
+        <img class="trailerPoster" src="reelAsset/theUnholyPoster.png" onclick="loadVids(9)">
+    </div>
     <script src="youtubeAPI.js"></script>
 </body>
 </html>

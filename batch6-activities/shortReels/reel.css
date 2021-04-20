@@ -8,6 +8,18 @@ body {
 	background-color: #232b2b;
 }
 
+#reelLayer {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 20;
+	transition: 2s ease;
+}
+
 .container {
 	display: flex;
 	align-items: flex-start;
@@ -34,7 +46,7 @@ body {
 	transition: 1s ease;
 }
 
-#test {
+#overlay {
 	background-image: url('');
 	opacity: 1;
 }
@@ -71,4 +83,144 @@ body {
 	top:69%;
 	left: 0%;
 	z-index: 6;
+}
+
+#test {
+	color: white;
+	position: absolute;
+	z-index: 10;
+	top: 100%;
+	left: 10%;
+}
+
+.cookieBackground {
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	height: 100vh;
+	width: 100vw;
+	z-index: 9;
+	transition: 0.3s ease;
+}
+
+.cookieModal {
+	position: fixed;
+	top: 25%;
+	left: 35%;
+	width: 30%;
+	height: 50%;
+	background-color: rgba(4,4,4,0.75);
+	border-radius: 2vh;
+	z-index: 10;
+	text-align: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cookieModal h1 {
+	color: white;
+	font-family: 'Dosis';
+	padding: 3vh;
+}
+
+.cookieModal p {
+	color: white;
+	font-family: 'Roboto';
+	font-size: 2.5vh;
+	line-height: 4vh;
+}
+
+.cookieBtn {
+	cursor: pointer;
+	margin-top: 3vh;
+	color: #fa991c;
+	font-family: 'Dosis';
+	font-size: 4vh;
+	padding: 1vh;
+	border: solid 0.5vh #fa991c;
+	border-radius: 2vh;
+	width: 20vw;
+	transition: 1s ease;
+}
+
+.cookieBtn:hover {
+		color: white;
+		background-color: #fa991c;
+	}
+
+#cookieBG{ 
+	display: block; 
+	background-color: rgba(4,4,4,1);
+}
+
+#cookieM{ display: flex; }
+
+.trailerTray {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	top: 0%;
+	height: 95vh; 
+	width: 23vw;
+	z-index: 7;
+	transition: 0.5s ease;
+	overflow-x: scroll;
+	-ms-overflow-style: none;  /* IE and Edge */
+  	scrollbar-width: none;  /* Firefox */
+}
+
+.trailerTray::-webkit-scrollbar {
+	display: none;
+}
+
+#trailerArea {
+	left: 91vw;
+	filter: grayscale(100%);
+}
+
+#trailerArea:hover {
+	left: 80vw; 
+	filter: none;
+}
+
+.trailerPoster {
+	cursor: pointer;
+	width: 50%;
+	height: auto;
+	margin-top: 3vh;
+	transition: ease 1s;
+}
+
+.trailerPoster:hover {
+	transform: scale(1.1);
+}
+
+.movieDetes {
+	position: absolute;
+	font-family: 'Dosis';
+	font-weight: bold;
+	z-index: 6;
+	transition: 1s ease;
+}
+
+#movieTitle {
+	top: 85%;
+	left: 3%;
+	color: #fa991c;
+	font-size: 6vh;
+}
+
+#movieYear {
+	top: 92%;
+	left: 5%;
+	color: white;
+	font-size: 4vh;
+}
+
+#movieRuntime {
+	top: 92%;
+	left: 10%;
+	color: white;
+	font-size: 4vh;
 }
