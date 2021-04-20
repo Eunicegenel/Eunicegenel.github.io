@@ -31,7 +31,7 @@ function loadVids(movieNo) {
 
 function getMovieData(movieNo) {
 	let movieTitle = movieList[movieNo];
-	var OMDBurl = 'https://www.omdbapi.com/?apikey='+OMDBkey;
+	var OMDBurl = 'http://www.omdbapi.com/?apikey='+OMDBkey;
 	
 	$.ajax({
 		method:'GET',
@@ -136,3 +136,5 @@ $(document).ready(function() {
 	setTimeout(function(){ 
 	document.getElementById('cookieBG').style.backgroundColor = 'rgba(4,4,4,0.75)'; }, 1000);
 });
+
+//21d8144b59aa5bdd7a78dde28a1c6e5b
