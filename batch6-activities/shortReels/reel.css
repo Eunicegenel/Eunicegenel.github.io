@@ -35,7 +35,7 @@ body {
 }
 
 .vidOverlay {
-	position: fixed;
+	position: absolute;
 	top: 0%;
 	left: 0%;
 	height: 100vh;
@@ -55,7 +55,7 @@ body {
 	position: absolute;
 	left: 0%;
 	top: 85%;
-	height: 50vh;
+	height: 30vh;
 	width: 100vw;
 	background-color: #232b2b;
 	z-index: 4; 
@@ -83,14 +83,6 @@ body {
 	top:69%;
 	left: 0%;
 	z-index: 6;
-}
-
-#test {
-	color: white;
-	position: absolute;
-	z-index: 10;
-	top: 100%;
-	left: 10%;
 }
 
 .cookieBackground {
@@ -206,21 +198,162 @@ body {
 
 #movieTitle {
 	top: 85%;
-	left: 3%;
+	left: 5%;
 	color: #fa991c;
 	font-size: 6vh;
 }
 
 #movieYear {
-	top: 92%;
+	top: 93%;
 	left: 5%;
 	color: white;
 	font-size: 4vh;
 }
 
 #movieRuntime {
-	top: 92%;
+	top: 93%;
 	left: 10%;
 	color: white;
 	font-size: 4vh;
+}
+
+#movieActors {
+	top: 93%;
+	left: 17%;
+	color: white;
+	font-size: 4vh;
+}
+
+#moviePlot {
+	top: 101%;
+	left: 5%;
+	color: white;
+	font-size: 3vh;
+	width: 60vw;
+	height: 20vh;
+	font-family: 'Roboto';
+}
+
+
+
+main {
+	margin-top: 10vh; 
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie {
+    width: 300px;
+    margin: 1rem;
+    border-radius: 3px;
+    box-shadow: 0.4px 6px 7px rgba(4,4,4,0.5);
+    background-color: var(--secondary-color);
+    position:relative;
+    overflow: hidden;
+}
+
+
+.movie img{
+    width:100%;
+}
+
+.movie-info{
+    color:#fa991c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+    font-family: 'Dosis'; 
+}
+
+.movie-info h3{
+    margin-top: 0;
+}
+
+.movie-info span{
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.movie-info span.green{
+    color: #2ecc71;
+}
+
+.movie-info span.orange{
+    color: #f1c40f;
+}
+
+.movie-info span.red{
+    color: #e74c3c;
+}
+
+.overview{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: #fff;
+    padding: 1rem;
+    max-height: 100%;
+    transform:translateY(101%);
+    transition:transform 0.3s ease-in;
+    font-family: 'Roboto';
+    font-size: 2.2vh; 
+}
+
+.movie:hover .overview{
+    transform:translateY(0)
+}
+
+#tags{
+    width:80%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.tag{
+    color:white;
+    padding:10px 20px;
+    background-color: orange;
+    border-radius: 50px;
+    margin:5px;
+    display:inline-block;
+    cursor: pointer;
+}
+
+.tag.highlight{
+    background-color: red;
+}
+.no-results{
+    color:white;
+}
+
+.search{
+	position: relative;
+	margin-top: 20vh;
+	margin-left: 5vw; 
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    padding:0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    color:#fff;
+    font-family: inherit;
+    z-index: 10;
+}
+
+.search:focus{
+    outline:0;
+    background-color: var(--primary-color);
+}
+
+.search::placeholder{
+    color: #7378c5;
 }
