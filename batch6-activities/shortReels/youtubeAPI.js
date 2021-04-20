@@ -31,7 +31,7 @@ function loadVids(movieNo) {
 
 function getMovieData(movieNo) {
 	let movieTitle = movieList[movieNo];
-	var OMDBurl = 'http://www.omdbapi.com/?apikey='+OMDBkey;
+	var OMDBurl = 'https://www.omdbapi.com/?apikey='+OMDBkey;
 	
 	$.ajax({
 		method:'GET',
