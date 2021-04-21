@@ -177,9 +177,9 @@ function loadVids(movieNo) {
 	let time = getTime(movieNo);
 	$.getJSON(YTURL, options, function(data) {
 		var id = data.items[movieNo].snippet.resourceId.videoId;
-		mainVid(id);
 		clearTimeout(globalTimeout);
 		getMovieData(movieNo);
+		mainVid(id);
 		if (cookieCheck) { setTimeout(function(){ playVideo('playVideo',time); }, 2000); }
 	})
 }
