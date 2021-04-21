@@ -89,7 +89,6 @@ function showMovies(data) {
             </div>
         
         `
-
         main.appendChild(movieEl);
     })
 }
@@ -104,19 +103,19 @@ function getColor(vote) {
     }
 }
 
-// form.addEventListener('submit', (e) => {
-//     e.preventDefault();
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-//     const searchTerm = search.value;
-//     selectedGenre=[];
-//     setGenre();
-//     if(searchTerm) {
-//         getMovies(searchURL+'&query='+searchTerm)
-//     }else{
-//         getMovies(API_URL);
-//     }
+    const searchTerm = search.value;
+    // selectedGenre=[];
+    // setGenre();
+    if(searchTerm) {
+        getMovies(searchURL+'&query='+searchTerm)
+    }else{
+        getMovies(API_URL);
+    }
 
-// })
+})
 
 function getTime(movieNo) {
 	document.getElementById('overlay').style.opacity = '1';
