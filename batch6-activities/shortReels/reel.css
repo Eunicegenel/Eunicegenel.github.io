@@ -237,7 +237,7 @@ body {
 
 
 main {
-	margin-top: 20vh; 
+	margin-top: 30vh; 
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -292,6 +292,10 @@ main {
     color: #e74c3c;
 }
 
+.movie-info span.white{
+    color: #eee;
+}
+
 .overview{
     position:absolute;
     left:0;
@@ -311,6 +315,8 @@ main {
 }
 
 #tags{
+	position: relative;
+	top: 25vh;
     width:80%;
     display:flex;
     flex-wrap: wrap;
@@ -321,16 +327,19 @@ main {
 
 .tag{
     color:white;
+    font-family: 'Dosis';
     padding:10px 20px;
-    background-color: orange;
+    background-color: #fa991c;
     border-radius: 50px;
     margin:5px;
     display:inline-block;
     cursor: pointer;
+    z-index: 7;
+    transition: 0.3s ease;
 }
 
 .tag.highlight{
-    background-color: red;
+    background-color: #e74c3c;
 }
 .no-results{
     color:white;

@@ -112,6 +112,7 @@ main{
 }
 
 #tags{
+    margin-top: 30vh;
     width:80%;
     display:flex;
     flex-wrap: wrap;
