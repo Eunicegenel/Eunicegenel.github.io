@@ -136,9 +136,9 @@ body {
 }
 
 .cookieBtn:hover {
-		color: white;
-		background-color: #fa991c;
-	}
+	color: white;
+	background-color: #fa991c;
+}
 
 #cookieBG{ 
 	display: block; 
@@ -237,13 +237,14 @@ body {
 
 
 main {
-	margin-top: 10vh; 
+	margin-top: 20vh; 
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .movie {
+    cursor: pointer;
     width: 300px;
     margin: 1rem;
     border-radius: 3px;
@@ -337,21 +338,18 @@ main {
 
 .search{
 	position: relative;
-	margin-top: 20vh;
-	margin-left: 5vw; 
-    background-color: transparent;
+	top: 20vh;
+	left: 10vh;
+	width: 30vw;
+	height: 3vh;
+    background-color: white;
     border: 2px solid var(--primary-color);
-    padding:0.5rem 1rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    color:#fff;
-    font-family: inherit;
-    z-index: 10;
-}
-
-.search:focus{
-    outline:0;
-    background-color: var(--primary-color);
+    padding: 1vw;
+    border-radius: 2vh;
+    font-size: 2vh;
+    color: black;
+    font-family: 'Roboto';
+    z-index: 7;
 }
 
 .search::placeholder{
