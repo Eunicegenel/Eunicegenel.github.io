@@ -401,6 +401,7 @@ function createIframe(video) {
 	const iframe = document.createElement('iframe');
 	iframe.src = `https://www.youtube.com/embed/${video.key}`;
 	iframe.className = 'trailer';
+	iframe.allowFullscreen = true;
 	return iframe;
 }
 
@@ -418,6 +419,3 @@ $(document).ready(function() {
 	setTimeout(function(){ 
 	document.getElementById('cookieBG').style.backgroundColor = 'rgba(4,4,4,0.75)'; }, 1000);
 });
-
-// https://www.youtube.com/watch?v=9Bvt6BFf6_U
-// https://www.youtube.com/watch?v=mWg2udweauY
