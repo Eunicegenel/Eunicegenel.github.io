@@ -1,6 +1,7 @@
 var cookieCheck = false;
 var globalCheck = 0;
 var globalTimeout;
+var movieID = [];
 var movieList = ['Space Jam: A New Legacy', 'The Mitchells vs. the Machines', 'The Suicide Squad', 'Ghostbusters: Afterlife', 'Godzilla vs. Kong', 'Luca', 'Loki', 'Raya and the Last Dragon', 'Cruella', 'The Unholy'];
 
 
@@ -130,9 +131,10 @@ function setGenre() {
                     selectedGenre.push(genre.id);
                 }
             }
-            console.log(selectedGenre)
-            getMovies(API_URL + '&with_genres='+encodeURI(selectedGenre.join(',')))
-            highlightSelection()
+            console.log(selectedGenre);
+            getMovies(API_URL + '&with_genres='+encodeURI(selectedGenre.join(',')));
+            movieID.splice(0,40);
+            highlightSelection();
         })
         tagsEl.append(t);
     })
@@ -174,6 +176,7 @@ function clearBtn(){
 }
 
 function loadVids(movieNo) {
+	globalCheck = movieNo;
 	let time = getTime(movieNo);
 	$.getJSON(YTURL, options, function(data) {
 		var id = data.items[movieNo].snippet.resourceId.videoId;
@@ -206,7 +209,10 @@ function getMovieData(movieNo) {
 function getMovies(url) {
 
     fetch(url).then(res => res.json()).then(data => {
-        console.log(data.results)
+        console.log(data.results);
+        for (let x in data.results) {
+        	movieID.push(data.results[x].id);
+        }
         if(data.results.length !== 0){
             showMovies(data.results);
         }else{
@@ -214,18 +220,17 @@ function getMovies(url) {
         }
        
     })
-
 }
 
 function showMovies(data) {
     main.innerHTML = '';
-
+    let x = 0;
     data.forEach(movie => {
         const {title, poster_path, vote_average, overview} = movie;
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
-             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
+             <img id='${x}' src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
 
             <div class="movie-info">
                 <h3>${title}</h3>
@@ -239,6 +244,7 @@ function showMovies(data) {
             </div>
         
         `
+        x++;
         main.appendChild(movieEl);
     })
 }
@@ -256,6 +262,7 @@ function getColor(vote) {
 }
 
 form.addEventListener('submit', (e) => {
+	movieID.splice(0,40);
     e.preventDefault();
 
     const searchTerm = search.value;
@@ -333,6 +340,12 @@ function closeCookie() {
 	document.getElementById('cookieBG').style.display = 'none';
 }
 
+function closeTrailer() {
+	document.getElementById('trailerBG').style.opacity = 0;
+	document.getElementById('trailerBG').children[0].remove();
+	setTimeout(function(){ document.getElementById('trailerBG').style.display = 'none'; }, 1000);
+}
+
 document.getElementById("cookieM").addEventListener("click", function(){
 	let time = getTime(globalCheck);
 	cookieCheck = true;
@@ -344,6 +357,52 @@ document.getElementById("cookieBG").addEventListener("click", function(){
 	cookieCheck = true;
     setTimeout(function(){ playVideo('playVideo',time); }, 2000);
 });
+
+document.onclick = function(event) {
+	const target = event.target;
+	if(target.tagName.toLowerCase() === 'img' && target.className !== 'trailerPoster') {
+		let tempID = movieID[target.id];
+		const url = generateURL(tempID);
+		getTime(globalCheck);
+		pauseVideo('pauseVideo');
+		document.getElementById('trailerBG').style.display = 'flex';
+		setTimeout(function(){ document.getElementById('trailerBG').style.opacity = 1; }, 500);
+
+		fetch(url)
+			.then((res) => res.json())
+			.then((data) => {
+				console.log('Videos ', data);
+				const videos = data.results;
+				const length = videos.length > 4 ? 4 :videos.length;
+				const iframeContainer = document.createElement('div');
+				iframeContainer.className = 'ytTrailers';
+				const trailerModal = document.getElementById('trailerBG');
+
+				for (let x = 0; x < videos.length; x++) {
+					const video = videos[x];
+					const iframe = createIframe(video);
+					iframeContainer.appendChild(iframe);
+					trailerModal.appendChild(iframeContainer);
+				}
+			})
+			.catch((error) => {
+				console.log('Error ', error);
+			})
+
+	}
+}
+
+function generateURL(tempID) {
+	const url = `https://api.themoviedb.org/3/movie/${tempID}/videos?${API_KEY}`;
+	return url;
+}
+
+function createIframe(video) {
+	const iframe = document.createElement('iframe');
+	iframe.src = `https://www.youtube.com/embed/${video.key}`;
+	iframe.className = 'trailer';
+	return iframe;
+}
 
 $(document).ready(function() {
 	setTimeout(function(){ 
