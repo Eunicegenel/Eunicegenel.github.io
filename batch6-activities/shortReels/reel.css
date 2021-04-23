@@ -1,6 +1,7 @@
 * {
 	margin: 0;
 	padding: 0; 
+	scroll-behavior: smooth;
 }
 
 body {
@@ -237,7 +238,7 @@ body {
 
 
 main {
-	margin-top: 30vh; 
+	margin-top: 35vh; 
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -315,7 +316,7 @@ main {
 
 #tags{
 	position: relative;
-	top: 25vh;
+	top: 30vh;
     width:80%;
     display:flex;
     flex-wrap: wrap;
@@ -346,8 +347,8 @@ main {
 }
 
 .search{
-	position: relative;
-	top: 20vh;
+	position: absolute;
+	top: 120vh;
 	left: 10vh;
 	width: 30vw;
 	height: 3vh;
