@@ -2,17 +2,17 @@ var cookieCheck = false;
 var globalCheck = 0;
 var globalTimeout;
 var movieID = [];
-var movieList = ['Space Jam: A New Legacy', 'The Mitchells vs. the Machines', 'The Suicide Squad', 'Ghostbusters: Afterlife', 'Godzilla vs. Kong', 'Luca', 'Loki', 'Raya and the Last Dragon', 'Cruella', 'The Unholy'];
+var movieList = ['Space Jam: A New Legacy', 'The Mitchells vs. the Machines', 'The Suicide Squad', 'Ghostbusters: Afterlife', 'Godzilla vs. Kong', 'Luca', 'Shang-Chi and the Legend of the Ten Rings', 'Raya and the Last Dragon', 'Cruella', 'The Unholy'];
 
 
 var YTkey = 'AIzaSyCn_-EZ7BeA4izRYj58lvnuXC0YhJaCGP8';
 var YTplaylistId = 'PLhDTzN_1ZTYCOMSbJKosoLpmezKvbvvBy';
 var YTURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
 var options = {
-	part : 'snippet',
-	key : YTkey,
-	maxResults : 20,
-	playlistId : YTplaylistId 
+  part : 'snippet',
+  key : YTkey,
+  maxResults : 20,
+  playlistId : YTplaylistId 
 }
 
 var OMDBkey = 'cbe59045';
@@ -176,34 +176,34 @@ function clearBtn(){
 }
 
 function loadVids(movieNo) {
-	globalCheck = movieNo;
-	let time = getTime(movieNo);
-	$.getJSON(YTURL, options, function(data) {
-		var id = data.items[movieNo].snippet.resourceId.videoId;
-		clearTimeout(globalTimeout);
-		getMovieData(movieNo);
-		mainVid(id);
-		if (cookieCheck) { setTimeout(function(){ playVideo('playVideo',time); }, 2000); }
-	})
+  globalCheck = movieNo;
+  let time = getTime(movieNo);
+  $.getJSON(YTURL, options, function(data) {
+    var id = data.items[movieNo].snippet.resourceId.videoId;
+    clearTimeout(globalTimeout);
+    getMovieData(movieNo);
+    mainVid(id);
+    if (cookieCheck) { setTimeout(function(){ playVideo('playVideo',time); }, 2000); }
+  })
 }
 
 function getMovieData(movieNo) {
-	let movieTitle = movieList[movieNo];
-	var OMDBurl = 'https://www.omdbapi.com/?apikey='+OMDBkey;
-	
-	$.ajax({
-		method:'GET',
-		url:OMDBurl+'&t='+movieTitle+'&y='+2021,
-		success:function(data){
-			console.log(data);
-			document.getElementById('movieTitle').innerHTML = data.Title;
-			document.getElementById('movieYear').innerHTML = data.Year;
-			document.getElementById('movieActors').innerHTML = data.Actors;
-			document.getElementById('moviePlot').innerHTML = data.Plot;
-			if (data.Runtime === 'N/A') document.getElementById('movieRuntime').innerHTML = '0 min';
-			else document.getElementById('movieRuntime').innerHTML = data.Runtime;
-		}
-	})
+  let movieTitle = movieList[movieNo];
+  var OMDBurl = 'https://www.omdbapi.com/?apikey='+OMDBkey;
+  
+  $.ajax({
+    method:'GET',
+    url:OMDBurl+'&t='+movieTitle+'&y='+2021,
+    success:function(data){
+      console.log(data);
+      document.getElementById('movieTitle').innerHTML = data.Title;
+      document.getElementById('movieYear').innerHTML = data.Year;
+      document.getElementById('movieActors').innerHTML = data.Actors;
+      document.getElementById('moviePlot').innerHTML = data.Plot;
+      if (data.Runtime === 'N/A') document.getElementById('movieRuntime').innerHTML = '0 min';
+      else document.getElementById('movieRuntime').innerHTML = data.Runtime;
+    }
+  })
 }
 
 function getMovies(url) {
@@ -211,7 +211,7 @@ function getMovies(url) {
     fetch(url).then(res => res.json()).then(data => {
         console.log(data.results);
         for (let x in data.results) {
-        	movieID.push(data.results[x].id);
+          movieID.push(data.results[x].id);
         }
         if(data.results.length !== 0){
             showMovies(data.results);
@@ -230,7 +230,7 @@ function showMovies(data) {
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
-             <img id='${x}' src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
+             <img id='${x}' src="${poster_path? IMG_URL+poster_path: "reelAsset/altPic.png" }" alt="${title}">
 
             <div class="movie-info">
                 <h3>${title}</h3>
@@ -262,7 +262,7 @@ function getColor(vote) {
 }
 
 form.addEventListener('submit', (e) => {
-	movieID.splice(0,40);
+  movieID.splice(0,40);
     e.preventDefault();
 
     const searchTerm = search.value;
@@ -277,45 +277,45 @@ form.addEventListener('submit', (e) => {
 })
 
 function getTime(movieNo) {
-	document.getElementById('overlay').style.opacity = '1';
-	switch(movieNo) {
-		case 0:
-			document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/spaceJam2.png")';
-			return time = 143000;
-		case 1:
-			document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/mitchells.png")';
-			return time = 139000;
-		case 2:
-			document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/suicideSquad.png")';
-			return time = 138000;
-		case 3:
-			document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/ghostbusters.png")';
-			return time = 139000;
-		case 4:
-			document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/gvk.png")';
-			return time = 143000;
-		case 5:
-			document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/luca.png")';
-			return time = 83000;
-		case 6:
-			document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/loki.png")';
-			return time = 132000;
-		case 7:
-			document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/rayaDragon.png")';
-			return time = 140500;
-		case 8:
-			document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/cruella.png")';
-			return time = 116000;
-		case 9:
-			document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/theUnholy.png")';
-			return time = 145000;
-	}
+  document.getElementById('overlay').style.opacity = '1';
+  switch(movieNo) {
+    case 0:
+      document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/spaceJam2.png")';
+      return time = 143000;
+    case 1:
+      document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/mitchells.png")';
+      return time = 139000;
+    case 2:
+      document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/suicideSquad.png")';
+      return time = 138000;
+    case 3:
+      document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/ghostbusters.png")';
+      return time = 139000;
+    case 4:
+      document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/gvk.png")';
+      return time = 143000;
+    case 5:
+      document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/luca.png")';
+      return time = 83000;
+    case 6:
+      document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/shangChi.png")';
+      return time = 120000;
+    case 7:
+      document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/rayaDragon.png")';
+      return time = 140500;
+    case 8:
+      document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/cruella.png")';
+      return time = 116000;
+    case 9:
+      document.getElementById('overlay').style.backgroundImage = 'url("reelAsset/theUnholy.png")';
+      return time = 145000;
+  }
 }
 
 function mainVid(id) {
-	$('#video').html(`
-		<iframe class="ytVid" src="https://www.youtube.com/embed/${id}?rel=0&enablejsapi=1&mute=0"></iframe>
-	`);
+  $('#video').html(`
+    <iframe class="ytVid" src="https://www.youtube.com/embed/${id}?rel=0&enablejsapi=1&mute=0"></iframe>
+  `);
 }
 
 function playVideo(vidcontrol,time) {
@@ -329,94 +329,130 @@ function playVideo(vidcontrol,time) {
 function pauseVideo(vidcontrol) {
     document.getElementById('overlay').style.opacity = '1';
     setTimeout(function(){ 
-    	var div = document.getElementById("video");
-	    var iframe = div.getElementsByTagName("iframe")[0].contentWindow;
-	    iframe.postMessage('{"event":"command","func":"' + vidcontrol + '","args":""}', '*');
-	}, 1000);
+      var div = document.getElementById("video");
+      var iframe = div.getElementsByTagName("iframe")[0].contentWindow;
+      iframe.postMessage('{"event":"command","func":"' + vidcontrol + '","args":""}', '*');
+  }, 1000);
 }
 
 function closeCookie() {
-	document.getElementById('cookieM').style.display = 'none';
-	document.getElementById('cookieBG').style.display = 'none';
+  document.getElementById('cookieM').style.display = 'none';
+  document.getElementById('cookieBG').style.display = 'none';
 }
 
 function closeTrailer() {
-	document.getElementById('trailerBG').style.opacity = 0;
-	document.getElementById('trailerBG').children[0].remove();
-	setTimeout(function(){ document.getElementById('trailerBG').style.display = 'none'; }, 1000);
+  document.getElementById('trailerBG').style.opacity = 0;
+  document.getElementById('noTrailer').style.opacity = 0;
+  document.getElementById('scrollDown').style.opacity = 0;
+  document.getElementById('closeShow').style.opacity = 0;    
+  if (document.getElementById('trailerBG').children[0] !== undefined) { document.getElementById('trailerBG').children[0].remove(); }
+  setTimeout(function(){ 
+    document.getElementById('trailerBG').style.display = 'none';
+    document.getElementById('noTrailer').style.display = 'none';
+    document.getElementById('scrollDown').style.display = 'none';
+    document.getElementById('closeShow').style.display = 'none';
+  }, 1000);
 }
 
 document.getElementById("cookieM").addEventListener("click", function(){
-	let time = getTime(globalCheck);
-	cookieCheck = true;
+  let time = getTime(globalCheck);
+  cookieCheck = true;
     setTimeout(function(){ playVideo('playVideo',time); }, 2000);
 });
 
 document.getElementById("cookieBG").addEventListener("click", function(){
-	let time = getTime(globalCheck);
-	cookieCheck = true;
+  let time = getTime(globalCheck);
+  cookieCheck = true;
     setTimeout(function(){ playVideo('playVideo',time); }, 2000);
 });
 
 document.onclick = function(event) {
-	const target = event.target;
-	if(target.tagName.toLowerCase() === 'img' && target.className !== 'trailerPoster') {
-		let tempID = movieID[target.id];
-		const url = generateURL(tempID);
-		getTime(globalCheck);
-		pauseVideo('pauseVideo');
-		document.getElementById('trailerBG').style.display = 'flex';
-		setTimeout(function(){ document.getElementById('trailerBG').style.opacity = 1; }, 500);
+  console.log(event);
+  const target = event.target;
+  if(target.tagName.toLowerCase() === 'img' && target.className !== 'trailerPoster' && target.className !== 'logo') {
+    let tempID = movieID[target.id];
+    const url = generateURL(tempID);
+    getTime(globalCheck);
+    pauseVideo('pauseVideo');
+    document.getElementById('trailerBG').style.display = 'flex';
+    setTimeout(function(){  
+      document.getElementById('trailerBG').style.opacity = 1;
+    }, 500);
 
-		fetch(url)
-			.then((res) => res.json())
-			.then((data) => {
-				console.log('Videos ', data);
-				const videos = data.results;
-				const length = videos.length > 4 ? 4 :videos.length;
-				const iframeContainer = document.createElement('div');
-				iframeContainer.className = 'ytTrailers';
-				const trailerModal = document.getElementById('trailerBG');
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('Videos ', data);
+        const videos = data.results;
+        if (videos.length === 0) {
+          document.getElementById('closeShow').style.display = 'block';
+          document.getElementById('noTrailer').style.display = 'block';
+          setTimeout(function(){  
+            document.getElementById('noTrailer').style.opacity = 1;
+            document.getElementById('closeShow').style.opacity = 1;
+          }, 500);
+        }
+        else {
+          if (videos.length === 1) { 
+            document.getElementById('closeShow').style.display = 'block';
+            setTimeout(function(){
+            document.getElementById('closeShow').style.opacity = 1;
+            }, 500);
+          } 
+          else {
+            document.getElementById('closeShow').style.display = 'block';
+            document.getElementById('scrollDown').style.display = 'block';
+            setTimeout(function(){
+              document.getElementById('closeShow').style.opacity = 1;  
+              document.getElementById('scrollDown').style.opacity = 1;
+            }, 500);
+          }
+          const length = videos.length > 4 ? 4 :videos.length;
+          const iframeContainer = document.createElement('div');
+          iframeContainer.className = 'ytTrailers';
+          const trailerModal = document.getElementById('trailerBG');
 
-				for (let x = 0; x < videos.length; x++) {
-					const video = videos[x];
-					const iframe = createIframe(video);
-					iframeContainer.appendChild(iframe);
-					trailerModal.appendChild(iframeContainer);
-				}
-			})
-			.catch((error) => {
-				console.log('Error ', error);
-			})
+          for (let x = 0; x < videos.length; x++) {
+            const video = videos[x];
+            const iframe = createIframe(video);
+            iframeContainer.appendChild(iframe);
+            trailerModal.appendChild(iframeContainer);
+          }
+        }
+      })
+      .catch((error) => {
+        console.log('Error ', error);
+      })
 
-	}
+  }
 }
 
 function generateURL(tempID) {
-	const url = `https://api.themoviedb.org/3/movie/${tempID}/videos?${API_KEY}`;
-	return url;
+  const url = `https://api.themoviedb.org/3/movie/${tempID}/videos?${API_KEY}`;
+  return url;
 }
 
 function createIframe(video) {
-	const iframe = document.createElement('iframe');
-	iframe.src = `https://www.youtube.com/embed/${video.key}`;
-	iframe.className = 'trailer';
-	return iframe;
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.youtube.com/embed/${video.key}`;
+  iframe.className = 'trailer';
+  iframe.allowFullscreen = true;
+  return iframe;
 }
 
 $(document).ready(function() {
-	setTimeout(function(){ 
-	document.getElementById('reelLayer').style.opacity = '0'; 
-		setTimeout(function(){ 
-		document.getElementById('reelLayer').style.display = 'none';
-		}, 2000);
-	}, 2000);
-	getMovies(API_URL);
-	let movieNo = Math.floor(Math.random() * 10) + 0;
-	globalCheck = movieNo
-	loadVids(movieNo);
-	setTimeout(function(){ 
-	document.getElementById('cookieBG').style.backgroundColor = 'rgba(4,4,4,0.75)'; }, 1000);
+  setTimeout(function(){ 
+  document.getElementById('reelLayer').style.opacity = '0'; 
+    setTimeout(function(){ 
+    document.getElementById('reelLayer').style.display = 'none';
+    }, 2000);
+  }, 2000);
+  getMovies(API_URL);
+  let movieNo = Math.floor(Math.random() * 10) + 0;
+  globalCheck = movieNo
+  loadVids(movieNo);
+  setTimeout(function(){ 
+  document.getElementById('cookieBG').style.backgroundColor = 'rgba(4,4,4,0.75)'; }, 1000);
 });
 
 // https://www.youtube.com/watch?v=9Bvt6BFf6_U
