@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="reel.css"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="shortcut icon" type="image/png" href="boboAssets/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="reelAsset/logoFavicon.png"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&family=Dosis:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -13,6 +13,8 @@
     <div id="reelLayer">
         <img src="reelAsset/reel.gif">
     </div>
+    <img class="logo" src="reelAsset/logo1.png">
+    <h1 class="logoName">short reels</h1>
     <div id="video" class="container"></div>
     <div id="overlay" class="vidOverlay"></div>
     <div class="vidUnderlay"></div>
@@ -27,7 +29,7 @@
     <div id="cookieBG" class="cookieBackground" onclick="closeCookie()"></div>
     <div id="cookieM" class="cookieModal" onclick="closeCookie()">
         <h1>THIS WEBSITE USES COOKIES</h1>
-        <p>We use cookies to personalize our contents<br>from Youtube API and the OMDB API.<br>We use cookies to provide social media<br>features and to analyse our traffic.</p>
+        <p>We use cookies to personalize our<br>content for our respected users.</p>
         <h2 class="cookieBtn">ALLOW COOKIE</h2>
     </div> 
 
@@ -38,11 +40,15 @@
         <img class="trailerPoster" src="reelAsset/ghostbustersPoster.png" onclick="loadVids(3)">
         <img class="trailerPoster" src="reelAsset/gvkPoster.png" onclick="loadVids(4)">
         <img class="trailerPoster" src="reelAsset/lucaPoster.png" onclick="loadVids(5)">
-        <img class="trailerPoster" src="reelAsset/lokiPoster.png" onclick="loadVids(6)">
+        <img class="trailerPoster" src="reelAsset/shangChiPoster.png" onclick="loadVids(6)">
         <img class="trailerPoster" src="reelAsset/rayaDragonPoster.png" onclick="loadVids(7)">
         <img class="trailerPoster" src="reelAsset/cruellaPoster.png" onclick="loadVids(8)">
         <img class="trailerPoster" src="reelAsset/theUnholyPoster.png" onclick="loadVids(9)">
     </div>
+
+    <h1 id="noTrailer" class="trailerDetes">NO TRAILERS FOUND</h1>
+    <h1 id="scrollDown" class="trailerDetes">SCROLL DOWN >>></h1>
+    <h1 id="closeShow" class="trailerDetes" onclick="closeTrailer()">×</h1>
 
     <form id="form">
         <input type="text" placeholder="Search Movie" id="search" class="search">
