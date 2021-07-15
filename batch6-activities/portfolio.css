@@ -1,0 +1,130 @@
+* {
+	scroll-behavior: smooth;
+	scrollbar-width: thin;
+	scrollbar-color: #FFC53A rgba(70,40,0,0.95);
+}
+
+.introduction {
+	display: grid;
+	grid-template-columns: 25% 60% 15%;
+	width: 100%;
+	align-items: flex-start;
+	margin-bottom: 5rem;
+}
+
+.scroll_down {
+	transform: rotate(90deg);
+	width: 45rem;
+	font-size: 4rem;
+}
+
+.white {
+	color: white;
+}
+
+.navbar-bg {
+	background-color: rgba(70,40,0,0.95);
+}
+
+.mepic {
+	position: relative;
+}
+
+.me {
+	margin-top: -10rem;
+	width: 100%;
+}
+
+
+.aboutme_section {
+	margin-left: 3rem;
+}
+
+.aboutme_left {
+	text-align: left;
+}
+
+.aboutme_right {
+	text-align: right;
+}
+
+.go_down {
+	margin-bottom: 10rem;
+}
+
+::-webkit-scrollbar {
+    height: 12px;
+    width: 8px;
+    background: rgba(70,40,0,0.95);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FFC53A;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+
+.skill_section {
+	padding: 1rem;
+	display: grid;
+	grid-template-columns: 40% 10% 40%;
+}
+
+.center_left {
+	margin-top: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.center_right {
+	margin-top: 5rem;
+	display: flex;
+	justify-content: center;
+	flex-direction: row-reverse;
+	align-items: center;
+}
+
+.imagelink {
+	width: 60rem;
+	margin: 0rem 5rem;
+}	
+
+.lineheight {
+	line-height: 2rem;
+}
+
+.bgcolor {
+	background-color: #FFC53A;
+	padding: 2rem 3rem;
+}
+
+.centertxt {
+	text-align: center;
+}
+
+.project_section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-top: 5rem;
+}
+
+.project {
+	width: 35rem;
+	margin: 5rem;
+}
+
+.proj_pic {
+	width: 100%;
+}
+
+.linktxt {
+	color: #c98028;
+}
